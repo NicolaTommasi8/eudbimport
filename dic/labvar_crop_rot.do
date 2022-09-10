@@ -1,0 +1,7 @@
+cap label var TOTAL "Total"
+cap label var PC0 "Zero percent"
+cap label var PC1_24 "From 1 to 24 percent"
+cap label var PC25_49 "From 25 to 49 percent"
+cap label var PC50_74 "From 50 to 74 percent"
+cap label var PC_GE75 "75 percent or over"
+cap label var NAP "Not applicable"

@@ -1,0 +1,8 @@
+cap label var TOTAL "Total"
+cap label var ALL_SOME_CH "Used for all or for some children"
+cap label var ALL_CH "Used for all children"
+cap label var SOME_CH_NONE "Used for some children or not used"
+cap label var SOME_CH "Used for some children"
+cap label var NONE "Not used"
+cap label var NAP "Not applicable"
+cap label var NRP "No response"

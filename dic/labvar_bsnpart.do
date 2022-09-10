@@ -1,0 +1,7 @@
+cap label var TOTAL "Total"
+cap label var SELF_COWN "Self-employed persons and co-owner"
+cap label var SELF "Self-employed persons"
+cap label var COWN "Co-owner"
+cap label var NONE "None"
+cap label var NAP "Not applicable"
+cap label var NRP "No response"

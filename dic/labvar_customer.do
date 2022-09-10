@@ -1,0 +1,6 @@
+cap label var TOTAL "All customers"
+cap label var HH "Household"
+cap label var NHH "Non-household"
+cap label var IND "Industrial"
+cap label var RES_SERV "Residential and services"
+cap label var OTH "Other"

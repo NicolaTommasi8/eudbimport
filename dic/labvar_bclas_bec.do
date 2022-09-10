@@ -1,0 +1,5 @@
+cap label var TOTAL "Total"
+cap label var INT "Intermediate goods"
+cap label var CAP "Capital goods"
+cap label var CONS "Consumption goods"
+cap label var CONS_TRA "Consumption goods, motor spirit and passenger motor cars"

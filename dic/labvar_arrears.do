@@ -1,0 +1,5 @@
+cap label var TOTAL "Total"
+cap label var MRTG "Arrears with mortgage payments as percentage of all owners"
+cap label var MRTG_LOAN "Arrears with mortgage payments as percentage of all owners with a mortgage"
+cap label var RENT "Arrears with payments for the tenants"
+cap label var UTBL "Arrears with payments of schedulated utility bills"

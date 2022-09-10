@@ -1,0 +1,6 @@
+cap label var NCH "No change of CVT"
+cap label var CH "Change of CVT"
+cap label var CH1 "Hours in CVT courses compared to the hours in 'other forms'"
+cap label var CH2 "Hours in CVT courses during paid working time compared to those in the employees' own time"
+cap label var CH3 "Share of fees/payments covered by the individual person compared to that covered by the enterprise"
+cap label var PCH "There will maybe a change of CVT"

@@ -1,0 +1,8 @@
+cap label var WRD "Word"
+cap label var FIG "Figurative"
+cap label var _3D "3D"
+cap label var CLR "Colour"
+cap label var SND "Sound"
+cap label var HOL "Hologram"
+cap label var OLF "Olfactory"
+cap label var OTH "Others"

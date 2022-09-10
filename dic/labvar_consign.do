@@ -1,0 +1,6 @@
+cap label var TOTAL "Total"
+cap label var TRN_FUL "Full trains"
+cap label var WAG_FUL "Full wagons"
+cap label var SML "Smalls"
+cap label var OTH "Other"
+cap label var UNK "Unknown"
