@@ -1,0 +1,6 @@
+cap label var NSA "Unadjusted data (i.e. neither seasonally adjusted nor calendar adjusted data)"
+cap label var SA "Seasonally adjusted data, not calendar adjusted data"
+cap label var CA "Calendar adjusted data, not seasonally adjusted data"
+cap label var SCA "Seasonally and calendar adjusted data"
+cap label var TC "Trend cycle data"
+cap label var NAP "Not applicable"

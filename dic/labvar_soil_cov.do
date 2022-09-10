@@ -1,0 +1,7 @@
+cap label var ARA "Arable land"
+cap label var ARAXSC "Arable land excluding soil cover"
+cap label var SC_WNTCR "Normal winter crop"
+cap label var SC_COV_INTCR "Cover crop or intermediate crop"
+cap label var SC_PLRES "Plant residues"
+cap label var SC_BARE "Bare soil"
+cap label var SC_MAPL "Multi-annual plants"

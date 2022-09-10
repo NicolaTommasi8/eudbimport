@@ -1,0 +1,6 @@
+cap label var A000 "Total"
+cap label var D001 "Motor vehicle movements on national territory (irrespective of registration country)"
+cap label var D002 "Motor vehicle movements on national territory (registered in the reporting country"
+cap label var D003 "Motor vehicle movements on national territory (registered in foreign countries)"
+cap label var D004 "Motor vehicle movements on foreign territory (registered in the reporting country)"
+cap label var D005 "Motor vehicle movements on national and foreign territory (registered in the reporting country)"
