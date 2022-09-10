@@ -1,0 +1,7 @@
+cap label var EXPJOB "Learning through gaining experiences in the job"
+cap label var TRAINING "Providing training"
+cap label var INITIAL "Initial training to young people with a training contract"
+cap label var UNEMPL "Recruiting unemployed and provide training to them"
+cap label var UNSKILL "Recruiting unskilled and provide training to them"
+cap label var RECRUIT "Recruiting people with the skills needed"
+cap label var OTHER "Other ways"

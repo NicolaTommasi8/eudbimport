@@ -1,0 +1,5 @@
+cap label var HIGH "High"
+cap label var MED "Medium"
+cap label var LOW "Low"
+cap label var NONE "None"
+cap label var UNK "Unknown"

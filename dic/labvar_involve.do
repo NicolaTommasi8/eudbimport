@@ -1,0 +1,7 @@
+cap label var OBJ "In the objective setting of training"
+cap label var CRI "In establishing criteria for the selection of participants/target groups"
+cap label var TYP "In defining the form/type of training"
+cap label var CONT "In defining the content of training"
+cap label var BDG "In defining the budget for training"
+cap label var EXT "In the selection of external training providers"
+cap label var EVAL "In the evaluation/assessment of training outcomes"

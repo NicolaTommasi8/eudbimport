@@ -1,0 +1,8 @@
+cap label var TOTAL "Total"
+cap label var EU "EU framework"
+cap label var JHAC15 "Agreement in Justice and Home Affairs (JHA) Council on 20.07.2015"
+cap label var DIR_2011_95 "Directive 2011/95/EU, article 23 on maintaining family unity"
+cap label var DIR_2003_86 "Directive 2003/86/EC on the right to family reunification"
+cap label var NAT "National framework"
+cap label var OTH "Other"
+cap label var UNK "Unknown"

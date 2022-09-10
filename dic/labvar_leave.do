@@ -1,0 +1,7 @@
+cap label var TOTAL "Total"
+cap label var PAR "Parental leave"
+cap label var MATN_PATN "Maternity or paternity leave"
+cap label var FAM_CMB "Combination of family leaves"
+cap label var NFAM "No family leave"
+cap label var NAP "Not applicable"
+cap label var NRP "No response"

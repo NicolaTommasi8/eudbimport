@@ -1,0 +1,7 @@
+cap label var TOTAL "Total"
+cap label var SELFFAM "Learning from a family member, friend or colleague"
+cap label var SELFPRT "Learning by using printed material"
+cap label var SELFCOM "Learning by using computers"
+cap label var SELFTV "Learning through television/radio/video"
+cap label var SELFMUS "Learning by guided tours of museums, historical/natural/industrial sites"
+cap label var SELFLIB "Learning by visiting learning centres (including libraries)"

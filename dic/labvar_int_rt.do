@@ -1,0 +1,8 @@
+cap label var IRT_DTD "Day-to-day rate"
+cap label var IRT_M1 "1-month rate"
+cap label var IRT_M3 "3-month rate"
+cap label var IRT_M6 "6-month rate"
+cap label var IRT_M12 "12-month rate"
+cap label var GBY_LT "Long-term government bond yield"
+cap label var MCBY "EMU convergence criterion bond yields"
+cap label var _3MR "3-month money market rates"

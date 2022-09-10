@@ -1,0 +1,5 @@
+cap label var ACPI "Agricultural commodity price index"
+cap label var HICP "Harmonised index of consumer prices"
+cap label var HICP_CT "Harmonised index of consumer prices at constant tax rates"
+cap label var PPI "Producer price index"
+cap label var IPI "Import price index"

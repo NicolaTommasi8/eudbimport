@@ -1,0 +1,6 @@
+cap label var TOTAL "Total"
+cap label var MOD "Moderate"
+cap label var LOW "Low"
+cap label var SEV_MOD_LOW "Severe, moderate or low"
+cap label var SEV "Severe"
+cap label var NONE "None"
