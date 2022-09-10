@@ -1,0 +1,7 @@
+cap label var VITARTOT "Total holdings"
+cap label var VITARC1 "Holdings with > 0 <= 10 % of agricultural area in use under vines"
+cap label var VITARC2 "Holdings with 10 <= 25 % of agricultural area in use under vines"
+cap label var VITARC3 "Holdings with 25 <= 50 % of agricultural area in use under vines"
+cap label var VITARC4 "Holdings with 50 <= 75 % of agricultural area in use under vines"
+cap label var VITARC5 "Holdings with 75 <= 90 % of agricultural area in use under vines"
+cap label var VITARC6 "Holdings with >= 90 % of agricultural area in use under vines"

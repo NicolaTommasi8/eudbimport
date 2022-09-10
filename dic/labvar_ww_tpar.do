@@ -1,0 +1,8 @@
+cap label var SLP "Sludge production - total"
+cap label var SLD "Sludge disposal - total"
+cap label var SLD_AGR "Sludge disposal - agricultural use"
+cap label var SLD_COMP "Sludge disposal - compost and other applications"
+cap label var SLD_LAND "Sludge disposal - landfill"
+cap label var SLD_SEA "Sludge disposal - dumping at sea"
+cap label var SLD_INCN "Sludge disposal - incineration"
+cap label var SLD_OTH "Sludge disposal - other"

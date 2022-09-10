@@ -1,0 +1,7 @@
+cap label var TOTAL "Total"
+cap label var EMPL_OWN "Employer's premises or own premises"
+cap label var HOM "Home"
+cap label var CLIENT "Clients' place"
+cap label var NFIX_OTH "Not fixed or other"
+cap label var NAP "Not applicable"
+cap label var NRP "No response"

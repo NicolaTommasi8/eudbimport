@@ -1,0 +1,5 @@
+cap label var TOTAL "Total"
+cap label var YES_ARP "At risk of poverty"
+cap label var NO_ARP "Not at risk of poverty"
+cap label var UNK "Unknown"
+cap label var NRP "No response"

@@ -1,0 +1,5 @@
+cap label var CIRR "Euro CIRR curve for export credits"
+cap label var PAR "Par yield curve"
+cap label var SPOT_RT "Spot rate yield curve"
+cap label var CORB_AAA "AAA-rated corporate bonds yield curve"
+cap label var INS_FWD "Instantaneous forward yield curve"

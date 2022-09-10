@@ -1,0 +1,7 @@
+cap label var TOTAL "Total"
+cap label var YES "Would like to work but is not seeking employment"
+cap label var NO "Do not want to work"
+cap label var OTHER "Seeking employment but not ILO unemployed"
+cap label var NAP "Not applicable"
+cap label var NRP "No answer"
+cap label var UNK "Unknown"

@@ -1,0 +1,8 @@
+cap label var Y_LE2009 "2009 and before"
+cap label var Y2010_2013 "From 2010 to 2013"
+cap label var Y_LE2011 "2011 and before"
+cap label var Y2012_2015 "From 2012 to 2015"
+cap label var Y2014_2015 "From 2014 to 2015"
+cap label var Y_GE2016 "2016 and after"
+cap label var Y2016_2017 "From 2016 to 2017"
+cap label var Y_GE2018 "2018 and after"
