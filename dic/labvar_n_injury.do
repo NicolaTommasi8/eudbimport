@@ -1,0 +1,6 @@
+cap label var TOTAL "Total"
+cap label var _1 "1 injury"
+cap label var _2 "2 injuries"
+cap label var _3 "3 injuries"
+cap label var _4 "4 injuries"
+cap label var GE5 "5 injuries or more"

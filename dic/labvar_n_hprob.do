@@ -1,0 +1,7 @@
+cap label var TOTAL "Total"
+cap label var _1 "1 problem"
+cap label var _2 "2 problems"
+cap label var _3 "3 problems"
+cap label var _4 "4 problems"
+cap label var GE_5 "5 or more"
+cap label var GE5 "5 problems or more"

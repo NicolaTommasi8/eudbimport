@@ -1,0 +1,7 @@
+cap label var TOTAL "Total"
+cap label var _1 "1 vehicle"
+cap label var _2_5 "From 2 to 5 vehicles"
+cap label var _6_9 "From 6 to 9 vehicles"
+cap label var _10_19 "From 10 to 19 vehicles"
+cap label var _20_49 "From 20 to 49 vehicles"
+cap label var GE50 "50 vehicles or more"
