@@ -1,0 +1,8 @@
+cap label var TOTAL "Total"
+cap label var IN "Inwards"
+cap label var OUT "Outwards"
+cap label var PAID "Paid"
+cap label var RECV "Received"
+cap label var BAL "Balance"
+cap label var NSP "Not specified"
+cap label var UNK "Unknown"

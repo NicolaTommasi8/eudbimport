@@ -1,0 +1,6 @@
+cap label var TOTAL "Total"
+cap label var CC_LE125 "125 cm³ or less"
+cap label var CC_GT125 "Over 125 cm³"
+cap label var CC_LT1400 "Less than 1 400 cm³"
+cap label var CC1400_1999 "From 1 400 to 1 999 cm³"
+cap label var CC_GE2000 "2 000 cm³ or over"

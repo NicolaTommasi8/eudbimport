@@ -1,0 +1,6 @@
+cap label var DIR "Owner(s)/director(s) of the business"
+cap label var IND "Family, friends or other individuals"
+cap label var BUS_OTH "Another business"
+cap label var MGS "Mutual guarantee schemes such as co-operatives"
+cap label var MGS_OTH "Other guarantee schemes fully or partly provided by the government (any level)"
+cap label var OTH "Other guarantors"

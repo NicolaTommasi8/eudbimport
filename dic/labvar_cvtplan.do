@@ -1,0 +1,7 @@
+cap label var TOTAL "Total"
+cap label var ANY_PLAN "Having a specific person or unit responsible for organising CVT or having a training plan or budget including CVT"
+cap label var SPEC "Having a specific person or unit responsible for organising CVT"
+cap label var PLAN "Having a training plan or programme including CVT"
+cap label var BDG "Having a training budget including CVT"
+cap label var NONE "No CVT planning in place"
+cap label var NRP "No response"

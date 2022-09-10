@@ -1,0 +1,7 @@
+cap label var TOTAL "Total"
+cap label var SELF "Self-employment"
+cap label var FTSAL "Full-time employee"
+cap label var PTSAL "Part-time employee"
+cap label var SAL "Full-time or part-time employee"
+cap label var UNK "Unknown"
+cap label var NRESP "No answer"

@@ -1,0 +1,7 @@
+cap label var TOTAL "Total"
+cap label var DEG1_DEG2 "Urban areas"
+cap label var DEG1 "Cities"
+cap label var DEG2 "Towns and suburbs"
+cap label var DEG3 "Rural areas"
+cap label var NRP "No response"
+cap label var UNK "Unknown"

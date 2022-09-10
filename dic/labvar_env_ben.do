@@ -1,0 +1,8 @@
+cap label var RED_WUSE "Reduced material or water use"
+cap label var RED_CO2FP "Reduced energy use or CO2 footprint"
+cap label var RED_POL "Reduced soil, noise, water or air pollution"
+cap label var REPL_MAT "Replaced materials with less polluting or hazardous substitutes"
+cap label var REPL_FE "Replaced fossil energy with renewable energy sources"
+cap label var RCY_WWM "Recycled waste, water, or materials for own use or sale"
+cap label var FAC_RCY "Facilitated recycling of product"
+cap label var EXTD_LIFE "Extended product life"

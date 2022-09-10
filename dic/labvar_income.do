@@ -1,0 +1,6 @@
+cap label var TOTAL "Total of household income groups"
+cap label var LT60PC "Household income less than 60% compared to median actual current income"
+cap label var _60_100PC "Household income between 60% and 100% compared to median actual current income"
+cap label var _100_140PC "Household income between 100% and 140% compared to median actual current income"
+cap label var GE140PC "Household income between 140% and greater compared to median actual current income"
+cap label var NS "Not significant"
