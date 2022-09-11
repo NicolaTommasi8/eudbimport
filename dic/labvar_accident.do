@@ -1,4 +1,3 @@
-**prova di modifica
 cap label var TOTAL "Total"
 cap label var SRS "Serious accidents"
 cap label var SRS_F "Serious accidents - women"
