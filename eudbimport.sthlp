@@ -11,42 +11,35 @@
 
 {title:Description}
 {p2colset 5 15 17 2}{...}
-{p2col :{cmd:eudbimport} import EUROSTAT databases.{p_end}
+{p2col :{cmd:eudbimport}} import EUROSTAT databases.{p_end}
 {p2colreset}{...}
 
 
 {title:Syntax}
 
 {p 8 14 2}
-{opt eudbimport} {it:DBNAME} {cmd:,} {opt time(varname)} [ {opt gen:erate(varname)} {opt mkc(varname)} {opt ignore} {opt onlylab}  {opt gprov(varname)} {opt gregio(name)} {opt macro3(name)}
-  {opt macro5(name)} {opt gnuts3(name)} {opt gnuts2(name)} {opt gnuts1(name)} ]
+{opt eudbimport} {it:DBNAME} {cmd:,} {opt reshapevar(varname)} [ {opt rowdata(string)} {opt outdata(string)} {opt download} {opt select(string)} {opt timeselect(string)}
+{opt nosave} ]
 
 
 {pstd}
-dove {it:varname} è la variabili stringa con i nomi dei comuni.
+dove {it:DBNAME} è il nome del database come riportato sul sito EUROSTAT e va indicato in maiuscolo.
 {p_end}
 
 {synoptset 20 tabbed}{...}
 {marker options}{...}
 {synopthdr}
 {synoptline}
-{p2coldent : {opt gen:erate(varname)}} crea la variabile numerica {cmd:varname} con il codice ISTAT del comune. Se non specificato verrà creata di default la variabile {cmd:cod_com}.{p_end}
-{p2coldent : {opt mkc(varname)}} variabile numerica con i codici ISTAT delle provincie. Serve per risolvere i casi di omonimia (vedi {title:Remarks}).{p_end}
-{p2coldent : {opt ignore}} {opt dest_com} esegue due controlli. Il primo controlla che tutte le stringhe di {it: varname} siano riconosciute e quindi convertite in codice numerico,
-il secondo controllo verifica che tutti i codici numerici generati abbiano una label. Se uno dei due controlli non è verificato, l'esecuzione del comando
-viene interrota e nessuna conversione viene eseguita. Specificando l'opzione {opt ignore}, {opt dest_com} viene eseguito anche se uno dei controlli
-non viene superato.{p_end}
-{p2coldent : {opt onlylab}} questa opzione serve se la variabile è già numerica e l'operazione da compiere è solo il label dei suoi valori.{p_end}
-{p2coldent : {opt time(varname)}} alcuni comuni a partire dal 2016 hanno mantenuto lo stesso nome ma hanno cambiato il codice istat a seguito di unione con un altro/i comune/i. Per assegnare
-il codice ISTAT corretto è necessario specificare la variabile con l'anno a cui si riferiscono i dati. Vedi Remarks per ulteriori chiarimenti. Se questa variabile non viene specificata, di default
-si assume che l'anno di riferimento sia il 2015.{p_end}
-{p2coldent : {opt gprov(varname)}} genera una variabile con i codici ISTAT delle province.{p_end}
-{p2coldent : {opt gregio(varname)}} genera una variabile con i codici ISTAT delle regioni.{p_end}
-{p2coldent : {opt macro3(varname)}} genera una variabile con l'appartenenza a 3 macro regioni (Nord, Centro, Sud e Isole).{p_end}
-{p2coldent : {opt macro5(varname)}} genera una variabile con l'appartenenza a 5 macro regioni (Nord-Ovest, Nord-Est, Centro, Sud, Isole).{p_end}
-{p2coldent : {opt gnuts3(varname)}} genera una variabile (stringa) con i codici NUTS3 2010.{p_end}
-{p2coldent : {opt gnuts2(varname)}} genera una variabile (stringa) con i codici NUTS2 2010.{p_end}
-{p2coldent : {opt gnuts1(varname)}} genera una variabile (stringa) con i codici NUTS1 2010.{p_end}
+{p2coldent : {opt reshapevar(varname)}} è la variabile usata nel reshape e le cui specifiche diventano le nuove variabili.{p_end}
+{p2coldent : {opt rawdata(string)}} è il percorso dove verrà scaricato il file del database se si usa l'opzione {opt download} o dove trovare il file DBNAME se scaricato manualmente. Il percorso va specificato
+     tra virgolette e con / finale. Se non viene specificato il comando cercherà il file DBANME nella directory di lavoro corrente.{p_end}
+{p2coldent : {opt outdata(string)}} è il percorso dove verrà salvato il file del database. Il percorso va specificato
+     tra virgolette e con / finale. Se non viene specificato il comando salverà il file DBANME nella directory di lavoro corrente.{p_end}
+{p2coldent : {opt download}} specifica che DBNAME deve essere scaricato dal sito di EUROSTAT.{p_end}
+{p2coldent : {opt select(string)}} specifica un sottoinsieme di osservazioni di DBNAME che devono essere importate. Si possono usare tutti i
+   comandi di Stata per selezionare osservazioni ({opt keep}, {opt drop}...).{p_end}
+{p2coldent : {opt select(string)}} specifica l'intervallo temporale da importare.{p_end}
+{p2coldent : {opt nosave}} specifica che il database importato non venga salvato.{p_end}
 {synoptline}
 {p2colreset}{...}
 
@@ -54,14 +47,10 @@ si assume che l'anno di riferimento sia il 2015.{p_end}
 
 {title:Examples}
 
-{pstd}
-codifica la variabile stringa {cmd:comune} nella variabile numerica {cmd:com_num}:{p_end}
-{phang2}{cmd:. dest_com comune, gen(com_num) time(anno)}
-{p_end}
 
-{pstd}
-come la precedente, ma i casi di omonimia vengono risolti con l'ausilio della variabile {cmd:prov_num}:{p_end}
-{phang2}{cmd:. dest_com comune, gen(com_num) time(anno) mkc(prov_num)}
+{phang2}{cmd: eudbimport NAMA_10_GDP, download outdata("data/out_data/") reshapevar(na_item)}{p_end}
+
+
 
 
 {title:Saved results}
@@ -71,31 +60,12 @@ Nessun risultato salvato
 
 
 {title:Remarks}
-{pstd}Esistono comuni con uguale denominazione presenti in provincie diverse. Per risolvere questi casi deve esistere una variabile con il codice della provincia
-e questa deve essere indicata nell'opzione {opt mkc(varname)}. Se {opt mkc(varname)} non viene specificata viene assegnato il codice di default.{p_end}
-{pstd}Questi sono i casi di omonimia:{p_end}
-                                                           default
-{cmd:Brione}         Brescia (17030)    Trento (22028)             17030
-{cmd:Calliano}       Asti (5014)        Trento (22035)              5014
-{cmd:Castro}         Bergamo (16065)    Lecce (75096)              16065
-{cmd:Livio}          Como (13130)       Trento (22106)             13130
-{cmd:Peglio}         Como (13178)       Pesaro Urbino (41041)      13178
-{cmd:Samone}         Torino (1235)      Trento (22165)              1235
-{cmd:Valverde}       Pavia (18170)      Catania (87052)            18170
-{cmd:San Teodoro}    Messina (83090)    Olbia Tempio (104023)      83090
-
-
-{pstd}A partire dal 2016 alcuni comuni hanno mantenuto lo stesso nome ma hanno cambiato il codice istat a seguito di unione con un altro/i comune/i.{p_end}
-{pstd}Questi sono i casi:
-{cmd:Campiglia Cervo} ha codice 96011 fino al 2015, assume codice 96086 a partire dal 2016.
-{cmd:Lessona} ha codice 96029 fino al 2015, assume codice 96085 a partire dal 2016.
-
 
 
 
 {title:References}
 {phang}
-ISTAT {browse "http://www.istat.it/it/archivio/6789": Pagina di riferimento}
+ISTAT {browse "https://ec.europa.eu/eurostat/databrowser/explore/all/all_themes?lang=en": EUROSTAT Data Browser}
 
 
 
@@ -108,4 +78,4 @@ ISTAT {browse "http://www.istat.it/it/archivio/6789": Pagina di riferimento}
 {pstd} {p_end}
 
 
-{p 7 14 2}Help:  {help dest_prov}{p_end}
+{p 7 14 2}Help:  {help eudbimport}{p_end}
