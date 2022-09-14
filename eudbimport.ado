@@ -1,0 +1,322 @@
+**https://medium.com/the-stata-guide/automating-eurostat-in-stata-part-1-a047941b2b4f
+
+program eudbimport
+version 17
+
+syntax namelist (min=1 max=1),  ///
+       [rawdata(string) outdata(string) reshapevar(name max=1)    ///
+        download select(string asis) timeselect(string asis) ///
+        nosave ///
+        compress(string) decompress(string) /*undocumented*/ ///
+        nodestring /*undocumented*/ ///
+        debug /*undocumented*/ ]
+
+**pay attention: local nodestring  is  destring
+
+capture which gtools /* or greshape ?*/
+if _rc==111 {
+  di in yellow "gtools not installed.... installing..."
+  ssc inst gtools
+}
+
+capture which missings /*esite un sostituto ? */
+if _rc==111 {
+  di in yellow "missings not installed.... installing..."
+  ssc inst missings
+}
+
+
+
+timer clear
+timer on 1
+
+if "`download'"!="" {
+  di "I'm downloading the file..."
+  qui copy "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/`namelist'/?format=TSV" "`rawdata'`namelist'.tsv", replace
+}
+
+**qui {
+else {
+  qui if "`c(os)'" == "Unix" shell 7zz e -y "`rawdata'`namelist'.7z" -o`rawdata'
+  qui else shell "$E7z" e -y "`rawdata'`namelist'.7z" -o`rawdata'
+}
+di "I'm importing data..."
+qui import delimited "`rawdata'`namelist'.tsv", varnames(1) delimiter(tab) clear stringcols(_all)
+
+di _newline(1) "Database: `namelist'"
+
+**keep first var
+qui ds
+local first_var : word 1 of `r(varlist)'
+qui split `first_var', generate(ind_) parse(",")
+local nind = `r(k_new)'
+local splitvars: variable label `first_var'
+**discard after \
+local splitvars : subinstr local splitvars "," " ", all
+local splitvars : subinstr local splitvars "\" " "
+if strmatch("`splitvars'","* variable *") local splitvars : subinstr local splitvars "variable" "VARIABLE", word
+
+forvalues j=1/`nind' {
+  local varname : word `j' of `splitvars'
+  rename ind_`j' `varname'
+}
+
+
+**clean splitvars
+local lastvar : word `++nind' of `splitvars'
+local splitvars : list splitvars - lastvar
+di as result "Selection's variables: `splitvars'"
+drop `first_var'
+
+if `"`select'"'!="" {
+  qui `select'
+}
+
+**elenco delle altre variabili
+qui ds
+local vl = "`r(varlist)'"
+local vl : list vl - splitvars
+
+
+
+
+**qui levelsof freq, local(freq) clean
+qui glevelsof freq, local(freq)
+local freq : list clean freq
+tempname index
+
+**set trace on
+foreach V of varlist `vl' {
+  local varlab : variable label `V'
+  local varlab = trim("`varlab'")
+  if      "`freq'"=="M" local vn : subinstr local varlab "-" "m"
+  else if "`freq'"=="Q" local vn : subinstr local varlab "-" ""
+  else if "`freq'"=="S" local vn : subinstr local varlab "-S" "h"
+  else if "`freq'"=="W" local vn : subinstr local varlab "-W" "w"
+  else if "`freq'"=="D" local vn : subinstr local varlab "-" "", all
+  else if "`freq'"=="A" local vn `varlab' /**per freq=A non serve fare nulla**/
+
+  else if strlen("`freq'")>=2 {
+    local vn  Y`varlab'
+    **di "`vn'"
+    if regexm("`varlab'","[0-9][0-9][0-9][0-9]-[0-9][0-9]")   local vn : subinstr local vn "-" "M"
+    if regexm("`varlab'","[0-9][0-9][0-9][0-9]-Q[0-9]")  local vn : subinstr local vn "-Q" "Q"
+    if regexm("`varlab'","[0-9][0-9][0-9][0-9]-S[0-9]")  local vn : subinstr local vn "-S" "H"
+    if regexm("`varlab'","[0-9][0-9][0-9][0-9]-W[0-9][0-9]")  local vn : subinstr local vn "-W" "W"
+    if regexm("`varlab'","[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]") { /** not tested */
+      local vn : subinstr local vn "-" "M"
+      local vn : subinstr local vn "-" "D"
+    }
+
+    **if strmatch("`vn'","*-*")==0 local vn Y`vn'
+    **if strmatch("`vn'","*-0*") | strmatch("`vn'","*-1*")  local vn : subinstr local vn "-" "M"
+    **if strmatch("`vn'","*-Q*") local vn : subinstr local vn "-" ""
+    **if strmatch("`vn'","*-S*") local vn : subinstr local vn "-S" "H"
+  }
+
+  **di "`vn'"
+  **questo serve per select di freq quando c'è multifreq
+  if "`freq'"=="M" {
+    if regexm("`vn'","[0-9][0-9][0-9][0-9]M[0-9][0-9]") rename `V' `index'`vn'
+    else drop `V'
+  }
+  else if "`freq'"=="Q" {
+    if regexm("`vn'","[0-9][0-9][0-9][0-9]Q[0-9]") rename `V' `index'`vn'
+    else drop `V'
+  }
+  else if "`freq'"=="A" {
+    if regexm("`vn'","[0-9][0-9][0-9][0-9]$") rename `V' `index'`vn' /*qui trova maniera di indicare che la cosa da cercare è esattamente una stringa con soli 4 numeri*/
+    else drop `V'
+  }
+  else if "`freq'"=="S" /*da testare*/ {
+    if regexm("`vn'","[0-9][0-9][0-9][0-9]h[0-9]$") rename `V' `index'`vn' /*qui trova maniera di indicare che la cosa da cercare è esattamente una stringa con soli 4 numeri*/
+    else drop `V'
+  }
+  else if "`freq'"=="W" /*da testare*/ {
+    if regexm("`vn'","[0-9][0-9][0-9][0-9]w[0-9][0-9]$") rename `V' `index'`vn' /*qui trova maniera di indicare che la cosa da cercare è esattamente una stringa con soli 4 numeri*/
+    else drop `V'
+  }
+  else if "`freq'"=="D" /*da testare*/ {
+    if regexm("`vn'","[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$") rename `V' `index'`vn' /*qui trova maniera di indicare che la cosa da cercare è esattamente una stringa con soli 4 numeri*/
+    else drop `V'
+  }
+
+  else rename `V' `index'`vn'
+}
+**set trace off
+
+di as result "Time Period: `freq'"
+
+**questo dopo è da togliere o da mettere sotto condizione debug
+if "`reshapevar'"=="" {
+  local n_splitvars : word count `splitvars'
+  local varsel = runiformint(2,`n_splitvars')
+  local reshapevar : word `varsel' of `splitvars'
+}
+
+
+**! milkitem o dairyprod (AGR_R_MILKPR)??
+di as result "Reshape variable: `reshapevar'"
+local widevars : list splitvars - reshapevar
+
+qui replace `reshapevar' = subinstr(`reshapevar',"-","__",.)
+
+di "I'm reshaping long..."
+tempvar tmpdt
+**set trace on
+if "`timeselect'"!="" {
+  if strlen("`timeselect'")==4 keep `splitvars' `index'`timeselect'*
+  else {
+    local timeselect `index'`timeselect'
+    local timeselect = subinstr("`timeselect'","-","-`index'",1)
+    keep `splitvars' `timeselect'
+  }
+  **di "`timeselect'"
+}
+**set trace off
+
+**ERT_BIL_EUR_D ha dati giornalieri e greshape gnà fa!!!
+qui greshape long `index'@, by(`splitvars') keys(`tmpdt') string
+
+qui {
+if "`reshapevar'" == "icd10" {
+  replace `reshapevar'="C54__C55" if `reshapevar'=="C54-C55"
+  replace `reshapevar'="F00__F03" if `reshapevar'=="F00-F03"
+  replace `reshapevar'="G40__G41" if `reshapevar'=="G40-G41"
+}
+if "`reshapevar'" == "lcstruct" replace `reshapevar'="D12__D4_MD5" if `reshapevar'=="D12-D4_MD5"
+if "`reshapevar'" == "nace_r1" {
+  replace `reshapevar'="C__E" if `reshapevar'=="C-E"
+  replace `reshapevar'="L__Q" if `reshapevar'=="L-Q"
+}
+if "`reshapevar'" == "nace_r2" {
+  replace `reshapevar'="B06__B09" if `reshapevar'=="B06-B09"
+  replace `reshapevar'="O__U" if `reshapevar'=="O-U"
+}
+
+**forse è un errore la presenza di _2000W01 dato che sono date
+if "`reshapevar'" == "time" drop if `reshapevar'=="_2000W01"
+
+if "`reshapevar'" == "unit" replace `reshapevar'="MIO__EUR__NSA" if `reshapevar'=="MIO-EUR-NSA"
+
+replace `reshapevar' = ustrtoname(`reshapevar',1)
+}
+
+
+**qui levelsof `reshapevar', local(VtoDESTR) clean
+**in questo caso vengono nomi di vars troppo lunghi
+
+qui glevelsof `reshapevar', local(VtoDESTR)
+local VtoDESTR : list clean VtoDESTR
+
+
+if "`reshapevar'"=="na_item" {
+  qui replace `reshapevar'="D2_D5_D91tmp1" if `reshapevar'=="D2_D5_D91_D61_M_D611V_D612_M_M_D"
+  qui replace `reshapevar'="D2_D5_D91tmp2" if `reshapevar'=="D2_D5_D91_D61_M_D612_M_D614_M_D9"
+}
+di "I'm reshaping wide..."
+qui drop if `reshapevar'==""
+qui greshape wide `index'@, by(`widevars' `tmpdt') keys(`reshapevar')
+
+qui rename `index'* *
+if "`reshapevar'"=="na_item" {
+  capture rename D2_D5_D91tmp1 D2_D5_D91_D61_M_D611V_D612_M_M_D
+  capture rename D2_D5_D91tmp2 D2_D5_D91_D61_M_D612_M_D614_M_D9
+}
+
+
+
+if "`destring'"=="" {
+  di "I'm destringing variables..."
+  qui destring `VtoDESTR', replace ignore(",: bcdefnprsuz") float
+  cap confirm numeric variable `VtoDESTR'
+}
+qui missings dropobs `VtoDESTR', force
+
+
+qui {
+  if "`freq'"=="D" {
+    gen date = date(`tmpdt', "YMD")
+    format date %td
+  }
+  else if "`freq'"=="W" {
+    gen date = weekly(`tmpdt', "YW")
+    format date %tw
+  }
+  else if "`freq'"=="M" {
+    replace `tmpdt'=subinstr(`tmpdt',"`freq'","-",.)
+    replace `tmpdt'=subinstr(`tmpdt',"Y","",1) /*by multitime selection*/
+    gen date = monthly(`tmpdt', "Y`freq'")
+    format date %tm
+    drop if date==.  /*by multitime selection*/
+  }
+  else if "`freq'"=="Q" {
+    gen date = quarterly(`tmpdt', "Y`freq'")
+    replace `tmpdt'=subinstr(`tmpdt',"Y","",1) /*by multitime selection*/
+    format date %tq
+  }
+  else if "`freq'"=="S" {
+    gen date = halfyearly(`tmpdt', "YH")
+    format date %th
+  }
+  else if "`freq'"=="A" {
+    rename `tmpdt' date
+    capture destring date, replace ignore("Y")
+    format date %ty
+  }
+  else rename `tmpdt' date
+}
+
+if inlist("`freq'","M","Q","S","W","D") confirm numeric variable date
+
+order `widevars' date
+
+qui {
+  include eudbimport_labvar.do
+  **set trace on
+  tempfile labvarfile
+  copy "https://raw.githubusercontent.com/NicolaTommasi8/eudbimport/main/dic/labvar_`reshapevar'.do" `labvarfile', replace
+  **include dic/labvar_`reshapevar'.do
+  **doedit `labvar'
+  include `labvarfile'
+  **set trace off
+  capture drop `tmpdt'
+  compress
+  if "`nosave'"=="" save `outdata'`namelist', replace
+  **erase `rawdata'`namelist'.tsv
+}
+
+**}
+if "`debug'"!="" {
+  describe
+  summarize
+
+  qui ds
+  foreach V in `r(varlist)' {
+    local varlab : variable label `V'
+    if "`varlab'"=="" di "variabile `V' senza label in `namelist'"
+  }
+
+  timer off 1
+  **di _newline(2)
+  **timer list 1
+  local minutes = int(`r(t1)'/60)
+  local seconds = `r(t1)' - `minutes'*60
+  local seconds = round(`seconds',0.01)
+  if `minutes'>=60 {
+    local hours=int(`minutes'/60)
+    local minutes = `minutes' - `minutes'*60
+  }
+  if "`hours'"=="" & "`minutes'"=="" di in ye "Elapsed time was `seconds' seconds."
+  else if "`hours'"=="" & `minutes'<. di in ye "Elapsed time was `minutes' minutes, `seconds' seconds."
+  else di in ye "Elapsed time was `hours' hours, `minutes' minutes, `seconds' seconds."
+}
+
+
+
+end
+exit
+
+
+
+
