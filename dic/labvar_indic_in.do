@@ -577,7 +577,7 @@ cap label var INPCSW_MISS "Missing information for given variable, who mainly de
 cap label var INPCSW_OTH "Process, developed mainly by other enterprises or institutions"
 cap label var INPCSW_OTH_NRD "Enterprises that introduced process innovation developed by other enterprises or institutions, non-R&D performers only"
 cap label var INPCSW_OTH_RD "Enterprises that introduced process innovation developed by other enterprises or institutions, R&D performers only"
-cap label var INPDFW_YES "Enterprises that introduced at least one "world first" product innovation""
+cap label var INPDFW_YES "Enterprises that introduced at least one "world first" product innovation"
 cap label var INPDGD "Enterprises that developed goods innovation"
 cap label var INPDPC_ADP_NRD "Enterprises that developed product and/or process innovation by adapting or modifying goods, services or process originally developed by other enterprises or institutions / non R&D performers"
 cap label var INPDPC_ADP_RD "Enterprises that developed product and/or process innovation by adapting or modifying goods, services or process originally developed by other enterprises or institutions / R&D performers"
