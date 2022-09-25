@@ -13,7 +13,7 @@ syntax namelist (min=1 max=1),  ///
 
 **pay attention: local nodestring  is  destring
 
-capture which gtools /* or greshape ?*/
+capture which gtools
 if _rc==111 {
   di in yellow "gtools not installed.... installing..."
   ssc inst gtools
@@ -26,7 +26,7 @@ if _rc==111 {
 }
 
 
-
+set tracedepth 1
 timer clear
 timer on 1
 
@@ -42,6 +42,7 @@ else {
 }
 di "I'm importing data..."
 qui import delimited "`rawdata'`namelist'.tsv", varnames(1) delimiter(tab) clear stringcols(_all)
+
 
 di _newline(1) "Database: `namelist'"
 
@@ -68,9 +69,11 @@ local splitvars : list splitvars - lastvar
 di as result "Selection's variables: `splitvars'"
 drop `first_var'
 
-if `"`select'"'!="" {
-  qui `select'
-}
+
+qui glevelsof freq, local(freq_presel)
+local freq_presel : list clean freq_presel
+
+if `"`select'"'!="" qui `select'
 
 **elenco delle altre variabili
 qui ds
@@ -78,27 +81,28 @@ local vl = "`r(varlist)'"
 local vl : list vl - splitvars
 
 
-
-
 **qui levelsof freq, local(freq) clean
 qui glevelsof freq, local(freq)
 local freq : list clean freq
 tempname index
 
-**set trace on
 foreach V of varlist `vl' {
   local varlab : variable label `V'
   local varlab = trim("`varlab'")
-  if      "`freq'"=="M" local vn : subinstr local varlab "-" "m"
-  else if "`freq'"=="Q" local vn : subinstr local varlab "-" ""
-  else if "`freq'"=="S" local vn : subinstr local varlab "-S" "h"
-  else if "`freq'"=="W" local vn : subinstr local varlab "-W" "w"
-  else if "`freq'"=="D" local vn : subinstr local varlab "-" "", all
-  else if "`freq'"=="A" local vn `varlab' /**per freq=A non serve fare nulla**/
 
-  else if strlen("`freq'")>=2 {
+  if wordcount("`freq_presel'")==1 & strlen("`freq'")==1 {
+    if      "`freq'"=="M" local vn : subinstr local varlab "-" "m"
+    else if "`freq'"=="Q" local vn : subinstr local varlab "-" "q"
+    else if "`freq'"=="S" local vn : subinstr local varlab "-S" "h"
+    else if "`freq'"=="W" local vn : subinstr local varlab "-W" "w"
+    else if "`freq'"=="D" local vn : subinstr local varlab "-" "", all
+    else if "`freq'"=="A" local vn `varlab' /**per freq=A non serve fare nulla**/
+
+   rename `V' `index'`vn'
+  }
+
+  else if wordcount("`freq_presel'")>=2 & strlen("`freq'")>=2 {
     local vn  Y`varlab'
-    **di "`vn'"
     if regexm("`varlab'","[0-9][0-9][0-9][0-9]-[0-9][0-9]")   local vn : subinstr local vn "-" "M"
     if regexm("`varlab'","[0-9][0-9][0-9][0-9]-Q[0-9]")  local vn : subinstr local vn "-Q" "Q"
     if regexm("`varlab'","[0-9][0-9][0-9][0-9]-S[0-9]")  local vn : subinstr local vn "-S" "H"
@@ -107,43 +111,61 @@ foreach V of varlist `vl' {
       local vn : subinstr local vn "-" "M"
       local vn : subinstr local vn "-" "D"
     }
-
-    **if strmatch("`vn'","*-*")==0 local vn Y`vn'
-    **if strmatch("`vn'","*-0*") | strmatch("`vn'","*-1*")  local vn : subinstr local vn "-" "M"
-    **if strmatch("`vn'","*-Q*") local vn : subinstr local vn "-" ""
-    **if strmatch("`vn'","*-S*") local vn : subinstr local vn "-S" "H"
+   rename `V' `index'`vn'
   }
 
-  **di "`vn'"
+
   **questo serve per select di freq quando c'è multifreq
-  if "`freq'"=="M" {
-    if regexm("`vn'","[0-9][0-9][0-9][0-9]M[0-9][0-9]") rename `V' `index'`vn'
-    else drop `V'
-  }
-  else if "`freq'"=="Q" {
-    if regexm("`vn'","[0-9][0-9][0-9][0-9]Q[0-9]") rename `V' `index'`vn'
-    else drop `V'
-  }
-  else if "`freq'"=="A" {
-    if regexm("`vn'","[0-9][0-9][0-9][0-9]$") rename `V' `index'`vn' /*qui trova maniera di indicare che la cosa da cercare è esattamente una stringa con soli 4 numeri*/
-    else drop `V'
-  }
-  else if "`freq'"=="S" /*da testare*/ {
-    if regexm("`vn'","[0-9][0-9][0-9][0-9]h[0-9]$") rename `V' `index'`vn' /*qui trova maniera di indicare che la cosa da cercare è esattamente una stringa con soli 4 numeri*/
-    else drop `V'
-  }
-  else if "`freq'"=="W" /*da testare*/ {
-    if regexm("`vn'","[0-9][0-9][0-9][0-9]w[0-9][0-9]$") rename `V' `index'`vn' /*qui trova maniera di indicare che la cosa da cercare è esattamente una stringa con soli 4 numeri*/
-    else drop `V'
-  }
-  else if "`freq'"=="D" /*da testare*/ {
-    if regexm("`vn'","[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$") rename `V' `index'`vn' /*qui trova maniera di indicare che la cosa da cercare è esattamente una stringa con soli 4 numeri*/
-    else drop `V'
+  **di "`varlab'    `V' "
+  **set trace on
+
+  else if wordcount("`freq_presel'")>=2  & strlen("`freq'")==1 {
+    if "`freq'"=="M" {
+      if regexm("`varlab'","[0-9][0-9][0-9][0-9]-[0-9][0-9]") {
+        local vn : subinstr local varlab "-" "m"
+        rename `V' `index'`vn'
+      }
+      else drop `V'
+    }
+    else if "`freq'"=="Q" {
+      if regexm("`varlab'","[0-9][0-9][0-9][0-9]-Q[0-9]") {
+        local vn : subinstr local varlab "-Q" "q"
+        rename `V' `index'`vn'
+      }
+      else drop `V'
+    }
+    else if "`freq'"=="A" {
+      if regexm("`varlab'","[0-9][0-9][0-9][0-9]$") {
+        rename `V' `index'`varlab'
+      }
+      else drop `V'
+    }
+    else if "`freq'"=="S" {
+      if regexm("`varlab'","[0-9][0-9][0-9][0-9]-S[0-9]$") {
+        local vn : subinstr local varlab "-S" "h"
+        rename `V' `index'`vn'
+      }
+      else drop `V'
+    }
+    else if "`freq'"=="W" {
+      if regexm("`varlab'","[0-9][0-9][0-9][0-9]-W[0-9][0-9]$") {
+        local vn : subinstr local varlab "-W" "w"
+        rename `V' `index'`vn'
+      }
+      else drop `V'
+    }
+    else if "`freq'"=="D" {
+      if regexm("`varlab'","[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]$") {
+        local vn : subinstr local varlab "-" "", all
+        rename `V' `index'`vn' /*qui trova maniera di indicare che la cosa da cercare è esattamente una stringa con soli 4 numeri*/
+      }
+      else drop `V'
+    }
   }
 
-  else rename `V' `index'`vn'
 }
 **set trace off
+
 
 di as result "Time Period: `freq'"
 
