@@ -1,4 +1,5 @@
-*! version 1.0b  Nicola Tommasi  26sep2022
+*! version 1.1b  Nicola Tommasi  26sep2022
+*! version 1.0b  Nicola Tommasi  01sep2022
 
 program eudbimport
 version 17
