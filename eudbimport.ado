@@ -1,4 +1,4 @@
-**https://medium.com/the-stata-guide/automating-eurostat-in-stata-part-1-a047941b2b4f
+*! version 1.0b  Nicola Tommasi  26sep2022
 
 program eudbimport
 version 17
