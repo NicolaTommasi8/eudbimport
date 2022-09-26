@@ -1,4 +1,4 @@
-v 1.0b
+v 1.1b
 
 p eudbimport Package to import EUROSTAT dababases
 
