@@ -1,0 +1,7 @@
+cap label var TOTAL "Total"
+cap label var _0 "0 portions"
+cap label var _1_4 "From 1 to 4 portions"
+cap label var _5_9 "From 5 to 9 portions"
+cap label var GE5 "5 portions or more"
+cap label var GE10 "10 portions or more"
+cap label var NRP "No response"

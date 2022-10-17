@@ -1,0 +1,5 @@
+cap label var CM_EUP "Credit mobility under EU programmes (i.e. ERASMUS or other EU programmes)"
+cap label var CM_INP "Credit mobility under other international/national programmes"
+cap label var CM_OTH "Credit mobility in other programmes"
+cap label var CM_GRAD "Graduates with credit mobility of at least 3 months or 15 ECTS points"
+cap label var CM_GRAD_NDEG "Graduates with credit mobility of at least 3 months or 15 ECTS points who were not degree mobile"

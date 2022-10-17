@@ -1,0 +1,6 @@
+cap label var TOTAL "Total"
+cap label var CRELS "Captive relationship"
+cap label var SPOW_ASY "Strong power asymmetry"
+cap label var LSCOST "Low switching costs"
+cap label var HIMPT_BUY "High buyer importance"
+cap label var HIMPT_SUPPL "High supplier importance"

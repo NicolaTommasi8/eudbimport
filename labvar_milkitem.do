@@ -1,0 +1,7 @@
+cap label var FCA "Fat content (% of product weight) (annual)"
+cap label var PCA "Protein content (% of product weight) (annual)"
+cap label var PRO "Products obtained (1 000 t)"
+cap label var FAT "Fat content (t)"
+cap label var PAT "Protein content (t)"
+cap label var USM "Utilization of skimmed milk and buttermilk (1 000 t)"
+cap label var UWM "Utilization of whole milk (1 000 t)"

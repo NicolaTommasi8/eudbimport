@@ -1,0 +1,8 @@
+cap label var _0 "No contacts"
+cap label var _1 "1 contact"
+cap label var _2 "2 contacts"
+cap label var _3_5 "From 3 to 5 contacts"
+cap label var GE3 "3 contacts or more"
+cap label var GT3 "More than 3 contacts"
+cap label var GT5 "More than 5 contacts"
+cap label var NRP "No response"
