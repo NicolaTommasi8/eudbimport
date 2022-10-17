@@ -1,5 +1,6 @@
 clear all
 set more off
+cls
 
 capture mkdir items
 capture mkdir dic
@@ -15,8 +16,12 @@ foreach f of local itemslist {
   di "`item'"
   local item = lower("`item'")
 
-  import delimited "items/`f'", clear encoding(UTF-8) stringcols(_all) delimiter(tab)
-  **devono essere lette solo 2 variabili
+  import delimited "items/`f'", clear encoding(UTF-8) stringcols(_all) delimiter(tab) varnames(nonames)
+
+  **alcuni errori da correggere:
+  if "`f'"=="ESTAT_INDIC_IN_en.tsv" replace v2=subinstr(v2,`"innovation""', "innovation",1)
+  if "`f'"=="ESTAT_NET_SEG_en.tsv" replace v2=subinstr(v2,`"""', "'",.)
+
   qui describe
   assert r(k)==2
   duplicates report v1
@@ -37,11 +42,10 @@ foreach f of local itemslist {
     replace v1="B06__B09" if v1=="B06-B09"
     replace v1="O__U" if v1=="O-U"
   }
+  if "`f'" == "ESTAT_UNIT_en.tsv" replace v1="MIO__EUR__NSA" if v1=="MIO-EUR-NSA"
 
   **forse è un errore la presenza di _2000W01 dato che sono date
   if "`f'" == "ESTAT_TIME_en.tsv" drop if v1=="_2000W01"
-
-  if "`f'" == "ESTAT_UNIT_en.tsv" replace v1="MIO__EUR__NSA" if v1=="MIO-EUR-NSA"
 
   replace v1 = ustrtoname(v1,1)
 
@@ -50,6 +54,7 @@ foreach f of local itemslist {
 
   gen labelvar = "cap label var " + v1 + `" ""' + v2 + `"""'
 
+   **variable è una reserved word, quindi si rinomina in VARIABLE
   if "`item'"=="variable" local item VARIABLE
   outfile labelvar using "dic/labvar_`item'.do", replace noquote
 }
