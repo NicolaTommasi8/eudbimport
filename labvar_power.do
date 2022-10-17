@@ -1,7 +1,0 @@
-cap label var TOTAL "Total"
-cap label var AC25000 "Alternating current - 50 Hz / 25 000 V"
-cap label var AC15000 "Alternating current - 16 2/3 Hz / 15 000 V"
-cap label var AC_OTH "Alternating current - other"
-cap label var DC3000 "Direct current - 3 000 V"
-cap label var DC1500 "Direct current - 1 500 V"
-cap label var DC_OTH "Direct current - other"
