@@ -1,6 +1,0 @@
-cap label var _0 "No books"
-cap label var GE1 "1 book or more"
-cap label var LT5 "Less than 5 books"
-cap label var _5_9 "From 5 to 9 books"
-cap label var GE10 "10 books or more"
-cap label var NRP "No response"
