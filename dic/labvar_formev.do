@@ -1,7 +1,5 @@
-cap label var ALL "All forms of assessment"
 cap label var SATISF "Measuring satisfaction level of participants"
 cap label var TEST "Carrying out tests to verify new skills"
-cap label var ASOC "Assess occupational behaviour perfomrance"
 cap label var CERTIF "Formal validation or certification of skills acquired"
 cap label var WORK "Measuring if new skills are applied at work"
 cap label var INDIC "Using indicators of any improvements in production"

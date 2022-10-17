@@ -359,6 +359,7 @@ cap label var T90_T98 "Sequelae of injuries, of poisoning and of other consequen
 cap label var S_T_OTH "Other and unspecified effects of external causes (remainder of S00-T98)"
 cap label var U071 "COVID-19, virus identified"
 cap label var U072 "COVID-19, virus not identified"
+cap label var U_COV19 "COVID-19, virus identified and not identified (U071, U072)"
 cap label var U_COV19_OTH "COVID-19, other"
 cap label var V01_Y89 "External causes of morbidity and mortality (V01-Y89)"
 cap label var ACC "Accidents (V01-X59, Y85, Y86)"

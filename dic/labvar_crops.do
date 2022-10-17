@@ -1,6 +1,7 @@
 cap label var CRP "Crop products"
 cap label var AA_WA_FA9 "Agricultural area, wooded area and other areas on the farms"
 cap label var FA "Farm area"
+cap label var FA_OTH "Other farmland"
 cap label var FAXSAA "Farm area excluding special agricultural production areas"
 cap label var AA "Agricultural area"
 cap label var UAA "Utilised agricultural area"

@@ -7,6 +7,7 @@ cap label var ICCS02_04 "Acts causing harm or intending to cause harm to the per
 cap label var ICCS02 "Acts causing harm or intending to cause harm to the person"
 cap label var ICCS0201 "Assaults and threats"
 cap label var ICCS02011 "Assault"
+cap label var ICCS020111 "Serious assault"
 cap label var ICCS0202 "Acts against liberty"
 cap label var ICCS02022 "Deprivation of liberty"
 cap label var ICCS020221 "Kidnapping"
