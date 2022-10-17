@@ -1,3 +1,4 @@
+cap label var TOTAL "Total"
 cap label var INN_PF1 "Enterprises that have developed product innovations themselves, with market novelties (profile I)"
 cap label var INN_PF1_RND "Enterprises that have developed product innovations themselves, with market novelties, with R&D activities (profile I.A)"
 cap label var INN_PF1_NRND "Enterprises that have developed product innovations themselves, with market novelties, without R&D activities (profile I.B)"

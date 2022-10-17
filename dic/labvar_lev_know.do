@@ -1,4 +1,5 @@
 cap label var TOTAL "Total"
+cap label var TYNG_SPK "Too young to speak"
 cap label var MOT "Mother tongue"
 cap label var PROF "Proficient"
 cap label var GOOD "Good"
