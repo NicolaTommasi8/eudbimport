@@ -1,5 +1,0 @@
-cap label var N "Nitrogen"
-cap label var P "Phosphorus"
-cap label var P2O5 "Phosphate"
-cap label var K "Potassium"
-cap label var K2O "Potash"
