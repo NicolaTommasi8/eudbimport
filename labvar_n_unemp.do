@@ -1,7 +1,0 @@
-cap label var _0 "No unemployed persons"
-cap label var _1 "1 unemployed persons"
-cap label var _2 "2 unemployed persons"
-cap label var _3 "3 unemployed persons"
-cap label var _4 "4 unemployed persons"
-cap label var _5 "5 unemployed persons"
-cap label var GT5 "More than 5 unemployed persons"
