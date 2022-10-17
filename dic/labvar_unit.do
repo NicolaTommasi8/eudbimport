@@ -612,6 +612,7 @@ cap label var PCH_PRE_CPI05_EUR "Price index - percentage change on previous per
 cap label var PCH_PRE_CPI00_EUR "Price index - percentage change on previous period, based on 2000=100 and the euro"
 cap label var PCH_PRE_CPI05_NAC "Price index - percentage change on previous period, based on 2005=100 and national currency"
 cap label var PCH_PRE_CPI00_NAC "Price index - percentage change on previous period, based on 2000=100 and national currency"
+cap label var PCH_5Y_CPI15_NAC "Price index - percentage change (t/t-5), based on 2015=100 and national currency"
 cap label var PCH_5Y_CPI10_NAC "Price index - percentage change (t/t-5), based on 2010=100 and national currency"
 cap label var PCH_5Y_CPI05_NAC "Price index - percentage change (t/t-5), based on 2005=100 and national currency"
 cap label var PCH_PRE_EUR "Percentage change on previous period, euro"
