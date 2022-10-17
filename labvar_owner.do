@@ -1,8 +1,0 @@
-cap label var TOTAL "Total"
-cap label var PUB "Public ownership"
-cap label var PUB_STA "State ownership"
-cap label var PUB_OTH "Other public ownership"
-cap label var PRV "Private ownership"
-cap label var PRV_NP "Not-for-profit private ownership"
-cap label var PRV_P "For-profit private ownership"
-cap label var SHR "Shared ownership"
