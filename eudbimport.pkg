@@ -11,6 +11,7 @@ d Distribution-Date: 20221017
 f eudbimport.ado
 F eudbimport_labvar.do
 f eudbimport.sthlp
-pippo.ado
+
+* F serve per includere do-file in ado's PLUS
 
 
