@@ -9,7 +9,7 @@ d Distribution-Date: 20221017
 * f lines name the files that comprise your package:
 
 f eudbimport.ado
-f eudbimport_labvar.do
+F eudbimport_labvar.do
 f eudbimport.sthlp
 
 
