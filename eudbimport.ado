@@ -1,3 +1,6 @@
+*! version 1.5  Nicola Tommasi  26sep2022
+*               add erase option
+*               eudbimport_labvar.do not found error
 *! version 1.1b  Nicola Tommasi  26sep2022
 *! version 1.0b  Nicola Tommasi  01sep2022
 
@@ -7,7 +10,7 @@ version 17
 syntax namelist (min=1 max=1),  ///
        [rawdata(string) outdata(string) reshapevar(name max=1)    ///
         download select(string asis) timeselect(string asis) ///
-        nosave ///
+        nosave erase ///
         compress(string) decompress(string) /*undocumented*/ ///
         nodestring /*undocumented*/ ///
         debug /*undocumented*/ ]
@@ -20,30 +23,31 @@ if _rc==111 {
   ssc inst gtools
 }
 
-capture which missings /*esite un sostituto ? */
+capture which missings
 if _rc==111 {
-  di in yellow "missings not installed.... installing..."
+  di in yellow "missings not installed... installing..."
   ssc inst missings
 }
 
 
-set tracedepth 1
-timer clear
-timer on 1
+**set tracedepth 1
+if "`debug'"!="" {
+  timer clear
+  timer on 1
+}
 
 if "`download'"!="" {
   di "I'm downloading the file..."
   qui copy "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/`namelist'/?format=TSV" "`rawdata'`namelist'.tsv", replace
 }
-
-**qui {
 else {
   qui if "`c(os)'" == "Unix" shell 7zz e -y "`rawdata'`namelist'.7z" -o`rawdata'
-  qui else shell "$E7z" e -y "`rawdata'`namelist'.7z" -o`rawdata'
+  else if "`c(os)'"== "Windows" qui shell "$E7z" e -y "`rawdata'`namelist'.7z" -o`rawdata'
+  else shell 7zz e -y "`rawdata'`namelist'.7z" -o`rawdata' /*mac?*/
 }
+
 di "I'm importing data..."
 qui import delimited "`rawdata'`namelist'.tsv", varnames(1) delimiter(tab) clear stringcols(_all)
-
 
 di _newline(1) "Database: `namelist'"
 
@@ -81,7 +85,6 @@ qui ds
 local vl = "`r(varlist)'"
 local vl : list vl - splitvars
 
-
 **qui levelsof freq, local(freq) clean
 qui glevelsof freq, local(freq)
 local freq : list clean freq
@@ -114,11 +117,6 @@ foreach V of varlist `vl' {
     }
    rename `V' `index'`vn'
   }
-
-
-  **questo serve per select di freq quando c'è multifreq
-  **di "`varlab'    `V' "
-  **set trace on
 
   else if wordcount("`freq_presel'")>=2  & strlen("`freq'")==1 {
     if "`freq'"=="M" {
@@ -165,7 +163,6 @@ foreach V of varlist `vl' {
   }
 
 }
-**set trace off
 
 
 di as result "Time Period: `freq'"
@@ -178,7 +175,6 @@ if "`reshapevar'"=="" {
 }
 
 
-**! milkitem o dairyprod (AGR_R_MILKPR)??
 di as result "Reshape variable: `reshapevar'"
 local widevars : list splitvars - reshapevar
 
@@ -186,7 +182,7 @@ qui replace `reshapevar' = subinstr(`reshapevar',"-","__",.)
 
 di "I'm reshaping long..."
 tempvar tmpdt
-**set trace on
+
 if "`timeselect'"!="" {
   if strlen("`timeselect'")==4 keep `splitvars' `index'`timeselect'*
   else {
@@ -194,40 +190,34 @@ if "`timeselect'"!="" {
     local timeselect = subinstr("`timeselect'","-","-`index'",1)
     keep `splitvars' `timeselect'
   }
-  **di "`timeselect'"
 }
-**set trace off
 
-**ERT_BIL_EUR_D ha dati giornalieri e greshape gnà fa!!!
+
 qui greshape long `index'@, by(`splitvars') keys(`tmpdt') string
 
 qui {
-if "`reshapevar'" == "icd10" {
-  replace `reshapevar'="C54__C55" if `reshapevar'=="C54-C55"
-  replace `reshapevar'="F00__F03" if `reshapevar'=="F00-F03"
-  replace `reshapevar'="G40__G41" if `reshapevar'=="G40-G41"
+  if "`reshapevar'" == "icd10" {
+    replace `reshapevar'="C54__C55" if `reshapevar'=="C54-C55"
+    replace `reshapevar'="F00__F03" if `reshapevar'=="F00-F03"
+    replace `reshapevar'="G40__G41" if `reshapevar'=="G40-G41"
+  }
+  if "`reshapevar'" == "lcstruct" replace `reshapevar'="D12__D4_MD5" if `reshapevar'=="D12-D4_MD5"
+  if "`reshapevar'" == "nace_r1" {
+    replace `reshapevar'="C__E" if `reshapevar'=="C-E"
+    replace `reshapevar'="L__Q" if `reshapevar'=="L-Q"
+  }
+  if "`reshapevar'" == "nace_r2" {
+    replace `reshapevar'="B06__B09" if `reshapevar'=="B06-B09"
+    replace `reshapevar'="O__U" if `reshapevar'=="O-U"
+  }
+
+  **forse è un errore la presenza di _2000W01 dato che sono date
+  if "`reshapevar'" == "time" drop if `reshapevar'=="_2000W01"
+
+  if "`reshapevar'" == "unit" replace `reshapevar'="MIO__EUR__NSA" if `reshapevar'=="MIO-EUR-NSA"
+
+  replace `reshapevar' = ustrtoname(`reshapevar',1)
 }
-if "`reshapevar'" == "lcstruct" replace `reshapevar'="D12__D4_MD5" if `reshapevar'=="D12-D4_MD5"
-if "`reshapevar'" == "nace_r1" {
-  replace `reshapevar'="C__E" if `reshapevar'=="C-E"
-  replace `reshapevar'="L__Q" if `reshapevar'=="L-Q"
-}
-if "`reshapevar'" == "nace_r2" {
-  replace `reshapevar'="B06__B09" if `reshapevar'=="B06-B09"
-  replace `reshapevar'="O__U" if `reshapevar'=="O-U"
-}
-
-**forse è un errore la presenza di _2000W01 dato che sono date
-if "`reshapevar'" == "time" drop if `reshapevar'=="_2000W01"
-
-if "`reshapevar'" == "unit" replace `reshapevar'="MIO__EUR__NSA" if `reshapevar'=="MIO-EUR-NSA"
-
-replace `reshapevar' = ustrtoname(`reshapevar',1)
-}
-
-
-**qui levelsof `reshapevar', local(VtoDESTR) clean
-**in questo caso vengono nomi di vars troppo lunghi
 
 qui glevelsof `reshapevar', local(VtoDESTR)
 local VtoDESTR : list clean VtoDESTR
@@ -295,21 +285,17 @@ if inlist("`freq'","M","Q","S","W","D") confirm numeric variable date
 order `widevars' date
 
 qui {
-  include eudbimport_labvar.do
-  **set trace on
+  include "`c(sysdir_plus)'e/eudbimport_labvar.do"
   tempfile labvarfile
   copy "https://raw.githubusercontent.com/NicolaTommasi8/eudbimport/main/dic/labvar_`reshapevar'.do" `labvarfile', replace
-  **include dic/labvar_`reshapevar'.do
-  **doedit `labvar'
   include `labvarfile'
-  **set trace off
   capture drop `tmpdt'
   compress
   if "`nosave'"=="" save `outdata'`namelist', replace
-  **erase `rawdata'`namelist'.tsv
+  if "`erase'"!=""  erase `rawdata'`namelist'.tsv
 }
 
-**}
+
 if "`debug'"!="" {
   describe
   summarize
@@ -322,7 +308,7 @@ if "`debug'"!="" {
 
   timer off 1
   **di _newline(2)
-  **timer list 1
+  qui timer list 1
   local minutes = int(`r(t1)'/60)
   local seconds = `r(t1)' - `minutes'*60
   local seconds = round(`seconds',0.01)
@@ -336,10 +322,5 @@ if "`debug'"!="" {
 }
 
 
-
 end
 exit
-
-
-
-
