@@ -52,6 +52,11 @@ foreach f of local itemslist {
   duplicates report v1
   assert r(unique_value)==r(N)
 
+  if "`item'"=="farmtype" {
+    replace v2=subinstr(v2," (calculated with Standard Output)","",1)
+     replace v2=subinstr(v2," (calculated with Standard Gross Margin)","",1)
+  }
+
   gen labelvar = "cap label var " + v1 + `" ""' + v2 + `"""'
 
    **variable è una reserved word, quindi si rinomina in VARIABLE

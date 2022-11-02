@@ -1,6 +1,7 @@
 *! version 1.5  Nicola Tommasi  26sep2022
 *               add erase option
 *               eudbimport_labvar.do not found error
+*               error in elpased time calculation
 *! version 1.1b  Nicola Tommasi  26sep2022
 *! version 1.0b  Nicola Tommasi  01sep2022
 
@@ -37,8 +38,14 @@ if "`debug'"!="" {
 }
 
 if "`download'"!="" {
+  if "`debug'"!="" timer on 10
   di "I'm downloading the file..."
   qui copy "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/`namelist'/?format=TSV" "`rawdata'`namelist'.tsv", replace
+  if "`debug'"!="" {
+    timer off 10
+    timer list 10
+    di _newline
+  }
 }
 else {
   qui if "`c(os)'" == "Unix" shell 7zz e -y "`rawdata'`namelist'.7z" -o`rawdata'
@@ -47,7 +54,13 @@ else {
 }
 
 di "I'm importing data..."
+if "`debug'"!="" timer on 11
 qui import delimited "`rawdata'`namelist'.tsv", varnames(1) delimiter(tab) clear stringcols(_all)
+if "`debug'"!="" {
+  timer off 11
+  timer list 11
+  di _newline
+}
 
 di _newline(1) "Database: `namelist'"
 
@@ -192,8 +205,13 @@ if "`timeselect'"!="" {
   }
 }
 
-
+if "`debug'"!="" timer on 12
 qui greshape long `index'@, by(`splitvars') keys(`tmpdt') string
+if "`debug'"!="" {
+  timer off 12
+  timer list 12
+  di _newline
+}
 
 qui {
   if "`reshapevar'" == "icd10" {
@@ -229,8 +247,13 @@ if "`reshapevar'"=="na_item" {
 }
 di "I'm reshaping wide..."
 qui drop if `reshapevar'==""
+if "`debug'"!="" timer on 13
 qui greshape wide `index'@, by(`widevars' `tmpdt') keys(`reshapevar')
-
+if "`debug'"!="" {
+  timer off 13
+  timer list 13
+  di _newline
+}
 qui rename `index'* *
 if "`reshapevar'"=="na_item" {
   capture rename D2_D5_D91tmp1 D2_D5_D91_D61_M_D611V_D612_M_M_D
@@ -241,8 +264,14 @@ if "`reshapevar'"=="na_item" {
 
 if "`destring'"=="" {
   di "I'm destringing variables..."
+  if "`debug'"!="" timer on 14
   qui destring `VtoDESTR', replace ignore(",: bcdefnprsuz") float
   cap confirm numeric variable `VtoDESTR'
+  if "`debug'"!="" {
+    timer off 14
+    timer list 14
+    di _newline
+}
 }
 qui missings dropobs `VtoDESTR', force
 
@@ -274,9 +303,20 @@ qui {
   }
   else if "`freq'"=="A" {
     rename `tmpdt' date
+    count if strmatch(date,"*_FLAG")
+    if r(N)>0 {
+      glevelsof date if strmatch(date,"*_FLAG"), local(VtoLAB)
+      local VtoLAB : list clean VtoLAB
+      local VtoLAB : subinstr local VtoLAB "_FLAG" ""
+      replace date = "3000" if strmatch(date,"*_FLAG")
+      capture destring date, replace ignore("Y")
+      label define __date 3000 "`VtoLAB'"
+      label values date __date
+    }
     capture destring date, replace ignore("Y")
     format date %ty
   }
+
   else rename `tmpdt' date
 }
 
@@ -311,10 +351,10 @@ if "`debug'"!="" {
   qui timer list 1
   local minutes = int(`r(t1)'/60)
   local seconds = `r(t1)' - `minutes'*60
-  local seconds = round(`seconds',0.01)
+  local seconds = round(`seconds',1)
   if `minutes'>=60 {
     local hours=int(`minutes'/60)
-    local minutes = `minutes' - `minutes'*60
+    local minutes = `minutes' - `hours'*60
   }
   if "`hours'"=="" & "`minutes'"=="" di in ye "Elapsed time was `seconds' seconds."
   else if "`hours'"=="" & `minutes'<. di in ye "Elapsed time was `minutes' minutes, `seconds' seconds."
