@@ -1,7 +1,8 @@
-*! version 1.5  Nicola Tommasi  26sep2022
+*! version 1.5  Nicola Tommasi  02nov2022
 *               add erase option
 *               eudbimport_labvar.do not found error
 *               error in elpased time calculation
+*               minor changes
 *! version 1.1b  Nicola Tommasi  26sep2022
 *! version 1.0b  Nicola Tommasi  01sep2022
 
@@ -16,7 +17,8 @@ syntax namelist (min=1 max=1),  ///
         nodestring /*undocumented*/ ///
         debug /*undocumented*/ ]
 
-**pay attention: local nodestring  is  destring
+**pay attention #1: local nodestring is destring
+**pay attention #1: local nosave is save
 
 capture which gtools
 if _rc==111 {
@@ -331,7 +333,7 @@ qui {
   include `labvarfile'
   capture drop `tmpdt'
   compress
-  if "`nosave'"=="" save `outdata'`namelist', replace
+  if "`save'"=="" save `outdata'`namelist', replace
   if "`erase'"!=""  erase `rawdata'`namelist'.tsv
 }
 
