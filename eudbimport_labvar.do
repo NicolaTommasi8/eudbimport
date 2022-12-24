@@ -549,6 +549,7 @@ capture label var yld_curv "Yield curve"
 capture label var yn_arope "At risk of poverty or social exclusion"
 capture label var yn_ovbur "Overburden"
 capture label var yn_rskpov "At risk of poverty"
+capture label var yn_web "Internet booking"
 capture label var ynlfs "Modalities of the variable for the ad-hoc module"
 
 exit
