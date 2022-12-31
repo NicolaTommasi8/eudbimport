@@ -1,5 +1,6 @@
 cap label var TOTAL "Total"
 cap label var S "Services"
+cap label var ISS "International supply of services (ISS)"
 cap label var SA "Services: Manufacturing services on physical inputs owned by others"
 cap label var SB "Services: Maintenance and repair services n.i.e."
 cap label var SBG "Services: Maintenance and repair services n.i.e. (of which goods)"

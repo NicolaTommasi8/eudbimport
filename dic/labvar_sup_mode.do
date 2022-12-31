@@ -1,0 +1,5 @@
+cap label var TOTAL "Total"
+cap label var MOS1 "Cross border supply (mode 1)"
+cap label var MOS2 "Consumption abroad (mode 2)"
+cap label var MOS3 "Commercial presence (mode 3)"
+cap label var MOS4 "Presence of natural persons (mode 4)"

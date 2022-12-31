@@ -71,6 +71,8 @@ cap label var AEMIS_TER_LULUCF "Air emissions as reported to international conve
 cap label var LULUCF "Land use, land use change, and forestry (LULUCF)"
 cap label var FORL "Forest land"
 cap label var CRL_GRL "Cropland and grassland"
+cap label var CRL "Cropland"
+cap label var GRL "Grassland"
 cap label var LULUCF_OTH "Other land use, land use change, and forestry (LULUCF)"
 cap label var ORG_EMAS "EMAS registered organisations"
 cap label var SITE_EMAS "EMAS registered sites"

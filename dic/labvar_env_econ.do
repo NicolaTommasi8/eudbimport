@@ -13,6 +13,8 @@ cap label var EPS_P2_NEPS "Intermediate consumption of products other than envir
 cap label var TOT_P2_EPS "Intermediate consumption of environmental protection services for production of environmental protection services and for other production"
 cap label var P3_EPS "Final consumption expenditure of environmental protection services"
 cap label var P3_ACP "Final consumption expenditure of adapted and connected products"
+cap label var P3_ACP_EC "Final consumption expenditure of adapted and connected products - extra cost"
+cap label var P3_ACP_FC "Final consumption expenditure of adapted and connected products – full cost"
 cap label var EPS_P51G_NP "Gross fixed capital formation and acquisition less disposals of non-produced non-financial assets"
 cap label var EPS_INV "Investment"
 cap label var EPS_INV_PT "Gross fixed capital formation on specific environmental protection assets (end of pipe technologies)"

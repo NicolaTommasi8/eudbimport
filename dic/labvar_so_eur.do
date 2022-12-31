@@ -1,5 +1,6 @@
 cap label var TOTAL "Total"
 cap label var KE0 "Zero euros"
+cap label var KE_GT0_LT2 "Over zero euros to less than 2000 euros"
 cap label var KE_LT2 "Less than 2 000 euros"
 cap label var KE2_3 "From 2 000 to 3 999 euros"
 cap label var KE_LT4 "Less than 4 000 euros"
