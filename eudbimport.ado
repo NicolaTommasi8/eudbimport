@@ -1,3 +1,11 @@
+*! version 1.7  Nicola Tommasi  03jan2023
+*               prevent host not found error
+*               prevent file not found error
+*               tested all present db as of December 2023
+
+*! version 1.6  Nicola Tommasi  21nov2022
+*               error in variable labelling
+
 *! version 1.5  Nicola Tommasi  02nov2022
 *               add erase option
 *               eudbimport_labvar.do not found error
@@ -18,7 +26,7 @@ syntax namelist (min=1 max=1),  ///
         debug /*undocumented*/ ]
 
 **pay attention #1: local nodestring is destring
-**pay attention #1: local nosave is save
+**pay attention #2: local nosave is save
 
 capture which gtools
 if _rc==111 {
@@ -42,7 +50,17 @@ if "`debug'"!="" {
 if "`download'"!="" {
   if "`debug'"!="" timer on 10
   di "I'm downloading the file..."
-  qui copy "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/`namelist'/?format=TSV" "`rawdata'`namelist'.tsv", replace
+  qui capture copy "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/`namelist'/?format=TSV" "`rawdata'`namelist'.tsv", replace
+  if _rc==631 {
+    sleep 60000
+    qui copy "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/`namelist'/?format=TSV" "`rawdata'`namelist'.tsv", replace
+  }
+  if _rc==601 {
+    di "`namelist' not found in https://ec.europa.eu/eurostat site"
+    exit
+  }
+
+
   if "`debug'"!="" {
     timer off 10
     timer list 10
@@ -193,7 +211,7 @@ if "`reshapevar'"=="" {
 di as result "Reshape variable: `reshapevar'"
 local widevars : list splitvars - reshapevar
 
-qui replace `reshapevar' = subinstr(`reshapevar',"-","__",.)
+**qui replace `reshapevar' = subinstr(`reshapevar',"-","__",.)
 
 di "I'm reshaping long..."
 tempvar tmpdt
@@ -238,6 +256,8 @@ qui {
 
   replace `reshapevar' = ustrtoname(`reshapevar',1)
 }
+
+qui replace `reshapevar' = subinstr(`reshapevar',"-","__",.)
 
 qui glevelsof `reshapevar', local(VtoDESTR)
 local VtoDESTR : list clean VtoDESTR
