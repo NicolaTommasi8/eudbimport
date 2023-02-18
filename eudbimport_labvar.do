@@ -84,6 +84,7 @@ capture label var contrib "Contributor"
 capture label var coop_ptn "Cooperation partners"
 capture label var copat "Patenting and co-patenting"
 capture label var cost "Costs"
+capture label var counterp "Type of counterpart"
 capture label var cpa02 "Statistical Classification of Products by Activity, 2002"
 capture label var cpa08 "Statistical Classification of Products by Activity 2008"
 capture label var cpa2_1 "Statistical Classification of Products by Activity (CPA 2.1)"
@@ -551,6 +552,25 @@ capture label var yn_ovbur "Overburden"
 capture label var yn_rskpov "At risk of poverty"
 capture label var yn_web "Internet booking"
 capture label var ynlfs "Modalities of the variable for the ad-hoc module"
+
+
+**comext label vars
+capture label var decl "Declarant"
+capture label var prccode "Product code"
+capture label var indicators "INDICATORS"
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 exit
 

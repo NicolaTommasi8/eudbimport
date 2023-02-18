@@ -1,3 +1,15 @@
+*! version 1.8  Nicola Tommasi  13feb2023
+*               ability to import prodcom data (DS-*) - experimental
+*               some minor fix
+
+*! version 1.7  Nicola Tommasi  03jan2023
+*               prevent host not found error
+*               prevent file not found error
+*               tested all present db as of December 2023
+
+*! version 1.6  Nicola Tommasi  21nov2022
+*               error in variable labelling
+
 *! version 1.5  Nicola Tommasi  02nov2022
 *               add erase option
 *               eudbimport_labvar.do not found error
@@ -6,10 +18,14 @@
 *! version 1.1b  Nicola Tommasi  26sep2022
 *! version 1.0b  Nicola Tommasi  01sep2022
 
+**TODO#1 destring & label declarant in DS-*
+**TODO#2 exclude *FLAG from destring (local VtoDESTR)  in DS-*
+
+
 program eudbimport
 version 17
 
-syntax namelist (min=1 max=1),  ///
+syntax anything /*(min=1 max=1)*/,  ///
        [rawdata(string) outdata(string) reshapevar(name max=1)    ///
         download select(string asis) timeselect(string asis) ///
         nosave erase ///
@@ -18,7 +34,7 @@ syntax namelist (min=1 max=1),  ///
         debug /*undocumented*/ ]
 
 **pay attention #1: local nodestring is destring
-**pay attention #1: local nosave is save
+**pay attention #2: local nosave is save
 
 capture which gtools
 if _rc==111 {
@@ -32,17 +48,36 @@ if _rc==111 {
   ssc inst missings
 }
 
-
 **set tracedepth 1
 if "`debug'"!="" {
   timer clear
   timer on 1
 }
 
+local check0 : word count `anything'
+if `check0'!=1 {
+  di in red "Specify only one DBNAME"
+  exit
+}
+
+
+
 if "`download'"!="" {
   if "`debug'"!="" timer on 10
   di "I'm downloading the file..."
-  qui copy "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/`namelist'/?format=TSV" "`rawdata'`namelist'.tsv", replace
+  if strmatch("`anything'","DS-*") qui capture copy "https://ec.europa.eu/eurostat/api/comext/dissemination/sdmx/2.1/data/`anything'/?format=TSV" "`rawdata'`anything'.tsv", replace
+  else qui capture copy "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/`anything'/?format=TSV" "`rawdata'`anything'.tsv", replace
+  if _rc==631 {
+    sleep 60000
+    if strmatch("`anything'","DS-*") qui capture copy "https://ec.europa.eu/eurostat/api/comext/dissemination/sdmx/2.1/data/`anything'/?format=TSV" "`rawdata'`anything'.tsv", replace
+    else qui copy "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/`anything'/?format=TSV" "`rawdata'`anything'.tsv", replace
+  }
+  if _rc==601 {
+    di "`anything' not found in https://ec.europa.eu/eurostat site"
+    exit
+  }
+
+
   if "`debug'"!="" {
     timer off 10
     timer list 10
@@ -50,21 +85,21 @@ if "`download'"!="" {
   }
 }
 else {
-  qui if "`c(os)'" == "Unix" shell 7zz e -y "`rawdata'`namelist'.7z" -o`rawdata'
-  else if "`c(os)'"== "Windows" qui shell "$E7z" e -y "`rawdata'`namelist'.7z" -o`rawdata'
-  else shell 7zz e -y "`rawdata'`namelist'.7z" -o`rawdata' /*mac?*/
+  qui if "`c(os)'" == "Unix" shell 7zz e -y "`rawdata'`anything'.7z" -o`rawdata'
+  else if "`c(os)'"== "Windows" qui shell "$E7z" e -y "`rawdata'`anything'.7z" -o`rawdata'
+  else shell 7zz e -y "`rawdata'`anything'.7z" -o`rawdata' /*mac?*/
 }
 
 di "I'm importing data..."
 if "`debug'"!="" timer on 11
-qui import delimited "`rawdata'`namelist'.tsv", varnames(1) delimiter(tab) clear stringcols(_all)
+qui import delimited "`rawdata'`anything'.tsv", varnames(1) delimiter(tab) clear stringcols(_all)
 if "`debug'"!="" {
   timer off 11
   timer list 11
   di _newline
 }
 
-di _newline(1) "Database: `namelist'"
+di _newline(1) "Database: `anything'"
 
 **keep first var
 qui ds
@@ -193,7 +228,7 @@ if "`reshapevar'"=="" {
 di as result "Reshape variable: `reshapevar'"
 local widevars : list splitvars - reshapevar
 
-qui replace `reshapevar' = subinstr(`reshapevar',"-","__",.)
+**qui replace `reshapevar' = subinstr(`reshapevar',"-","__",.)
 
 di "I'm reshaping long..."
 tempvar tmpdt
@@ -239,6 +274,8 @@ qui {
   replace `reshapevar' = ustrtoname(`reshapevar',1)
 }
 
+qui replace `reshapevar' = subinstr(`reshapevar',"-","__",.)
+
 qui glevelsof `reshapevar', local(VtoDESTR)
 local VtoDESTR : list clean VtoDESTR
 
@@ -267,7 +304,8 @@ if "`reshapevar'"=="na_item" {
 if "`destring'"=="" {
   di "I'm destringing variables..."
   if "`debug'"!="" timer on 14
-  qui destring `VtoDESTR', replace ignore(",: bcdefnprsuz") float
+  if strmatch("`anything'","DS-*") qui destring `VtoDESTR', replace ignore(",: CEHNRU") float
+  else qui destring `VtoDESTR', replace ignore(",: bcdefnprsuz") float
   cap confirm numeric variable `VtoDESTR'
   if "`debug'"!="" {
     timer off 14
@@ -329,12 +367,13 @@ order `widevars' date
 qui {
   include "`c(sysdir_plus)'e/eudbimport_labvar.do"
   tempfile labvarfile
-  copy "https://raw.githubusercontent.com/NicolaTommasi8/eudbimport/main/dic/labvar_`reshapevar'.do" `labvarfile', replace
+  if strmatch("`anything'","DS-*") copy "https://raw.githubusercontent.com/NicolaTommasi8/eudbimport/main/dic/labvar_cxt_`reshapevar'.do" `labvarfile', replace
+  else copy "https://raw.githubusercontent.com/NicolaTommasi8/eudbimport/main/dic/labvar_`reshapevar'.do" `labvarfile', replace
   include `labvarfile'
   capture drop `tmpdt'
   compress
-  if "`save'"=="" save `outdata'`namelist', replace
-  if "`erase'"!=""  erase `rawdata'`namelist'.tsv
+  if "`save'"=="" save `outdata'`anything', replace
+  if "`erase'"!=""  erase `rawdata'`anything'.tsv
 }
 
 
@@ -345,7 +384,7 @@ if "`debug'"!="" {
   qui ds
   foreach V in `r(varlist)' {
     local varlab : variable label `V'
-    if "`varlab'"=="" di "variabile `V' senza label in `namelist'"
+    if "`varlab'"=="" di "variabile `V' senza label in `anything'"
   }
 
   timer off 1

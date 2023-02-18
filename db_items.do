@@ -4,11 +4,48 @@ cls
 
 capture mkdir items
 capture mkdir dic
-**cd items
+
+**? import & download items ?**
+**Code lists -> Download operations -> Download full list of items (.txt) -> rename in Full_code_List_EN.txt
+
+/*****
+import delimited "items/Full_code_List_EN.txt", clear
+qui count
+forvalues j=1/`r(N)' {
+  local link = latesttsvdownloadurl in `j'
+  local name = code  in `j'
+  local name = "ESTAT_`name'_en.tsv"
+  di "`name', `j' di `r(N)'"
+  copy "`link'" "items/`name'", replace
+}
+****/
+
+**? import & download items for comext ?**
+**Comext code lists -> Download operations -> Download full list of items (.txt) -> rename in Full_comext_List_EN.txt
+
+/***
+import delimited "items/Full_comext_List_EN.txt", clear
+qui count
+forvalues j=1/`r(N)' {
+  **local link = latesttsvdownloadurl in `j'
+  local link = specifictsvdownloadurl in `j'
+  local name = code  in `j'
+  local name = "ESTAT_`name'_en.tsv"
+  di "`name', `j' di `r(N)'"
+  copy "`link'" "items/`name'", replace
+  qwe
+}
+****/
+
+
+
+
+
 
 local itemslist : dir "items" files "*.tsv", respectcase
 local nitems : word count `itemslist'
 di `nitems'
+
 
 foreach f of local itemslist {
   local item : subinstr local f "ESTAT_" ""
@@ -56,6 +93,31 @@ foreach f of local itemslist {
     replace v2=subinstr(v2," (calculated with Standard Output)","",1)
      replace v2=subinstr(v2," (calculated with Standard Gross Margin)","",1)
   }
+  if "`item'"=="bop_item" {
+    replace v2 = subinstr(v2,"(Rural development support)","",1)
+    replace v2 = subinstr(v2,"; currency of denomination Euro","",1)
+    replace v2 = subinstr(v2,"; currency of denomination US dollar","",1)
+    replace v2 = subinstr(v2,"; currency of denomination Japanese yen","",1)
+    replace v2 = subinstr(v2,"; all currencies of denomination except Euro, US dollar and Japanese yen","",1)
+    replace v2 = subinstr(v2,"; all currencies of denomination except EUR and USD","",1)
+  }
+
+  if "`item'"=="indic_ef" {replace v2 = subinstr(v2,"hold:","",1)
+    replace v2 = subinstr(v2,"ha:","",1)
+    replace v2 = subinstr(v2,"pers:","",1)
+    replace v2 = subinstr(v2,"Euro:","",1)
+    replace v2 = subinstr(v2,"head:","",1)
+    replace v2 = subinstr(v2,"places:","",1)
+    replace v2 = subinstr(v2,"LSU:","",1)
+    replace v2 = subinstr(v2,"Nb:","",1)
+    replace v2 = subinstr(v2,"AWU:","",1)
+    replace v2 = subinstr(v2,"(Rural development support)","",1)
+  }
+
+
+
+
+
 
   gen labelvar = "cap label var " + v1 + `" ""' + v2 + `"""'
 
@@ -63,6 +125,31 @@ foreach f of local itemslist {
   if "`item'"=="variable" local item VARIABLE
   outfile labelvar using "dic/labvar_`item'.do", replace noquote
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 exit
 
