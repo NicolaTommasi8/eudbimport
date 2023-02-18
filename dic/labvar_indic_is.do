@@ -437,7 +437,7 @@ cap label var E_AEBHM "Enterprises purchasing online from suppliers located in t
 cap label var E_AEBEU "Enterprises purchasing online from suppliers located in other EU countries"
 cap label var E_AEBWW "Enterprises purchasing online from suppliers located in the rest of the world"
 cap label var E_AEBEUWW "Enterprises purchasing online from suppliers located in other EU countries and the rest of the world"
-cap label var P_IUSE "Persons employed using computers with access to World Wide Web"
+cap label var P_IUSE "Persons employed have access to the internet for business purposes"
 cap label var P_CUSE "Persons employed using computers"
 cap label var P_IACC "Persons employed working in an enterprise with access to Internet"
 cap label var P_DSL "Persons employed connecting to the internet via DSL"

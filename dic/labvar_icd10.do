@@ -1,4 +1,5 @@
 cap label var TOTAL "Total"
+cap label var A_R_U_Y "All causes of death (A00-Y89) excluding S00-T98"
 cap label var A_R_V_Y "All causes of death (A00-Y89) excluding S00-T98"
 cap label var A_T_Z "All causes of diseases (A00-Z99) excluding V00-Y98"
 cap label var A_T_Z_XNB "All causes of diseases (A00-Z99) excluding V00-Y98 and Z38"
