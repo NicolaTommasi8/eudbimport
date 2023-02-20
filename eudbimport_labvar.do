@@ -611,12 +611,12 @@ capture confirm variable freq
 if !_rc {
   qui count if freq==""
   local pre=r(N)
-  destring freq ("H"=1 "Hourly") ("D"=2 "Daily") ("B"=3 "Daily - business week") ///
-                ("W"=4 "Weekly") ("M"=5 "Monthly") ("Q"=6 "Quarterly") ///
-                ("S"=7 "Half-yearly, semesterly") ("A"=8 "Annual") ("P"=9 "Pluri-annual") ///
-                ("I"=10 "Irregular / A-periodic"), replace
+  strrec freq ("H"=1 "Hourly") ("D"=2 "Daily") ("B"=3 "Daily - business week") ///
+              ("W"=4 "Weekly") ("M"=5 "Monthly") ("Q"=6 "Quarterly") ///
+              ("S"=7 "Half-yearly, semesterly") ("A"=8 "Annual") ("P"=9 "Pluri-annual") ///
+              ("I"=10 "Irregular / A-periodic"), replace
   qui count if freq==.
-  assert pre==r(N)
+  assert `pre'==r(N)
 }
 
 
@@ -624,14 +624,14 @@ capture confirm variable s_adj
 if !_rc {
   qui count if s_adj==""
   local pre=r(N)
-  destring s_adj ("NSA"=1 "Unadjusted data")  ///
-                 ("SA"=2 "Seasonally adjusted data, not calendar adjusted data") ///
-                 ("CA"=3 "Calendar adjusted data, not seasonally adjusted data") ///
-                 ("SCA"=4 "Seasonally and calendar adjusted data") ///
-                 ("TC"=5 "Trend cycle data") ///
-                 ("NAP"=6 "Not applicable"), replace
+  strrec s_adj ("NSA"=1 "Unadjusted data")  ///
+               ("SA"=2 "Seasonally adjusted data, not calendar adjusted data") ///
+               ("CA"=3 "Calendar adjusted data, not seasonally adjusted data") ///
+               ("SCA"=4 "Seasonally and calendar adjusted data") ///
+               ("TC"=5 "Trend cycle data") ///
+               ("NAP"=6 "Not applicable"), replace
   qui count if s_adj==.
-  assert pre==r(N)
+  assert `pre'==r(N)
 }
 
 
@@ -639,11 +639,11 @@ capture confirm variable sex
 if !_rc {
   qui count if sex==""
   local pre=r(N)
-  destring sex ("T"=1 "Total") ("M"=2 "Males") ("F"=3 "Females") ///
-               ("DIFF"=4 "Absolute difference between males and females") ///
-               ("NAP"=5 "Not applicable") ("NRP"=6 "No response") ("UNK"=7 "Unknown"), replace
+  strrec sex ("T"=1 "Total") ("M"=2 "Males") ("F"=3 "Females") ///
+             ("DIFF"=4 "Absolute difference between males and females") ///
+             ("NAP"=5 "Not applicable") ("NRP"=6 "No response") ("UNK"=7 "Unknown"), replace
   qui count if sex==.
-  assert pre==r(N)
+  assert `pre'==r(N)
 }
 
 
