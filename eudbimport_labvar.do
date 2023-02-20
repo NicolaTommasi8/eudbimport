@@ -557,16 +557,94 @@ capture label var ynlfs "Modalities of the variable for the ad-hoc module"
 **comext label vars
 capture label var decl "Declarant"
 capture label var prccode "Product code"
-capture label var indicators "INDICATORS"
+capture label var indicators "Idicators"
 
 
+capture confirm variable decl
+if !_rc {
+  destring decl, replace
+  capture label define decl 1	"France"  ///
+                            2	"Belg.-Luxbg"  ///
+                            3	"Netherlands"  ///
+                            4	"Germany"  ///
+                            5	"Italy"  ///
+                            6	"Utd. Kingdom"  ///
+                            7	"Ireland"  ///
+                            8	"Denmark"  ///
+                            9	"Greece"  ///
+                           10	"Portugal"  ///
+                           11	"Spain"  ///
+                           17	"Belgium"  ///
+                           18	"Luxembourg"  ///
+                           24 "Iceland"  ///
+                           28 "Norway"  ///
+                           30	"Sweden"  ///
+                           32	"Finland"  ///
+                           38	"Austria"  ///
+                           46	"Malta"  ///
+                           52 "Turkey"  ///
+                           53	"Estonia"  ///
+                           54	"Latvia"  ///
+                           55	"Lithuania"  ///
+                           60	"Poland"  ///
+                           61	"Czechia"  ///
+                           63	"Slovakia"  ///
+                           64	"Hungary"  ///
+                           66	"Romania"  ///
+                           68	"Bulgaria"  ///
+                           91	"Slovenia"  ///
+                           92	"Croatia"  ///
+                           93 "Bosnia and Herzegovina"  ///
+                           96 "North Macedonia"  ///
+                           97 "Montenegro"  ///
+                           98 "Serbia "  ///
+                          600	"Cyprus"   ///
+                         1110 "EU15TOTALS" ///
+                         1111 "EU25TOTALS" ///
+                         1112 "EU27TOTALS_2007" ///
+                         2027 "EU27TOTALS_2020" ///
+                         2028 "EUROPEAN UNION (28)"
+  label values decl decl
+}
+
+capture confirm variable freq
+if !_rc {
+  qui count if freq==""
+  local pre=r(N)
+  destring freq ("H"=1 "Hourly") ("D"=2 "Daily") ("B"=3 "Daily - business week") ///
+                ("W"=4 "Weekly") ("M"=5 "Monthly") ("Q"=6 "Quarterly") ///
+                ("S"=7 "Half-yearly, semesterly") ("A"=8 "Annual") ("P"=9 "Pluri-annual") ///
+                ("I"=10 "Irregular / A-periodic"), replace
+  qui count if freq==.
+  assert pre==r(N)
+}
 
 
+capture confirm variable s_adj
+if !_rc {
+  qui count if s_adj==""
+  local pre=r(N)
+  destring s_adj ("NSA"=1 "Unadjusted data")  ///
+                 ("SA"=2 "Seasonally adjusted data, not calendar adjusted data") ///
+                 ("CA"=3 "Calendar adjusted data, not seasonally adjusted data") ///
+                 ("SCA"=4 "Seasonally and calendar adjusted data") ///
+                 ("TC"=5 "Trend cycle data") ///
+                 ("NAP"=6 "Not applicable"), replace
+  qui count if s_adj==.
+  assert pre==r(N)
+}
 
 
-
-
-
+capture confirm variable sex
+if !_rc {
+  qui count if sex==""
+  local pre=r(N)
+  destring sex ("T"=1 "Total") ("M"=2 "Males") ("F"=3 "Females") ///
+               ("DIFF"=4 "Absolute difference between males and females") ///
+               ("NAP"=5 "Not applicable") ("NRP"=6 "No response") ("UNK"=7 "Unknown"), replace
+  qui count if sex==.
+  assert pre==r(N)
+}
 
 
 
