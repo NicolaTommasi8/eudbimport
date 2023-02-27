@@ -1,9 +1,13 @@
-v 2.0
+v 1.8
 
 p eudbimport: Package to import EUROSTAT dababases
 
-d Version 2.0 (September 26, 2022)
-d Version 1.0b (September 13, 2022)
+d Version 1.8 (Feb 13, 2023)
+d Version 1.7 (Jan 03, 2023)
+d Version 1.6 (Nov 21, 2022)
+d Version 1.5 (Nov 02, 2022)
+d Version 1.1b (Sep 26, 2022)
+d Version 1.0b (Sep 01, 2022)
 d
 d Nicola Tommasi, C.I.D.E. University of Verona
 
