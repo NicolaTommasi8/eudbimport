@@ -1,3 +1,6 @@
+*! version 1.9  Nicola Tommasi  01mar2023
+*               new option strrec: destring some variables (decl, freq, s_adj, sex ...)
+
 *! version 1.8  Nicola Tommasi  13feb2023
 *               ability to import prodcom data (DS-*) - experimental
 *               some minor fix
@@ -26,9 +29,9 @@ program eudbimport
 version 17
 
 syntax anything /*(min=1 max=1)*/,  ///
-       [rawdata(string) outdata(string) reshapevar(name max=1)    ///
+       [reshapevar(name max=1) rawdata(string) outdata(string)    ///
         download select(string asis) timeselect(string asis) ///
-        nosave erase ///
+        nosave erase strrec ///
         compress(string) decompress(string) /*undocumented*/ ///
         nodestring /*undocumented*/ ///
         debug /*undocumented*/ ]
