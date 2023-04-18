@@ -18,8 +18,8 @@
 {title:Syntax}
 
 {p 8 14 2}
-{opt eudbimport} {it:DBNAME} {cmd:,} {opt reshapevar(varname)} [ {opt rowdata(string)} {opt outdata(string)} {opt download} {opt select(string)} {opt timeselect(string)}
-{opt nosave} ]
+{opt eudbimport} {it:DBNAME} {cmd:,} {opt reshapevar(varname)} [ {opt rawdata(string)} {opt outdata(string)} {opt download} {opt select(string)} {opt timeselect(string)}
+{opt nosave} {opt strrec} ]
 
 
 {pstd}
@@ -38,8 +38,10 @@ dove {it:DBNAME} è il nome del database come riportato sul sito EUROSTAT e va i
 {p2coldent : {opt download}} specifica che DBNAME deve essere scaricato dal sito di EUROSTAT.{p_end}
 {p2coldent : {opt select(string)}} specifica un sottoinsieme di osservazioni di DBNAME che devono essere importate. Si possono usare tutti i
    comandi di Stata per selezionare osservazioni ({opt keep}, {opt drop}...).{p_end}
-{p2coldent : {opt select(string)}} specifica l'intervallo temporale da importare.{p_end}
+{p2coldent : {opt timeselect(string)}} specifica l'intervallo temporale da importare.{p_end}
 {p2coldent : {opt nosave}} specifica che il database importato non venga salvato.{p_end}
+{p2coldent : {opt strrec}} converte in numeriche alcune variabili stringa. La scelta di queste variabili si basa sulla opportunità di conversione in numeriche in base alla tipologia della variabile 
+e alla frequenza con cui è presente nei diversi dataset (work in progress){p_end}
 {synoptline}
 {p2colreset}{...}
 
@@ -65,7 +67,7 @@ Nessun risultato salvato
 
 {title:References}
 {phang}
-ISTAT {browse "https://ec.europa.eu/eurostat/databrowser/explore/all/all_themes?lang=en": EUROSTAT Data Browser}
+{browse "https://ec.europa.eu/eurostat/databrowser/explore/all/all_themes?lang=en": EUROSTAT Data Browser}
 
 
 
