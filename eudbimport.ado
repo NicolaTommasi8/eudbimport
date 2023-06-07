@@ -149,7 +149,8 @@ foreach V of varlist `vl' {
 
   if wordcount("`freq_presel'")==1 & strlen("`freq'")==1 {
     if      "`freq'"=="M" local vn : subinstr local varlab "-" "m"
-    else if "`freq'"=="Q" local vn : subinstr local varlab "-" "q"
+    **else if "`freq'"=="Q" local vn : subinstr local varlab "-" "q"
+    else if "`freq'"=="Q" local vn : subinstr local varlab "-Q" "q"
     else if "`freq'"=="S" local vn : subinstr local varlab "-S" "h"
     else if "`freq'"=="W" local vn : subinstr local varlab "-W" "w"
     else if "`freq'"=="D" local vn : subinstr local varlab "-" "", all
@@ -301,7 +302,6 @@ if "`reshapevar'"=="na_item" {
   capture rename D2_D5_D91tmp1 D2_D5_D91_D61_M_D611V_D612_M_M_D
   capture rename D2_D5_D91tmp2 D2_D5_D91_D61_M_D612_M_D614_M_D9
 }
-
 
 
 if "`destring'"=="" {
