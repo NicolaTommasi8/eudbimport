@@ -1,4 +1,5 @@
 cap label var GOV_LOC "Government or local authority"
+cap label var EMPL "Employer"
 cap label var EMP "Employer"
 cap label var INST_OTH "Other institution"
 cap label var HH "Household"

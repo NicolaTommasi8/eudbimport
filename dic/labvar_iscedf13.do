@@ -87,6 +87,7 @@ cap label var F048 "Inter-disciplinary programmes and qualifications involving b
 cap label var F0488 "Inter-disciplinary programmes and qualifications involving business, administration and law"
 cap label var F049 "Business, administration and law not elsewhere classified"
 cap label var F0499 "Business, administration and law not elsewhere classified"
+cap label var F05_06_07 "Natural sciences, mathematics and statistics; Information and Communication Technologies; engineering, manufacturing and construction"
 cap label var F05 "Natural sciences, mathematics and statistics"
 cap label var F050 "Natural sciences, mathematics and statistics not further defined"
 cap label var F0500 "Natural sciences, mathematics and statistics not further defined"

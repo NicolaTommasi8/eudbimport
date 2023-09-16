@@ -1,0 +1,4 @@
+cap label var CAT_A "Single highest grade/post at which research is normally conducted"
+cap label var CAT_B "Researchers working in positions not as senior as top position (A) but more senior than newly qualified doctoral graduates (ISCED level 8)"
+cap label var CAT_C "First grade/post into which a newly qualified doctoral graduate would normally be recruited"
+cap label var CAT_D "Either doctoral students at the ISCED level 8 who are engaged as researchers, or researchers working in posts that do not normally require a doctorate degree"

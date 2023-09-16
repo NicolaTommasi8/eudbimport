@@ -1,0 +1,7 @@
+cap label var TOTAL "Total"
+cap label var FAM "Family member, friend or colleague"
+cap label var PRM "Printed material"
+cap label var COM "Computer"
+cap label var TV "Television, radio or video"
+cap label var MUS "Guided tours of museums, historical, natural or industrial sites"
+cap label var LIB "Visiting learning centres (including libraries)"

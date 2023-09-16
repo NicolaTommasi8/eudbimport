@@ -1,6 +1,7 @@
 cap label var TOTAL "Total"
 cap label var VH_H "Very high or high"
 cap label var VHIGH "Very high"
+cap label var GRT_DIF_SOME "Great, difficult or some"
 cap label var GRT_MOD_SOME "Great, moderate or some"
 cap label var GRT "Great"
 cap label var HIGH "High"

@@ -54,6 +54,7 @@ capture label var c_ctrl "Country, in which the controlling enterprise is locate
 capture label var c_dest "Country of destination"
 capture label var c_educ "Country of education"
 capture label var c_load "Country/region of loading/embarking"
+capture label var c_orig "Country of origin"
 capture label var c_regis "Country of registration"
 capture label var c_resid "Country of residence"
 capture label var c_trans "Country of transit"
@@ -141,6 +142,7 @@ capture label var expend "Expenditure and investment"
 capture label var expernce "Experience"
 capture label var facility "Health facility"
 capture label var factor "Factors"
+capture label var farmsize "Farm size"
 capture label var farmtype "Farm type"
 capture label var fdi_item "FDI item"
 capture label var field "Education or training field"
@@ -555,6 +557,9 @@ capture label var yn_web "Internet booking"
 capture label var ynlfs "Modalities of the variable for the ad-hoc module"
 
 
+capture label var rskpovth "Risk of poverty threshold"
+
+
 **comext label vars
 capture label var decl "Declarant"
 capture label var prccode "Product code"
@@ -568,7 +573,6 @@ if "`strrec'" != "" {
     di in yellow "strrec not installed... installing..."
     ssc inst strrec
   }
-
 
   capture confirm variable decl
   if !_rc {
@@ -631,7 +635,6 @@ if "`strrec'" != "" {
     label var freq "Time frequency"
   }
 
-
   capture confirm variable s_adj
   if !_rc {
     qui count if s_adj==""
@@ -647,7 +650,6 @@ if "`strrec'" != "" {
     label var s_adj "Seasonal adjustment"
   }
 
-
   capture confirm variable sex
   if !_rc {
     qui count if sex==""
@@ -660,9 +662,82 @@ if "`strrec'" != "" {
     label var sex "Sex"
   }
 
+  capture confirm variable lev_efcy
+  if !_rc {
+    qui count if lev_efcy==""
+    local pre=r(N)
+    strrec lev_efcy ("LOW"=1 "Low") ("HIGH"=2 "High") ("ALL"=9 "All levels"), replace
+    qui count if lev_efcy==.
+    assert `pre'==r(N)
+    label var lev_efcy "Level of efficiency"
+  }
+
+  capture confirm variable airsect
+  if !_rc {
+    qui count if airsect==""
+    local pre=r(N)
+    strrec airsect ("1"=1 "Energy") ("TOT_X_5"=9 "Total emissions"), replace
+    qui count if airsect==.
+    assert `pre'==r(N)
+    label var airsect "Source sectors for air emissions"
+  }
+
+  /***
+    capture confirm variable cxt_eu_flux
+    if !_rc {
+      qui count if cxt_eu_flux==""
+      local pre=r(N)
+      strrec cxt_eu_flux , replace
+      qui count if cxt_eu_flux==.
+      assert `pre'==r(N)
+      label var cxt_eu_flux ""
+    }
+  cap label var _1 "IMPORT"
+  cap label var _2 "EXPORT"
+  cap label var _3 "RE-EXPORT"
+  ***/
+
+  capture confirm variable bark
+  if !_rc {
+    qui count if bark==""
+    local pre=r(N)
+    strrec bark ("UNBK"=1 "Under bark") ("OVBK"=2 "Over bark"), replace
+    qui count if bark==.
+    assert `pre'==r(N)
+    label var bark "Under bark / over bark"
+  }
+
+  /***
+  annex
+  cap label var _1 "Annex 1"
+  cap label var _6 "Annex 6"
+  ***/
+
+
+  capture confirm variable farmsize
+  if !_rc {
+    qui count if farmsize==""
+    local pre=r(N)
+    strrec farmsize ("SMAL"=1 "Small") ("LARGE"=2 "Large") ("TOTAL"=9 "Total"), replace
+    qui count if farmsize==.
+    assert `pre'==r(N)
+    label var farmsize "Farm size"
+  }
+
+
+
+  capture confirm variable lev_fins
+  if !_rc {
+    qui count if lev_fins==""
+    local pre=r(N)
+    strrec lev_fins ("BAD"=1 "Bad") ("GOOD"=2 "Good"), replace
+    qui count if lev_fins==.
+    assert `pre'==r(N)
+    label var lev_fins "Level of financial situation"
+  }
+
 }
 
 
 
 exit
-

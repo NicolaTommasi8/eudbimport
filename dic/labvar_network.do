@@ -1,3 +1,4 @@
+cap label var TOTAL "Total"
 cap label var DHEAT "District heating"
 cap label var DHEAT_STM "District heating - steam"
 cap label var DHEAT_HW "District heating - hot water"
@@ -7,3 +8,4 @@ cap label var ICL_BLWTH_SC_HH "Individual cooling below threshold - space coolin
 cap label var ICL_BLWTH_SC_CP "Individual cooling below threshold - space cooling - commercial and public (tertiary) sector"
 cap label var ICL_BLWTH_PC "Individual cooling below threshold - process cooling"
 cap label var ICL_OTH "Other individual cooling"
+cap label var OTH "Other"

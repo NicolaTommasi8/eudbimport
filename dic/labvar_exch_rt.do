@@ -10,7 +10,7 @@ cap label var REER_EA18_ULCT "Real effective exchange rate (deflator: unit labou
 cap label var REER_EA19_CPI "Real effective exchange rate (deflator: consumer price index - 19 trading partners - euro area from 2015)"
 cap label var REER_EA20_CPI "Real effective exchange rate (deflator: consumer price index - 20 trading partners - euro area from 2023)"
 cap label var REER_EA19_ULCT "Real effective exchange rate (deflator: unit labour costs in the total economy - 19 trading partners - euro area from 2015)"
-cap label var REER_EA20_ULTC "Real effective exchange rate (deflator: unit labour costs in the total economy - 20 trading partners - euro area from 2023)"
+cap label var REER_EA20_ULCT "Real effective exchange rate (deflator: unit labour costs in the total economy - 20 trading partners - euro area from 2023)"
 cap label var REER_EU27_2020_CPI "Real effective exchange rate (deflator: consumer price index - 27 trading partners - European Union from 2020)"
 cap label var REER_EU28_CPI "Real effective exchange rate (deflator: consumer price index - 28 trading partners - European Union 2013-2020)"
 cap label var REER_EU27_2020_ULCT "Real effective exchange rate (deflator: unit labour costs in the total economy - 27 trading partners - European Union from 2020)"

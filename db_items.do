@@ -5,39 +5,36 @@ cls
 capture mkdir items
 capture mkdir dic
 
+/***********
 **? import & download items ?**
-**Code lists -> Download operations -> Download full list of items (.txt) -> rename in Full_code_List_EN.txt
-
-/*****
-import delimited "items/Full_code_List_EN.txt", clear
+**Code lists -> Download operations -> Download full list of items (.txt)
+import delimited "items/Full_Items_List_EN.txt", clear
 qui count
 forvalues j=1/`r(N)' {
-  local link = latesttsvdownloadurl in `j'
-  local name = code  in `j'
-  local name = "ESTAT_`name'_en.tsv"
-  di "`name', `j' di `r(N)'"
-  copy "`link'" "items/`name'", replace
-}
-****/
-
-**? import & download items for comext ?**
-**Comext code lists -> Download operations -> Download full list of items (.txt) -> rename in Full_comext_List_EN.txt
-
-/***
-import delimited "items/Full_comext_List_EN.txt", clear
-qui count
-forvalues j=1/`r(N)' {
-  **local link = latesttsvdownloadurl in `j'
   local link = specifictsvdownloadurl in `j'
   local name = code  in `j'
   local name = "ESTAT_`name'_en.tsv"
   di "`name', `j' di `r(N)'"
   copy "`link'" "items/`name'", replace
-  qwe
 }
-****/
+*********************/
 
 
+/******
+**? import & download items for comext ?**
+**Comext code lists -> Download operations -> Download full list of items (.txt)
+**  -> rename in Full_comext_List_EN.txt
+import delimited "items/Full_comext_List_EN.txt", clear
+qui count
+forvalues j=1/`r(N)' {
+  local code = code in `j'
+  local link = "https://ec.europa.eu/eurostat/api/comext/dissemination/sdmx/2.1/codelist/ESTAT/`code'/latest?compressed=false&format=TSV&lang=en"
+  local name = code  in `j'
+  local name = "ESTAT_`name'_en.tsv"
+  di "`name', `j' di `r(N)'"
+  copy "`link'" "items/`name'", text replace
+}
+*********/
 
 
 
@@ -53,7 +50,7 @@ foreach f of local itemslist {
   di "`item'"
   local item = lower("`item'")
 
-  import delimited "items/`f'", clear encoding(UTF-8) stringcols(_all) delimiter(tab) varnames(nonames)
+  qui import delimited "items/`f'", clear encoding(UTF-8) stringcols(_all) delimiter(tab) varnames(nonames)
 
   **alcuni errori da correggere:
   if "`f'"=="ESTAT_INDIC_IN_en.tsv" replace v2=subinstr(v2,`"innovation""', "innovation",1)
@@ -114,11 +111,6 @@ foreach f of local itemslist {
     replace v2 = subinstr(v2,"(Rural development support)","",1)
   }
 
-
-
-
-
-
   gen labelvar = "cap label var " + v1 + `" ""' + v2 + `"""'
 
    **variable è una reserved word, quindi si rinomina in VARIABLE
@@ -126,30 +118,9 @@ foreach f of local itemslist {
   outfile labelvar using "dic/labvar_`item'.do", replace noquote
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 exit
+
+**! copia cartella dic in GitHub/eudbimport/
+
+
 

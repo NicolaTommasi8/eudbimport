@@ -45,6 +45,7 @@ cap label var M2 "Currency in circulation and overnight deposits (M1) plus depos
 cap label var M3 "Currency in circulation and overnight deposits (M1) plus deposits with an agreed maturity up to 2 years and deposits redeemable at a period of notice up to 3 months (M2) plus repurchase agreements and money market fund (MMF) shares/units and debt securities up to 2 years"
 cap label var STK "Stock"
 cap label var STK_OP "Opening stock"
+cap label var STKOP_CG "Opening stock - cushion gas"
 cap label var STK_CL "Closing stock"
 cap label var STKCL_CG "Closing stock - cushion gas"
 cap label var STKOP_EUE "Opening stock - EU emergency"
