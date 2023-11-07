@@ -31,10 +31,11 @@ cd ../..
 
 **evidenzia cambiamenti nei dbs
 
-import delimited "Full_Items_List_EN16.txt", clear varnames(1)
+import delimited "Full_Items_List_EN17.txt", clear varnames(1)
 save temp1, replace
 
-import delimited "Full_Items_List_EN.txt", clear varnames(1)
+import delimited "inventory.txt", clear varnames(1)
+drop if type=="EXTRACTION"
 merge 1:1 code using temp1
 
 **aggiunti nell'ultimo

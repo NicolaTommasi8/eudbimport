@@ -288,6 +288,15 @@ if "`reshapevar'"=="na_item" {
   qui replace `reshapevar'="D2_D5_D91tmp1" if `reshapevar'=="D2_D5_D91_D61_M_D611V_D612_M_M_D"
   qui replace `reshapevar'="D2_D5_D91tmp2" if `reshapevar'=="D2_D5_D91_D61_M_D612_M_D614_M_D9"
 }
+if "`reshapevar'"=="indic_sbs" {
+  qui replace `reshapevar'="EMP_SALGEtmp1" if `reshapevar'=="EMP_SALGE1_SRVL_YBRTH_CHB_NR"
+  qui replace `reshapevar'="ENT_SALGEtmp1" if `reshapevar'=="ENT_SALGE1_BRTH_EMPSIZE_NR"
+  qui replace `reshapevar'="ENT_SALGE_DTHtmp1" if `reshapevar'=="ENT_SALGE1_DTH_EMPSIZE_NR"
+  qui replace `reshapevar'="ENT_SALGE_SRVtmp1" if `reshapevar'=="ENT_SALGE1_SRVLR_BRTH_CHB_PC"
+  qui replace `reshapevar'="ENT_SALGE_SRVtmp2" if `reshapevar'=="ENT_SALGE1_SRVL_EMPSIZE_NR"
+  qui replace `reshapevar'="GRW_EMPtmp1" if `reshapevar'=="GRW_EMP_SALGE1_SRVL_CHB_PC"
+}
+
 di "I'm reshaping wide..."
 qui drop if `reshapevar'==""
 if "`debug'"!="" timer on 13
@@ -302,6 +311,15 @@ if "`reshapevar'"=="na_item" {
   capture rename D2_D5_D91tmp1 D2_D5_D91_D61_M_D611V_D612_M_M_D
   capture rename D2_D5_D91tmp2 D2_D5_D91_D61_M_D612_M_D614_M_D9
 }
+if "`reshapevar'"=="indic_sbs" {
+  capture rename EMP_SALGEtmp1 EMP_SALGE1_SRVL_YBRTH_CHB_NR
+  capture rename ENT_SALGEtmp1 ENT_SALGE1_BRTH_EMPSIZE_NR
+  capture rename ENT_SALGE_DTHtmp1 ENT_SALGE1_DTH_EMPSIZE_NR
+  capture rename ENT_SALGE_SRVtmp1 ENT_SALGE1_SRVLR_BRTH_CHB_PC
+  capture rename ENT_SALGE_SRVtmp2 ENT_SALGE1_SRVL_EMPSIZE_NR
+  capture rename GRW_EMPtmp1 GRW_EMP_SALGE1_SRVL_CHB_PC
+}
+
 
 
 if "`destring'"=="" {

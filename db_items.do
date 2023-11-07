@@ -5,10 +5,10 @@ cls
 capture mkdir items
 capture mkdir dic
 
-/***********
+/******
 **? import & download items ?**
-**Code lists -> Download operations -> Download full list of items (.txt)
-import delimited "items/Full_Items_List_EN.txt", clear
+**Code lists -> Download inventory -> save inventory_code_list.txt
+import delimited "items/inventory_code_list.txt", clear
 qui count
 forvalues j=1/`r(N)' {
   local link = specifictsvdownloadurl in `j'
@@ -17,14 +17,14 @@ forvalues j=1/`r(N)' {
   di "`name', `j' di `r(N)'"
   copy "`link'" "items/`name'", replace
 }
-*********************/
+
+******************/
 
 
-/******
+/*********
 **? import & download items for comext ?**
-**Comext code lists -> Download operations -> Download full list of items (.txt)
-**  -> rename in Full_comext_List_EN.txt
-import delimited "items/Full_comext_List_EN.txt", clear
+**Comext code lists -> Download inventory -> save inventory_code_comext.txt
+import delimited "items/inventory_code_comext.txt", clear
 qui count
 forvalues j=1/`r(N)' {
   local code = code in `j'
@@ -38,7 +38,7 @@ forvalues j=1/`r(N)' {
 
 
 
-
+***! QUESTI POI VANNO COPIATI IN GitHub/eudbimport/dic/
 local itemslist : dir "items" files "*.tsv", respectcase
 local nitems : word count `itemslist'
 di `nitems'
@@ -72,7 +72,7 @@ foreach f of local itemslist {
     replace v1="C__E" if v1=="C-E"
     replace v1="L__Q" if v1=="L-Q"
   }
-  if "`f'" == "ESTAT_NACE_R2_en.tsv" {
+  if inlist("`f'","ESTAT_NACE_R2_en.tsv","ESTAT_NACE_R2D_en.tsv") {
     replace v1="B06__B09" if v1=="B06-B09"
     replace v1="O__U" if v1=="O-U"
   }
@@ -119,8 +119,5 @@ foreach f of local itemslist {
 }
 
 exit
-
-**! copia cartella dic in GitHub/eudbimport/
-
 
 
