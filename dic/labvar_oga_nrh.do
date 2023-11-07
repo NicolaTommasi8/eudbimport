@@ -1,0 +1,5 @@
+cap label var TOTAL "Total"
+cap label var OGA_HLD_NRH "Holder having other gainful activities (not related to the agricultural holding)"
+cap label var MOGA_HLD_NRH "Holder having other gainful activities (not related to the agricultural holding) as main activity"
+cap label var SOGA_HLD_NRH "Holder having other gainful activities (not related to the agricultural holding) as secondary activity"
+cap label var NOGA_HLD_NRH "Holder not having other gainful activities (not related to the agricultural holding)"

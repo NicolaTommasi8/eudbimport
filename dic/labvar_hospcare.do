@@ -1,0 +1,5 @@
+cap label var DIS "Total discharges"
+cap label var ALOS "In-patient average length of stay"
+cap label var BEDDAY "In-patient hospital bed-days"
+cap label var INPAT "In-patient discharges"
+cap label var DAYCASE "Day case discharges"

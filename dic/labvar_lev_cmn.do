@@ -1,0 +1,5 @@
+cap label var TOTAL "Total"
+cap label var VCMN "Very common"
+cap label var FCMN "Fairly common"
+cap label var NVCMN "Not very common"
+cap label var NCMN "Not common at all"

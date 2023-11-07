@@ -1,0 +1,7 @@
+cap label var TOTAL "Total"
+cap label var GADMIN "General administration"
+cap label var OPER "Operations - total"
+cap label var OPER_OT "Operations - operating and traffic"
+cap label var OPER_TRS "Operations - traction and rolling stock"
+cap label var OPER_WW "Operations - ways and works"
+cap label var OTH "Other"

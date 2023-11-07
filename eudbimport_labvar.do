@@ -556,8 +556,12 @@ capture label var yn_rskpov "At risk of poverty"
 capture label var yn_web "Internet booking"
 capture label var ynlfs "Modalities of the variable for the ad-hoc module"
 
-
 capture label var rskpovth "Risk of poverty threshold"
+capture label var fodder "Share of fodder area in utilised agricultural area"
+capture label var uaarea "Utilised agricultural area"
+capture label var wrkt_stsk "Working time on specific task"
+
+
 
 
 **comext label vars

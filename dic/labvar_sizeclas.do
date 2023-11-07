@@ -1,5 +1,6 @@
 cap label var TOTAL "Total"
 cap label var _0 "Zero"
+cap label var _0_9 "From 0 to 9 employees"
 cap label var _0_49 "From 0 to 49 employees"
 cap label var _1_4 "From 1 to 4 employees"
 cap label var _1_5 "From 1 to 5 employees"

@@ -1,0 +1,5 @@
+cap label var TOTAL "Total"
+cap label var STCL1 "Seats, first class"
+cap label var STCL2 "Seats, second class"
+cap label var STMIX "Mixed seats"
+cap label var BRT "Berths in couchettes and sleeping cars"
