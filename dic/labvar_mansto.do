@@ -1,3 +1,4 @@
+cap label var TOTAL "Total"
 cap label var ST_SO_HEAP "Manure solid storage in heaps"
 cap label var ST_COMP "Manure stored in compost piles"
 cap label var ST_PIT "Manure stored in pits below animal confinement"

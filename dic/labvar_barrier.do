@@ -107,6 +107,8 @@ cap label var CANC_ORD_DOM "Cancellation of orders or decline in incoming orders
 cap label var CANC_ORD_ABR "Cancellation of orders or decline in incoming orders, from customers abroad"
 cap label var CHG_SLS_CHAN "Change in sales channels"
 cap label var COV19 "COVID-19 related concerns and issues"
+cap label var SANC_RU "Sanctions on Russia"
+cap label var ENV "Environmental policy related factors"
 cap label var OTH "Other"
 cap label var OTHER "Other barriers"
 cap label var NONE "None"

@@ -3,8 +3,3 @@ cap label var FCONV_UCONV "Fully converted and under conversion to organic farmi
 cap label var FCONV "Fully converted to organic farming"
 cap label var UCONV "Under conversion to organic farming"
 cap label var TOT_GH "Total in green house converted and under conversion to organic farming"
-cap label var ORG "Organic farming"
-cap label var FORG "Fully organic farming"
-cap label var PORG "Partially organic farming"
-cap label var NORG "No organic farming"
-cap label var ORG_NORG "Organic and non-organic farming"

@@ -62,3 +62,4 @@ cap label var OTH_NCH "Person in another type of household living without childr
 cap label var NAP "Not applicable"
 cap label var NRP "No response"
 cap label var UNK "Unknown"
+cap label var NONE "None"

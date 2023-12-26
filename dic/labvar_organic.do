@@ -1,3 +1,8 @@
 cap label var TOTAL "Total"
+cap label var ORG "Organic farming"
+cap label var FORG "Fully organic farming"
+cap label var PORG "Partially organic farming"
+cap label var NORG "Non-organic farming"
+cap label var ORGNORG "Organic and non-organic farming"
 cap label var ORGANIC "Holdings with area under organic farming"
 cap label var NONORG "Holdings without area under organic farming"

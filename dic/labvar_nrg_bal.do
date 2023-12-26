@@ -102,6 +102,7 @@ cap label var TI_EHG_EPS "Transformation input - electricity and heat generation
 cap label var TI_EHG_EPS_PURE "Transformation input - electricity and heat generation - electricity for pumped storage - pure hydro plants"
 cap label var TI_EHG_EPS_MIX "Transformation input - electricity and heat generation - electricity for pumped storage - mixed plants"
 cap label var TI_EHG_DHEP "Transformation input - electricity and heat generation - derived heat for electricity production"
+cap label var TI_EHG_CB "Transformation input - electricity and heat generation - charging batteries"
 cap label var TI_EHG_OTH "Transformation input - electricity and heat generation - other"
 cap label var TI_CO "Transformation input - coke ovens"
 cap label var TI_CO_E "Transformation input - coke ovens - energy use"

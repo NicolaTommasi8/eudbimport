@@ -1,4 +1,5 @@
 cap label var TOTAL "Total"
+cap label var MOD_SEV "Moderate or severe"
 cap label var MOD "Moderate"
 cap label var SOME "Some"
 cap label var LTD_NSEV_NONE "Limited but not severely or not limited at all"
