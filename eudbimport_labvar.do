@@ -561,8 +561,17 @@ capture label var fodder "Share of fodder area in utilised agricultural area"
 capture label var uaarea "Utilised agricultural area"
 capture label var wrkt_stsk "Working time on specific task"
 
+capture label var nace_r2d 	"Classification of economic activities (NACE Rev. 2 for industry of destination)"
+capture label var ecosyst "Ecosystem typology"
+capture label var ecosyst_c "Ecosystem typology converted"
+capture label var pers_serv "Person/support service"
+capture label var vot_cat "Category of voters"
+capture label var yn_care "Use of profesional care"
 
-
+capture label var ind_use "Industries and final uses"
+capture label var ind_ava "Industries, adjustments and value added"
+capture label var prd_ava "Products, adjustments and value added"
+capture label var prd_use "Products and final uses"
 
 **comext label vars
 capture label var decl "Declarant"
@@ -580,7 +589,7 @@ if "`strrec'" != "" {
 
   capture confirm variable decl
   if !_rc {
-    destring decl, replace
+    qui destring decl, replace
     capture label define decl 1	"France"  ///
                               2	"Belg.-Luxbg"  ///
                               3	"Netherlands"  ///
@@ -630,10 +639,10 @@ if "`strrec'" != "" {
   if !_rc {
     qui count if freq==""
     local pre=r(N)
-    strrec freq ("H"=1 "Hourly") ("D"=2 "Daily") ("B"=3 "Daily - business week") ///
-                ("W"=4 "Weekly") ("M"=5 "Monthly") ("Q"=6 "Quarterly") ///
-                ("S"=7 "Half-yearly, semesterly") ("A"=8 "Annual") ("P"=9 "Pluri-annual") ///
-                ("I"=10 "Irregular / A-periodic"), replace
+    qui strrec freq ("H"=1 "Hourly") ("D"=2 "Daily") ("B"=3 "Daily - business week") ///
+                    ("W"=4 "Weekly") ("M"=5 "Monthly") ("Q"=6 "Quarterly") ///
+                    ("S"=7 "Half-yearly, semesterly") ("A"=8 "Annual") ("P"=9 "Pluri-annual") ///
+                    ("I"=10 "Irregular / A-periodic"), replace
     qui count if freq==.
     assert `pre'==r(N)
     label var freq "Time frequency"
@@ -643,12 +652,12 @@ if "`strrec'" != "" {
   if !_rc {
     qui count if s_adj==""
     local pre=r(N)
-    strrec s_adj ("NSA"=1 "Unadjusted data")  ///
-                 ("SA"=2 "Seasonally adjusted data, not calendar adjusted data") ///
-                 ("CA"=3 "Calendar adjusted data, not seasonally adjusted data") ///
-                 ("SCA"=4 "Seasonally and calendar adjusted data") ///
-                 ("TC"=5 "Trend cycle data") ///
-                 ("NAP"=6 "Not applicable"), replace
+    qui strrec s_adj ("NSA"=1 "Unadjusted data")  ///
+                     ("SA"=2 "Seasonally adjusted data, not calendar adjusted data") ///
+                     ("CA"=3 "Calendar adjusted data, not seasonally adjusted data") ///
+                     ("SCA"=4 "Seasonally and calendar adjusted data") ///
+                     ("TC"=5 "Trend cycle data") ///
+                     ("NAP"=6 "Not applicable"), replace
     qui count if s_adj==.
     assert `pre'==r(N)
     label var s_adj "Seasonal adjustment"
@@ -658,9 +667,9 @@ if "`strrec'" != "" {
   if !_rc {
     qui count if sex==""
     local pre=r(N)
-    strrec sex ("T"=1 "Total") ("M"=2 "Males") ("F"=3 "Females") ///
-               ("DIFF"=4 "Absolute difference between males and females") ///
-               ("NAP"=5 "Not applicable") ("NRP"=6 "No response") ("UNK"=7 "Unknown"), replace
+    qui strrec sex ("T"=1 "Total") ("M"=2 "Males") ("F"=3 "Females") ///
+                   ("DIFF"=4 "Absolute difference between males and females") ///
+                   ("NAP"=5 "Not applicable") ("NRP"=6 "No response") ("UNK"=7 "Unknown"), replace
     qui count if sex==.
     assert `pre'==r(N)
     label var sex "Sex"
@@ -670,7 +679,7 @@ if "`strrec'" != "" {
   if !_rc {
     qui count if lev_efcy==""
     local pre=r(N)
-    strrec lev_efcy ("LOW"=1 "Low") ("HIGH"=2 "High") ("ALL"=9 "All levels"), replace
+    qui strrec lev_efcy ("LOW"=1 "Low") ("HIGH"=2 "High") ("ALL"=9 "All levels"), replace
     qui count if lev_efcy==.
     assert `pre'==r(N)
     label var lev_efcy "Level of efficiency"
@@ -680,7 +689,7 @@ if "`strrec'" != "" {
   if !_rc {
     qui count if airsect==""
     local pre=r(N)
-    strrec airsect ("1"=1 "Energy") ("TOT_X_5"=9 "Total emissions"), replace
+    qui strrec airsect ("1"=1 "Energy") ("TOT_X_5"=9 "Total emissions"), replace
     qui count if airsect==.
     assert `pre'==r(N)
     label var airsect "Source sectors for air emissions"
@@ -705,7 +714,7 @@ if "`strrec'" != "" {
   if !_rc {
     qui count if bark==""
     local pre=r(N)
-    strrec bark ("UNBK"=1 "Under bark") ("OVBK"=2 "Over bark"), replace
+    qui strrec bark ("UNBK"=1 "Under bark") ("OVBK"=2 "Over bark"), replace
     qui count if bark==.
     assert `pre'==r(N)
     label var bark "Under bark / over bark"
@@ -722,7 +731,7 @@ if "`strrec'" != "" {
   if !_rc {
     qui count if farmsize==""
     local pre=r(N)
-    strrec farmsize ("SMAL"=1 "Small") ("LARGE"=2 "Large") ("TOTAL"=9 "Total"), replace
+    qui strrec farmsize ("SMAL"=1 "Small") ("LARGE"=2 "Large") ("TOTAL"=9 "Total"), replace
     qui count if farmsize==.
     assert `pre'==r(N)
     label var farmsize "Farm size"
@@ -734,11 +743,68 @@ if "`strrec'" != "" {
   if !_rc {
     qui count if lev_fins==""
     local pre=r(N)
-    strrec lev_fins ("BAD"=1 "Bad") ("GOOD"=2 "Good"), replace
+    qui strrec lev_fins ("BAD"=1 "Bad") ("GOOD"=2 "Good"), replace
     qui count if lev_fins==.
     assert `pre'==r(N)
     label var lev_fins "Level of financial situation"
   }
+
+
+
+  capture confirm variable QNTUNIT
+  if !_rc {
+    qui replace QNTUNIT="" if strmatch(QNTUNIT,"*:*") | strmatch(QNTUNIT,"*-*")
+    qui count if QNTUNIT==""
+    local pre=r(N)
+    qui strrec QNTUNIT ("GT" = 1000 "Gross tonnage")  ///
+                       ("CGT" = 1050 "Compensated Gross Tonne")  ///
+                       ("c/k" = 1100 "Carats")  ///
+                       ("ce/el" = 1200 "Number of elements")  ///
+                       ("ct/l" = 1300 "Carrying capacity in tonnes")  ///
+                       ("g" = 1400 "Gram")  ///
+                       ("kg" = 1500 "Kilogram")  ///
+                       ("kg Al2O3" = 1510 "Kilogram of dialuminium trioxide")  ///
+                       ("kg B2O3" = 1511 "Kilogram of diboron trioxide")  ///
+                       ("kg BaCO3" = 1512 "Kilogram of barium carbonate")  ///
+                       ("kg Cl" = 1513 "Kilogram of chlorine")  ///
+                       ("kg F" = 1514 "Kilogram of fluorine")  ///
+                       ("kg HCl" = 1515 "Kilogram of hydrogen chloride")  ///
+                       ("kg H2O2" = 1516 "Kilogram of hydrogen peroxide")  ///
+                       ("kg KOH" =  1517 "Kilogram of potassium hydroxide (caustic potash)")  ///
+                       ("kg K2O" =  1518 "Kilogram of potassium oxide")  ///
+                       ("kg K2CO3" = 1519 "Kilogram of potassium carbonate")  ///
+                       ("kg N" = 1520 "Kilogram of nitrogen")  ///
+                       ("kg NaOH" = 1521 "Kilogram of sodium hydroxide (caustic soda)")  ///
+                       ("kg Na2CO3" = 1522 "Kilogram of sodium carbonate")  ///
+                       ("kg Na2S2O5" = 1523 "Kilogram of sodium pyrosulphide")  ///
+                       ("kg PbO" = 1524 "Kilogram of lead oxide")  ///
+                       ("kg P2O5" = 1525 "Kilogram of phosphorus pentoxide (phosphoric anhydride)")  ///
+                       ("kg S" = 1526 "Kilogram of sulphur")  ///
+                       ("kg SO2" = 1527 "Kilogram of sulphur dioxide")  ///
+                       ("kg SiO2" = 1528 "Kilogram of silicon dioxide")  ///
+                       ("kg TiO2" = 1529 "Kilogram of titanium dioxide")  ///
+                       ("kg act. Subst." "kg act. subst." "kg act.subst" "kg act.subst." = 1530 "Kilogram of activate substance")  ///
+                       ("kg 90% sdt" = 1531 "Kilogram of substance 90% dry")  ///
+                       ("kg HF" = 1532 "Kilogram of hydrogen fluoride")  ///
+                       ("kg H2SO4" = 1534 "Kilogram of sulfuric acid")  ///
+                       ("kg effect" = 1599 "kg effect ???")  ///
+                       ("km" = 1700 "Kilometer")  ///
+                       ("kW" = 1800 "Kilowatt")  ///
+                       ("1 000 kWh" = 1900 "1 000 kilowatt hours 1900") ///
+                       ("l" = 2000 "Litre")  ///
+                       ("l alc 100%" = 2100 "Litre pure (100%) alcohol")  ///
+                       ("m" = 2200 "Metre")  ///
+                       ("m2" = 2300 "Square metre")  ///
+                       ("m3" = 2400 "Cubic metre")  ///
+                       ("pa" = 2500 "Number of pairs")  ///
+                       ("p/st" = 2600 "Number of items")  ///
+                       ("TJ" = 2900 "Terajoule (gross calorific value)") ///
+                       ("NA" = 9999 "NA"), replace
+    qui count if QNTUNIT==.
+    assert `pre'==r(N)
+    label var QNTUNIT "Prodcom unit code"
+  }
+
 
 }
 
