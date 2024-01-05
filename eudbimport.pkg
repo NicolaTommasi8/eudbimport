@@ -1,8 +1,8 @@
-v 1.9
+v 2.0
 d eudbimport. Package to import EUROSTAT dababases.
 d Program by Nicola Tommasi (nicola.tommasi@univr.it)
 d
-d Distribution-Date: 20231107
+d Distribution-Date: 20240105
 
 
 * I can also insert comments; these will not be displayed.
