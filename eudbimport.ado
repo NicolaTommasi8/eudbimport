@@ -1,3 +1,7 @@
+*! version 2.0  Nicola Tommasi  28dec2023
+*               ability to import database with $ in DBNAME (Type=EXTRACTION) --> new option dollar()
+*               new missing's coding (__labmiss)
+
 *! version 1.9  Nicola Tommasi  01mar2023
 *               new option strrec: destring some variables (decl, freq, s_adj, sex ...)
 
@@ -21,23 +25,29 @@
 *! version 1.1b  Nicola Tommasi  26sep2022
 *! version 1.0b  Nicola Tommasi  01sep2022
 
-**TODO#1 destring & label declarant in DS-*
-**TODO#2 exclude *FLAG from destring (local VtoDESTR)  in DS-*
-
-
 program eudbimport
 version 17
 
-syntax anything /*(min=1 max=1)*/,  ///
+syntax anything,  ///
        [reshapevar(name max=1) rawdata(string) outdata(string)    ///
         download select(string asis) timeselect(string asis) ///
-        nosave erase strrec ///
+        nosave erase strrec dollar(string) ///
         compress(string) decompress(string) /*undocumented*/ ///
         nodestring /*undocumented*/ ///
         debug /*undocumented*/ ]
 
 **pay attention #1: local nodestring is destring
 **pay attention #2: local nosave is save
+
+set tracedepth 1
+
+local D : subinstr local dollar "$" "_S_"
+
+capture which fre
+if _rc==111 {
+  di in yellow "fre not installed.... installing..."
+  ssc inst fre
+}
 
 capture which gtools
 if _rc==111 {
@@ -51,7 +61,6 @@ if _rc==111 {
   ssc inst missings
 }
 
-**set tracedepth 1
 if "`debug'"!="" {
   timer clear
   timer on 1
@@ -63,23 +72,22 @@ if `check0'!=1 {
   exit
 }
 
-
-
+**! DOWNLOAD !**
 if "`download'"!="" {
   if "`debug'"!="" timer on 10
   di "I'm downloading the file..."
   if strmatch("`anything'","DS-*") qui capture copy "https://ec.europa.eu/eurostat/api/comext/dissemination/sdmx/2.1/data/`anything'/?format=TSV" "`rawdata'`anything'.tsv", replace
-  else qui capture copy "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/`anything'/?format=TSV" "`rawdata'`anything'.tsv", replace
+  else qui capture copy "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/`anything'`macval(dollar)'/?format=TSV" "`rawdata'`anything'`D'.tsv", replace
+
   if _rc==631 {
     sleep 60000
     if strmatch("`anything'","DS-*") qui capture copy "https://ec.europa.eu/eurostat/api/comext/dissemination/sdmx/2.1/data/`anything'/?format=TSV" "`rawdata'`anything'.tsv", replace
-    else qui copy "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/`anything'/?format=TSV" "`rawdata'`anything'.tsv", replace
+    else qui copy "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/`anything'`macval(dollar)'/?format=TSV" "`rawdata'`anything'`D'.tsv", replace
   }
   if _rc==601 {
-    di "`anything' not found in https://ec.europa.eu/eurostat site"
+    di "`anything'`macval(dollar)' not found in https://ec.europa.eu/eurostat site"
     exit
   }
-
 
   if "`debug'"!="" {
     timer off 10
@@ -87,24 +95,21 @@ if "`download'"!="" {
     di _newline
   }
 }
-else {
-  qui if "`c(os)'" == "Unix" shell 7zz e -y "`rawdata'`anything'.7z" -o`rawdata'
-  else if "`c(os)'"== "Windows" qui shell "$E7z" e -y "`rawdata'`anything'.7z" -o`rawdata'
-  else shell 7zz e -y "`rawdata'`anything'.7z" -o`rawdata' /*mac?*/
-}
 
+**! IMPORT !**
 di "I'm importing data..."
 if "`debug'"!="" timer on 11
-qui import delimited "`rawdata'`anything'.tsv", varnames(1) delimiter(tab) clear stringcols(_all)
+qui import delimited "`rawdata'`anything'`D'.tsv", varnames(1) delimiter(tab) clear stringcols(_all)
 if "`debug'"!="" {
   timer off 11
   timer list 11
   di _newline
 }
+di _newline(1) "Database: `anything'`macval(dollar)'"
 
-di _newline(1) "Database: `anything'"
 
-**keep first var
+
+**! KEEP TIME VAR (FREQ) !**
 qui ds
 local first_var : word 1 of `r(varlist)'
 qui split `first_var', generate(ind_) parse(",")
@@ -120,13 +125,11 @@ forvalues j=1/`nind' {
   rename ind_`j' `varname'
 }
 
-
 **clean splitvars
 local lastvar : word `++nind' of `splitvars'
 local splitvars : list splitvars - lastvar
 di as result "Selection's variables: `splitvars'"
 drop `first_var'
-
 
 qui glevelsof freq, local(freq_presel)
 local freq_presel : list clean freq_presel
@@ -138,9 +141,7 @@ qui ds
 local vl = "`r(varlist)'"
 local vl : list vl - splitvars
 
-**qui levelsof freq, local(freq) clean
-qui glevelsof freq, local(freq)
-local freq : list clean freq
+qui glevelsof freq, local(freq) clean
 tempname index
 
 foreach V of varlist `vl' {
@@ -215,23 +216,18 @@ foreach V of varlist `vl' {
       else drop `V'
     }
   }
-
 }
-
-
 di as result "Time Period: `freq'"
 
-**questo dopo è da togliere o da mettere sotto condizione debug
+**! RESHAPE LONG !**
+**questo dopo è da togliere o da mettere sotto condizione debug, serve x non dover indicare una reshapevar x forza
 if "`reshapevar'"=="" {
   local n_splitvars : word count `splitvars'
   local varsel = runiformint(2,`n_splitvars')
   local reshapevar : word `varsel' of `splitvars'
 }
-
-
 di as result "Reshape variable: `reshapevar'"
 local widevars : list splitvars - reshapevar
-
 **qui replace `reshapevar' = subinstr(`reshapevar',"-","__",.)
 
 di "I'm reshaping long..."
@@ -254,6 +250,8 @@ if "`debug'"!="" {
   di _newline
 }
 
+
+**! RESHAPE WIDE !**
 qui {
   if "`reshapevar'" == "icd10" {
     replace `reshapevar'="C54__C55" if `reshapevar'=="C54-C55"
@@ -272,17 +270,15 @@ qui {
 
   **forse è un errore la presenza di _2000W01 dato che sono date
   if "`reshapevar'" == "time" drop if `reshapevar'=="_2000W01"
-
   if "`reshapevar'" == "unit" replace `reshapevar'="MIO__EUR__NSA" if `reshapevar'=="MIO-EUR-NSA"
-
   replace `reshapevar' = ustrtoname(`reshapevar',1)
 }
-
 qui replace `reshapevar' = subinstr(`reshapevar',"-","__",.)
 
-qui glevelsof `reshapevar', local(VtoDESTR)
-local VtoDESTR : list clean VtoDESTR
-
+ /* le variabili *FLAG dei databases DS-* non possono essere convertite in numeriche */
+qui glevelsof `reshapevar' if strmatch(`reshapevar',"*FLAG")!=1, local(VtoDESTR) clean
+**anche la variabile QNTUNIT dei databases DS-* non può essere convertita in numerica
+local VtoDESTR : subinstr local VtoDESTR " QNTUNIT" "", all
 
 if "`reshapevar'"=="na_item" {
   qui replace `reshapevar'="D2_D5_D91tmp1" if `reshapevar'=="D2_D5_D91_D61_M_D611V_D612_M_M_D"
@@ -290,11 +286,14 @@ if "`reshapevar'"=="na_item" {
 }
 if "`reshapevar'"=="indic_sbs" {
   qui replace `reshapevar'="EMP_SALGEtmp1" if `reshapevar'=="EMP_SALGE1_SRVL_YBRTH_CHB_NR"
+  qui replace `reshapevar'="EMP_SALGEtmp2" if `reshapevar'=="EMP_SALGE1_SRVL_YBRTH_Y3_NR"
   qui replace `reshapevar'="ENT_SALGEtmp1" if `reshapevar'=="ENT_SALGE1_BRTH_EMPSIZE_NR"
   qui replace `reshapevar'="ENT_SALGE_DTHtmp1" if `reshapevar'=="ENT_SALGE1_DTH_EMPSIZE_NR"
   qui replace `reshapevar'="ENT_SALGE_SRVtmp1" if `reshapevar'=="ENT_SALGE1_SRVLR_BRTH_CHB_PC"
   qui replace `reshapevar'="ENT_SALGE_SRVtmp2" if `reshapevar'=="ENT_SALGE1_SRVL_EMPSIZE_NR"
+  qui replace `reshapevar'="ENT_SALGE_SRVtmp3" if `reshapevar'=="ENT_SALGE1_SRVL_EMPSIZE_Y3_NR"
   qui replace `reshapevar'="GRW_EMPtmp1" if `reshapevar'=="GRW_EMP_SALGE1_SRVL_CHB_PC"
+  qui replace `reshapevar'="GRW_EMPtmp2" if `reshapevar'=="GRW_EMP_SALGE1_SRVL_Y3_PC"
 }
 
 di "I'm reshaping wide..."
@@ -313,29 +312,62 @@ if "`reshapevar'"=="na_item" {
 }
 if "`reshapevar'"=="indic_sbs" {
   capture rename EMP_SALGEtmp1 EMP_SALGE1_SRVL_YBRTH_CHB_NR
+  capture rename EMP_SALGEtmp2 EMP_SALGE1_SRVL_YBRTH_Y3_NR
   capture rename ENT_SALGEtmp1 ENT_SALGE1_BRTH_EMPSIZE_NR
   capture rename ENT_SALGE_DTHtmp1 ENT_SALGE1_DTH_EMPSIZE_NR
   capture rename ENT_SALGE_SRVtmp1 ENT_SALGE1_SRVLR_BRTH_CHB_PC
   capture rename ENT_SALGE_SRVtmp2 ENT_SALGE1_SRVL_EMPSIZE_NR
+  capture rename ENT_SALGE_SRVtmp3 ENT_SALGE1_SRVL_EMPSIZE_Y3_NR
   capture rename GRW_EMPtmp1 GRW_EMP_SALGE1_SRVL_CHB_PC
+  capture rename GRW_EMPtmp2 GRW_EMP_SALGE1_SRVL_Y3_PC
 }
 
-
-
+**! DESTRING !**
 if "`destring'"=="" {
+  capture label drop __labmiss
+  label define __labmiss .a "not available" ///
+                         .b "break in time series" ///
+                         .c "confidential" ///
+                         .d "definition differs" ///
+                         .e "estimated" ///
+                         .n "not significant" ///
+                         .p "provisional" ///
+                         .u "low reliability" ///
+                         .z "not applicable"
+
   di "I'm destringing variables..."
   if "`debug'"!="" timer on 14
-  if strmatch("`anything'","DS-*") qui destring `VtoDESTR', replace ignore(",: CEHNRU") float
-  else qui destring `VtoDESTR', replace ignore(",: bcdefnprsuz") float
-  cap confirm numeric variable `VtoDESTR'
+  foreach VtD of local VtoDESTR {
+    qui replace `VtD' = ".a" if inlist(`VtD',": ",":","")
+    qui replace `VtD' = ".b" if strmatch(lower(`VtD'),": b*")
+    qui replace `VtD' = ".c" if strmatch(lower(`VtD'),": c*")
+    qui replace `VtD' = ".d" if strmatch(lower(`VtD'),": d*")
+    qui replace `VtD' = ".e" if strmatch(lower(`VtD'),": e*")
+    qui replace `VtD' = ".n" if strmatch(lower(`VtD'),": n*")
+    qui replace `VtD' = ".p" if strmatch(lower(`VtD'),": p*")
+    qui replace `VtD' = ".u" if strmatch(lower(`VtD'),": s*")
+    qui replace `VtD' = ".u" if strmatch(lower(`VtD'),": u*") | strmatch(lower(`VtD'),":u*")
+    qui replace `VtD' = ".z" if strmatch(lower(`VtD'),": z*")
+    qui replace `VtD'=regexreplace(`VtD'," [a-z]+$","")
+    qui count if strmatch(`VtD',"*high*")==1 | strmatch(`VtD',"*low*")==1
+    if r(N)>0 {
+      di "Some values in `VtD' variable aren't convertible in numeric, NO DESTRING"
+      fre `VtD' if strmatch(`VtD',"*high*") | strmatch(`VtD',"*low*")
+    }
+    else {
+      qui destring `VtD', replace
+      confirm numeric variable `VtD'
+      label values `VtD' __labmiss
+    }
+  }
+
   if "`debug'"!="" {
-    timer off 14
-    timer list 14
-    di _newline
-}
+      timer off 14
+      timer list 14
+      di _newline
+  }
 }
 qui missings dropobs `VtoDESTR', force
-
 
 qui {
   if "`freq'"=="D" {
@@ -380,34 +412,31 @@ qui {
 
   else rename `tmpdt' date
 }
-
 if inlist("`freq'","M","Q","S","W","D") confirm numeric variable date
-
 order `widevars' date
 
+**! LABEL !**
 qui {
-  include "`c(sysdir_plus)'e/eudbimport_labvar.do"
+  include "`c(sysdir_plus)'e/eudbimport_labvar.do" /*vars != reshapevar*/
   tempfile labvarfile
-  if strmatch("`anything'","DS-*") copy "https://raw.githubusercontent.com/NicolaTommasi8/eudbimport/main/dic/labvar_cxt_`reshapevar'.do" `labvarfile', replace
+  if strmatch("`anything'`macval(dollar)'","DS-*") copy "https://raw.githubusercontent.com/NicolaTommasi8/eudbimport/main/dic/labvar_cxt_`reshapevar'.do" `labvarfile', replace
   else copy "https://raw.githubusercontent.com/NicolaTommasi8/eudbimport/main/dic/labvar_`reshapevar'.do" `labvarfile', replace
   include `labvarfile'
   capture drop `tmpdt'
   compress
-  if "`save'"=="" save `outdata'`anything', replace
-  if "`erase'"!=""  erase `rawdata'`anything'.tsv
+  if "`save'"=="" save `outdata'`anything'`macval(dollar)', replace
+  if "`erase'"!=""  erase `rawdata'`anything'`D'.tsv
 }
 
-
+**! INFOS !**
 if "`debug'"!="" {
-  describe
-  summarize
-
+  **describe
+  **summarize
   qui ds
   foreach V in `r(varlist)' {
     local varlab : variable label `V'
-    if "`varlab'"=="" di "variabile `V' senza label in `anything'"
+    if "`varlab'"=="" di "Variable `V' without label in `anything'`macval(dollar)'"
   }
-
   timer off 1
   **di _newline(2)
   qui timer list 1
@@ -421,6 +450,7 @@ if "`debug'"!="" {
   if "`hours'"=="" & "`minutes'"=="" di in ye "Elapsed time was `seconds' seconds."
   else if "`hours'"=="" & `minutes'<. di in ye "Elapsed time was `minutes' minutes, `seconds' seconds."
   else di in ye "Elapsed time was `hours' hours, `minutes' minutes, `seconds' seconds."
+  di in ye "Database: `anything'`macval(dollar)' `r(t1)' seconds."
 }
 
 
