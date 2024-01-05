@@ -1,11 +1,11 @@
 {smcl}
-{* *! version 1.0b  sep2022}{...}
+{* *! version 2.0  Dec2023}{...}
 {cmd:help eudbimport}
 {hline}
 
 
 {title:Version}
-1.0b  September 2022
+2.0  December 2023
 
 
 
@@ -19,11 +19,11 @@
 
 {p 8 14 2}
 {opt eudbimport} {it:DBNAME} {cmd:,} {opt reshapevar(varname)} [ {opt rawdata(string)} {opt outdata(string)} {opt download} {opt select(string)} {opt timeselect(string)}
-{opt nosave} {opt strrec} ]
+{opt nosave} {opt strrec} {opt dollar(string)} ]
 
 
 {pstd}
-dove {it:DBNAME} è il nome del database come riportato sul sito EUROSTAT e va indicato in maiuscolo.
+dove {it:DBNAME} è il nome del database come riportato sul sito EUROSTAT e va indicato in maiuscolo. Per i databases con il simbolo $ nel nome si veda l'opzione {opt dollar(string)}.
 {p_end}
 
 {synoptset 20 tabbed}{...}
@@ -40,8 +40,11 @@ dove {it:DBNAME} è il nome del database come riportato sul sito EUROSTAT e va i
    comandi di Stata per selezionare osservazioni ({opt keep}, {opt drop}...).{p_end}
 {p2coldent : {opt timeselect(string)}} specifica l'intervallo temporale da importare.{p_end}
 {p2coldent : {opt nosave}} specifica che il database importato non venga salvato.{p_end}
-{p2coldent : {opt strrec}} converte in numeriche alcune variabili stringa. La scelta di queste variabili si basa sulla opportunità di conversione in numeriche in base alla tipologia della variabile 
+{p2coldent : {opt strrec}} converte in numeriche alcune variabili stringa. La scelta di queste variabili si basa sulla opportunità di conversione in numeriche in base alla tipologia della variabile
 e alla frequenza con cui è presente nei diversi dataset (work in progress){p_end}
+{p2coldent : {opt dollar(string)}} opzione per importare i databases definiti come Type=EXTRACTION. Sono databases con il simbolo del dollaro ($) nel nome come ad esempio
+  BD_9N_R2$DV_346. In questi casi si indica la parte prima del simbolo $ come nome del database (BD_9N_R2) e la parte con il dollaro nell'opzione dollar() preceduta
+  dal carattere \, in questa maniera {opt dollar(\$DV_346)}.{p_end}
 {synoptline}
 {p2colreset}{...}
 
@@ -52,7 +55,8 @@ e alla frequenza con cui è presente nei diversi dataset (work in progress){p_en
 
 {phang2}{cmd: eudbimport NAMA_10_GDP, download outdata("data/out_data/") reshapevar(na_item)}{p_end}
 
-
+Importazione del database BD_9N_R2$DV_346:
+{phang2}{cmd: eudbimport BD_9N_R2, rawdata("data/raw_data/") outdata("data/out_data/") nosave erase download dollar(\$DV_346)}{p_end}
 
 
 {title:Saved results}
