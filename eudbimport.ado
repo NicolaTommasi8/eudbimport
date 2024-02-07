@@ -1,3 +1,6 @@
+*! version 2.1  Nicola Tommasi  <dat>
+*               ability to retrive database info --> new option info
+
 *! version 2.0  Nicola Tommasi  28dec2023
 *               ability to import database with $ in DBNAME (Type=EXTRACTION) --> new option dollar()
 *               new missing's coding (__labmiss)
@@ -31,7 +34,7 @@ version 17
 syntax anything,  ///
        [reshapevar(name max=1) rawdata(string) outdata(string)    ///
         download select(string asis) timeselect(string asis) ///
-        nosave erase strrec dollar(string) ///
+        nosave erase strrec dollar(string) info ///
         compress(string) decompress(string) /*undocumented*/ ///
         nodestring /*undocumented*/ ///
         debug /*undocumented*/ ]
@@ -72,6 +75,84 @@ if `check0'!=1 {
   exit
 }
 
+
+if "`info'"== "info" {
+  quietly {
+    tempfile catalogue
+    copy "https://ec.europa.eu/eurostat/api/dissemination/catalogue/toc/xml" `catalogue', replace
+    import delimit `catalogue', delim("|||") bindquote(nobind) clear
+
+    gen db=1 if strmatch(v1,`"*<nt:leaf type="table">"')
+    replace db=2 if strmatch(v1,`"*<nt:leaf type="dataset">"')
+    replace db=0 if strmatch(v1,`"*</nt:leaf>"')
+    gen db_id=_n if db!=.
+    carryforward db_id db, replace
+    drop if db==0
+    gen metainfo=1 if strmatch(v1,"*<nt:code>*") & db_id!=.
+    gen metainfocode=regexs(1) if regexm(v1,`"<nt:code>([a-zA-Z0-9_-]+)"') & db_id!=.
+    summ db_id if upper(metainfocode)=="`anything'"
+    keep if db_id==r(mean)
+    replace metainfo=2 if strmatch(v1,`"*<nt:title language="en">*"') & db_id!=.
+    replace metainfocode=regexs(1) if regexm(v1,`"<nt:title language="en">(.*)</nt:title"') & db_id!=.
+    replace metainfo=3 if strmatch(v1,`"*<nt:title language="fr">*"') & db_id!=.
+    replace metainfocode=regexs(1) if regexm(v1,`"<nt:title language="fr">(.*)</nt:title"') & db_id!=.
+    replace metainfo=4 if strmatch(v1,`"*<nt:title language="de">*"') & db_id!=.
+    replace metainfocode=regexs(1) if regexm(v1,`"<nt:title language="de">(.*)</nt:title"') & db_id!=.
+    replace metainfo=5 if strmatch(v1,`"*<nt:lastUpdate>*"') & db_id!=.
+    replace metainfocode=regexs(1) if regexm(v1,`"<nt:lastUpdate>([0-9\.]+)"') & db_id!=.
+    replace metainfo=6 if strmatch(v1,`"*<nt:lastModified>*"') & db_id!=.
+    replace metainfocode=regexs(1) if regexm(v1,`"<nt:lastModified>([0-9\.]+)"') & db_id!=.
+    replace metainfo=7 if strmatch(v1,`"*<nt:dataStart>*"') & db_id!=.
+    replace metainfocode=regexs(1) if regexm(v1,`"<nt:dataStart>([a-z A-Z0-9_-]+)"') & db_id!=.
+    replace metainfo=8 if strmatch(v1,`"*<nt:dataEnd>*"') & db_id!=.
+    replace metainfocode=regexs(1) if regexm(v1,`"<nt:dataEnd>([a-z A-Z0-9_-]+)"') & db_id!=.
+    replace metainfo=9 if strmatch(v1,`"*<nt:values>*"') & db_id!=.
+    replace metainfocode=regexs(1) if regexm(v1,`"<nt:values>([a-z A-Z0-9_-]+)"') & db_id!=.
+    replace metainfo=10 if strmatch(v1,`"*<nt:metadata format="html">*"') & db_id!=.
+    replace metainfocode=regexs(1) if regexm(v1,`"<nt:metadata format="html">(.*)</nt:metadata"') & db_id!=.
+    replace metainfo=11 if strmatch(v1,`"*<nt:metadata format="sdmx">*"') & db_id!=.
+    replace metainfocode=regexs(1) if regexm(v1,`"<nt:metadata format="sdmx">(.*)</nt:metadata"') & db_id!=.
+    replace metainfo=12 if strmatch(v1,`"*<nt:downloadLink format="tsv">*"') & db_id!=.
+    replace metainfocode=regexs(1) if regexm(v1,`"<nt:downloadLink format="tsv">(.*)</nt:downloadLink"') & db_id!=.
+    replace metainfo=13 if strmatch(v1,`"*<nt:downloadLink format="sdmx">*"') & db_id!=.
+    replace metainfocode=regexs(1) if regexm(v1,`"<nt:downloadLink format="sdmx">(.*)</nt:downloadLink"') & db_id!=.
+    drop if metainfo==.
+    drop v1 db
+    reshape wide metainfocode, i(db_id) j(metainfo)
+    local endesc = metainfocode2 in 1
+    local frdesc = metainfocode3 in 1
+    local dedesc = metainfocode4 in 1
+    local lastup = metainfocode5 in 1
+    local lastmod = metainfocode6 in 1
+    local start = metainfocode7 in 1
+    local end = metainfocode8 in 1
+    local values = metainfocode9 in 1 /*?*/
+    local values : display %15.0fc `values'
+    local metahtml = metainfocode10 in 1
+    local metasdmx = metainfocode11 in 1
+    local downtsv = metainfocode12 in 1
+    local downsdmx = metainfocode13 in 1
+  }
+  di "Database: `anything'"
+  di "EN desc: `endesc'"
+  di "FR desc: `frdesc'"
+  di "DE desc: `dedesc'"
+  di "Last Update: `lastup'"
+  di "Last Modified: `lastmod'"
+  di "Data Start: `start'"
+  di "Data end: `end'"
+  di "Values: `values'"
+  di "Metadata in html: `metahtml'"
+  di "Metadata in sdmx: `metasdmx'"
+  di "Download in tsv format: `downtsv'"
+  di "Download in sdmx format: `downsdmx'"
+  **return
+  qui erase `catalogue'
+  qui clear
+  exit
+}
+
+
 **! DOWNLOAD !**
 if "`download'"!="" {
   if "`debug'"!="" timer on 10
@@ -91,8 +172,9 @@ if "`download'"!="" {
 
   if "`debug'"!="" {
     timer off 10
-    timer list 10
-    di _newline
+    qui timer list 10
+    local t_down `r(t10)'
+    **di _newline
   }
 }
 
@@ -102,8 +184,9 @@ if "`debug'"!="" timer on 11
 qui import delimited "`rawdata'`anything'`D'.tsv", varnames(1) delimiter(tab) clear stringcols(_all)
 if "`debug'"!="" {
   timer off 11
-  timer list 11
-  di _newline
+  qui timer list 11
+  local t_imp `r(t11)'
+  **di _newline
 }
 di _newline(1) "Database: `anything'`macval(dollar)'"
 
@@ -246,8 +329,9 @@ if "`debug'"!="" timer on 12
 qui greshape long `index'@, by(`splitvars') keys(`tmpdt') string
 if "`debug'"!="" {
   timer off 12
-  timer list 12
-  di _newline
+  qui timer list 12
+  local r_long `r(t12)'
+  **di _newline
 }
 
 
@@ -302,8 +386,9 @@ if "`debug'"!="" timer on 13
 qui greshape wide `index'@, by(`widevars' `tmpdt') keys(`reshapevar')
 if "`debug'"!="" {
   timer off 13
-  timer list 13
-  di _newline
+  qui timer list 13
+  local r_wide `r(t13)'
+**  di _newline
 }
 qui rename `index'* *
 if "`reshapevar'"=="na_item" {
@@ -357,14 +442,17 @@ if "`destring'"=="" {
     else {
       qui destring `VtD', replace
       confirm numeric variable `VtD'
+      local frmt : format `VtD' /*preserve variable format after label values*/
       label values `VtD' __labmiss
+      format `VtD' `frmt'
     }
   }
 
   if "`debug'"!="" {
       timer off 14
-      timer list 14
-      di _newline
+      qui timer list 14
+      local t_dest `r(t14)'
+      **di _newline
   }
 }
 qui missings dropobs `VtoDESTR', force
@@ -450,7 +538,8 @@ if "`debug'"!="" {
   if "`hours'"=="" & "`minutes'"=="" di in ye "Elapsed time was `seconds' seconds."
   else if "`hours'"=="" & `minutes'<. di in ye "Elapsed time was `minutes' minutes, `seconds' seconds."
   else di in ye "Elapsed time was `hours' hours, `minutes' minutes, `seconds' seconds."
-  di in ye "Database: `anything'`macval(dollar)' `r(t1)' seconds."
+  **            dbname;time_download;time_import;resh_long;resh_wide;destring;time_total
+  di in ye "`anything'`macval(dollar)';`splitvars';`reshapevar';`t_down';`t_imp';`r_long';`r_wide';`t_dest';`r(t1)'"
 }
 
 
