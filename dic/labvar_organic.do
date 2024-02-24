@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var ORG "Organic farming"
 cap label var FORG "Fully organic farming"

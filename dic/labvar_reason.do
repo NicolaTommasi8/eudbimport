@@ -1,4 +1,6 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
+cap label var TOT_FIN "Financial reasons - total"
 cap label var FIN_FAR_TRA_WAIT "Financial reasons, distance or transportation, waiting list"
 cap label var FIN_DST_TRA_WAIT "Financial reasons, distance or transportation, waiting list"
 cap label var FIN "Financial reasons"

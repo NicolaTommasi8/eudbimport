@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total natural energy inputs, energy products and energy residuals"
 cap label var NEI "Natural energy inputs"
 cap label var NEI_NRFOSS "Fossil non-renewable natural energy inputs"

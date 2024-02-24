@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var F00 "Generic programmes and qualifications"
 cap label var F000 "Generic programmes and qualifications not further defined"

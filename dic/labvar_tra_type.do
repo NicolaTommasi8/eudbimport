@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var OWN "Own account"
 cap label var HIRE "Hire or reward"

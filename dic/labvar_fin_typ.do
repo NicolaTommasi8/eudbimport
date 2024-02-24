@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var LOAN "Loan finance"
 cap label var EQUIT "Equity finance"
 cap label var EQUIT_RNDINN "Equity finance for R&D or other innovation activities"

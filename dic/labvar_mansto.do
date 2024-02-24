@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var ST_SO_HEAP "Manure solid storage in heaps"
 cap label var ST_COMP "Manure stored in compost piles"

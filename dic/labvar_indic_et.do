@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var PC_TOT_IMP "Share of imports by partner in total imports (%)"
 cap label var PC_TOT_EXP "Share of exports by partner in total exports (%)"
 cap label var RT_EXP_IMP "Export/Import ratio"

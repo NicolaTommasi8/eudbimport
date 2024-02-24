@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var HE_Y0 "Health expectancy in absolute values at birth"
 cap label var HE_Y50 "Health expectancy in absolute values at 50"
 cap label var HE_Y65 "Health expectancy in absolute values at 65"

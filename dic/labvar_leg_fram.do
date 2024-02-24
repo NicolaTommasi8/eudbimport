@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var EU "EU framework"
 cap label var JHAC15 "Agreement in Justice and Home Affairs (JHA) Council on 20.07.2015"

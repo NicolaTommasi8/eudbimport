@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var FOC_IEGDSERV "Focus on improving existing goods or services"
 cap label var FOC_NEWGDSERV "Focus on introducing entirely new goods or services"
 cap label var ITR_NEWIGDSERV "Introduce new or significantly improved goods or services"

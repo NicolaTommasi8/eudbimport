@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var NONE "No income"
 cap label var Q1 "First quartile"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTALNOREROUTE "Total receipts"
 cap label var SOC_CONTRIBNOREROUTE "Social contribution"
 cap label var SEMPLOYER "Employers' social contribution"

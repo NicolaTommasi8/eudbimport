@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var V11110 "Enterprises - number"
 cap label var V11111 "Enterprises broken down by legal status - number"
 cap label var V11112 "Enterprises broken down by size class of gross premiums written - number"

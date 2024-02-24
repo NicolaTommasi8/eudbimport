@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var CPA_TOTAL "Total"
 cap label var CPA_A_B "Products of agriculture, forestry, fisheries and aquaculture"
 cap label var CPA_A "Products of agriculture, hunting and forestry"

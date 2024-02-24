@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var CTC_PES "Contact public employment service"
 cap label var CTC_PEA "Contact private employment agency"

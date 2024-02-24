@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var SRS "Serious accidents"
 cap label var SRS_F "Serious accidents - women"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var N "Nitrogen"
 cap label var P "Phosphorus"
 cap label var P2O5 "Phosphate"

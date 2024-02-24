@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var HRST "Persons with tertiary education (ISCED) and/or employed in science and technology"
 cap label var HRSTE "Persons with tertiary education (ISCED)"
 cap label var HRSTO "Persons employed in science and technology"

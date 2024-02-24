@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var _0 "0 portions"
 cap label var _1_4 "From 1 to 4 portions"

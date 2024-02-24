@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "All customers"
 cap label var HH "Household"
 cap label var NHH "Non-household"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var TOTXDUR "Total excluding durables and valuable goods"
 cap label var TRA "Expenditure on transport"

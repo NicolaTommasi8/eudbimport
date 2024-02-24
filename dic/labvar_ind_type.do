@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var IND_TOTAL "All Individuals"
 cap label var Y0_15 "Individuals, 15 years old or less"

@@ -1,3 +1,5 @@
+cap label var CODE "Label - English"
+cap label var TOTAL "Total"
 cap label var ERN "Gross earnings"
 cap label var E_F_M_PC "Gross earnings of women as a percentage of those of men"
 cap label var OPAY "Overtime pay"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var SDUK "Ducks' eggs"
 cap label var SFOL "Guinea fowl eggs"
 cap label var SGES "Geese eggs"

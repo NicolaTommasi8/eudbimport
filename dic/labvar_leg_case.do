@@ -1,4 +1,7 @@
+cap label var CODE "Label - English"
 cap label var CRIM "Criminal"
+cap label var NCRIM "Non-criminal"
 cap label var CIV_COM "Civil and/or commercial"
+cap label var CIV_COM_LITIG "Civil/commercial litigious"
 cap label var ADM "Administrative"
 cap label var OTH "Other"

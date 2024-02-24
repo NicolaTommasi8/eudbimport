@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var TOT_X_RSE "Total excluding researchers"
 cap label var BRD "Board members"

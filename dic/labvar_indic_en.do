@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var _100100 "Primary production"
 cap label var _100200 "From other sources"
 cap label var _100300 "Total imports"

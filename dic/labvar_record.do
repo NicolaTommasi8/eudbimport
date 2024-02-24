@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var PRES "Presence recorded"
 cap label var HW_MNL_OSELF "Hours worked recorded manually by one-self"

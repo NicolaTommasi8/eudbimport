@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var URB "Predominantly urban regions"
 cap label var INT "Intermediate regions"

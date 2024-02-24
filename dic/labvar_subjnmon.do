@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var EM_GSD "Households making ends meet with great difficulty, with difficulty or with some difficulty"
 cap label var EM_FVE "Households making ends meet fairly easily, easily or very easily"

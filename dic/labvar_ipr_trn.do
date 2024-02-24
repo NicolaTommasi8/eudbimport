@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var IPR "All intellectual property rights (IPRs)"
 cap label var PAT_IDESG "Patent or industrial design"
 cap label var PAT_TRDM "Patent or trademark"

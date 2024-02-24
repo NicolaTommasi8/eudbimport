@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total housing"
 cap label var H_CV "Conventional housing"
 cap label var DW "Conventional dwellings"

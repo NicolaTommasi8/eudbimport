@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var QU1 "First quintile"
 cap label var QU2 "Second quintile"

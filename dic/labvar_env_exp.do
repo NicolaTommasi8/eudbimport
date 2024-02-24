@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var EE1000 "Environmental protection expenditure"
 cap label var EE1100 "Total environmental investments"
 cap label var EE1110 "Pollution treatment investments"

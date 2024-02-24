@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var EMPL_OWN "Employer's premises or own premises"
 cap label var HOM "Home"

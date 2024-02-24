@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var LSU0 "Zero LSU"
 cap label var LSU_GT0_LT5 "Over 0 LSU to less than 5 LSU"

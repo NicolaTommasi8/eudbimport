@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var DECR_CONS "Considerable decrease"
 cap label var DECR_MOD "Moderate decrease"

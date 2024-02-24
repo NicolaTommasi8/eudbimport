@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var _0099 "Total (excluding fruit and vegetables)"
 cap label var _0100 "Total"
 cap label var _0999 "Crop products (excluding fruit and vegetables)"

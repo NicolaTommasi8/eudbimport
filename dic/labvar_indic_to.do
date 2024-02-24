@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var A001 "Number of establishments"
 cap label var A003 "Number of bed-places"
 cap label var B001 "Arrivals of residents"

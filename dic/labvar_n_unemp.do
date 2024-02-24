@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var _0 "No unemployed persons"
 cap label var _1 "1 unemployed persons"
 cap label var _2 "2 unemployed persons"

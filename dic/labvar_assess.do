@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var CERT "Certification after written or practical test"
 cap label var SURV "Satisfaction survey amongst participants"
 cap label var PERF "Assessment of participants' behaviour or performance in relation to training objectives"

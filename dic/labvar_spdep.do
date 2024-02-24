@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTALNOREROUTE "Total expenditure"
 cap label var ADMIN "Administration costs"
 cap label var TRANSFER "Transfers to other schemes"

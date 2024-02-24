@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var N1N "Produced non-financial assets (net)"
 cap label var N1ON "Fixed assets and inventories (net)"
 cap label var N11N "Total fixed assets (net)"

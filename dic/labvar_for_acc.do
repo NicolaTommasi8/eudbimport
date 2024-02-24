@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var O_GDS "Forestry goods output"
 cap label var OC_SL_TI "Coniferous timber for industrial uses"
 cap label var OC_SL_LTI "Coniferous long timber"

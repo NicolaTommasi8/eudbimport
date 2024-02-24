@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var CHG_INCR_INC "Any change to increase income"
 cap label var CHG_JOB "Change of job or employer"

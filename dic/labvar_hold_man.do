@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var HOLDMAN "Holder is manager"
 cap label var SPSMAN "Spouse of holder is manager"

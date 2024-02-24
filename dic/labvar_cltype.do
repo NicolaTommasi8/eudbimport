@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var M11 "Enterprises"
 cap label var M111 "Enterprises from NACE Rev.1.1 Section D"
 cap label var M112 "Enterprises from NACE Rev.1.1 Section K"

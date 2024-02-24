@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var PUB "Public schools and colleges"
 cap label var UNIV "Universities and other higher education establishments"
 cap label var SPEC "Specialised training institutions"

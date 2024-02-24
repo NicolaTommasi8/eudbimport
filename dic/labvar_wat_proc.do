@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var PRECIP "Precipitation"
 cap label var EVAP_TSP "Actual evapotranspiration"

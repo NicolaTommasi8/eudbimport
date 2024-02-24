@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var ENT_INT "Enterprises within the enterprise group"
 cap label var MKT_SUPPL "Suppliers of equipment, materials, components or software"
 cap label var MKT_CLCU "Clients or customers"

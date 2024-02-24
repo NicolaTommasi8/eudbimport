@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var CP "Current price"
 cap label var NP "Nominal price"
 cap label var RP "Real price"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var A1 "Single person"
 cap label var A1_LT30 "One adult younger than 30 years"

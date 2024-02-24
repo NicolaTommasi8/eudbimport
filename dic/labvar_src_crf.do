@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total (all sectors including memo items and indirect CO2)"
 cap label var TOTXMEMO "Total (excluding memo items)"
 cap label var TOTXMEMONIA "Total (excluding memo items, including international aviation)"

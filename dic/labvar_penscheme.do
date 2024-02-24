@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var S1P "Pension schemes (core and not core accounts)"
 cap label var S12P "Private pension schemes"
 cap label var S12PC "Private defined contribution schemes"

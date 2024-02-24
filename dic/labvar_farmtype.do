@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var CR "Specialist crops"
 cap label var FT1_SO "Specialist field crops"

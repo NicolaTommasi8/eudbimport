@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var AR "Area (cultivation/harvested/production) (1000 ha)"
 cap label var PR "Harvested production (1000 t)"
 cap label var PR_HU_EU "Harvested production in EU standard humidity (1000 t)"

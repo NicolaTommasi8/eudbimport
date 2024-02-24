@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "All providers of health care"
 cap label var HP1 "Hospitals"
 cap label var HP11 "General hospitals"

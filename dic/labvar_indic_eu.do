@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var T2020_10T "Employment rate - total"
 cap label var T2020_10M "Employment rate - male"
 cap label var T2020_10F "Employment rate - female"

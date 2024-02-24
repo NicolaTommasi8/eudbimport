@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var GD_SERV_PCS "Goods, services or processes"
 cap label var PRD "Product innovation"

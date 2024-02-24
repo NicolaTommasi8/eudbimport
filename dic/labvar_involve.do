@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var OBJ "In the objective setting of training"
 cap label var CRI "In establishing criteria for the selection of participants/target groups"
 cap label var TYP "In defining the form/type of training"

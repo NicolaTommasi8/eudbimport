@@ -1,0 +1,5 @@
+cap label var CODE "Label - English"
+cap label var TOTAL "Total"
+cap label var HVY "Heavy"
+cap label var SOME "Some"
+cap label var NONE "None"

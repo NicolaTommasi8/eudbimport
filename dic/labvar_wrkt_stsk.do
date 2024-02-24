@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var GE_HLF "At least half of the working time"
 cap label var ALL_MOST "All or most of the working time"

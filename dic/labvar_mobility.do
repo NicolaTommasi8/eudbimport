@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var SP_WPL "Study period and/or work placement"
 cap label var SP_SWP "Study period or study period combined with work placement"

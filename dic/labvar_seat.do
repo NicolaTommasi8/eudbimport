@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var STCL1 "Seats, first class"
 cap label var STCL2 "Seats, second class"

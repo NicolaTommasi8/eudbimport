@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var INN_GE1 "At least one innovation activity"
 cap label var INN_XRND_CONTR_OUT "All innovation activities except contracted-out research and development (R&D) (external R&D activities)"

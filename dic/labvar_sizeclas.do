@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var _0 "Zero"
 cap label var _0_9 "From 0 to 9 employees"

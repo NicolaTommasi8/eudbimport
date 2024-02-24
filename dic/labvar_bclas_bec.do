@@ -1,5 +1,7 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var INT "Intermediate goods"
 cap label var CAP "Capital goods"
 cap label var CONS "Consumption goods"
 cap label var CONS_TRA "Consumption goods, motor spirit and passenger motor cars"
+cap label var UNK "Unknown"

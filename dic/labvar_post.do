@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var _010 "Current + capital account"
 cap label var _011 "Current and capital transfers"
 cap label var _993 "Current account"

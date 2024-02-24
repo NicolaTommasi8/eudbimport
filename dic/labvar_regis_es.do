@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var UNE_BEN "Unemployed receiving benefits/assistance"
 cap label var UNE_NBEN "Unemployed not receiving benefits/assistance"
 cap label var REG "Registered jobseekers"

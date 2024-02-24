@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var PC0_1 "From 0 (0 excluded) to 1 percent"
 cap label var PC0_4 "From 0 to 4 percent"
 cap label var PC1_4 "From 1 to 4 percent"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total waste"
 cap label var PRIM "Primary waste (TOTAL minus SEC)"
 cap label var SEC "Secondary waste (W033+W103+W128_13)"

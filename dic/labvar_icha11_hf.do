@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOT_HF "All financing schemes"
 cap label var HF1 "Government schemes and compulsory contributory health care financing schemes"
 cap label var HF11 "Government schemes"

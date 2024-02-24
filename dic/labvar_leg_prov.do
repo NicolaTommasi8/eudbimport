@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var CHRG "Take charge request"
 cap label var CHRG_FAM "Take charge request - family criteria (articles 8, 9, 10, 11)"

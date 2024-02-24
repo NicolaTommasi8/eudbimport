@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var CH "Chicks hatched"
 cap label var EP "Eggs placed in incubation"
 cap label var EI "Exports intra-EU"

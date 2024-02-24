@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var COK "Coking plant"
 cap label var PLP "Plant for load preparation"

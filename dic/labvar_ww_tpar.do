@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var SLP "Sludge production - total"
 cap label var SLD "Sludge disposal - total"
 cap label var SLD_AGR "Sludge disposal - agricultural use"

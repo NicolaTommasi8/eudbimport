@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var LFD "Late foetal death"
 cap label var LFD1 "Late foetal death (group 1)"

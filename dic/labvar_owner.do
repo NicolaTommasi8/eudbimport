@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var PUB "Public ownership"
 cap label var PUB_STA "State ownership"

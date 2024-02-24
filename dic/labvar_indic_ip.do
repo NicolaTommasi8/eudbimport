@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TIPSBP10 "Current account balance - % of GDP, 3 years average"
 cap label var TIPSBP20 "Current account balance - % of GDP"
 cap label var TIPSII10 "Net international investment position - % of GDP"

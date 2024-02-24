@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total area under vines (in/not yet in production)"
 cap label var WI "Vines for wine grapes - total"
 cap label var WI_PDO "Vines for grapes for PDO wines"

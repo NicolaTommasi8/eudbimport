@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var W01 "Calendar week 01"
 cap label var W02 "Calendar week 02"

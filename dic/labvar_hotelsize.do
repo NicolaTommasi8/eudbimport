@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var _100_249 "From 100 to 249 rooms"
 cap label var _25_99 "From 25 to 99 rooms"
 cap label var GE100 "100 rooms or more"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total (24 hours)"
 cap label var H0400_0409 "From 04:00 to 04:09"
 cap label var H0410_0419 "From 04:10 to 04:19"

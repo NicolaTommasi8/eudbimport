@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var HBEDT "Available beds in hospitals (HP.1)"
 cap label var HBEDT_CUR "Curative care beds in hospitals (HP.1)"
 cap label var HBEDT_REH "Rehabilitative care beds in hospitals (HP.1)"

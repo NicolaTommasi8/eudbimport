@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var GOV_LOC "Government or local authority"
 cap label var EMPL "Employer"
 cap label var EMP "Employer"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TY0001 "Current expenditure plus capital expenditure"
 cap label var TY0002 "Investments"
 cap label var TY0003 "End-of-pipe"

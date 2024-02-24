@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var SIN "Single persons (never in legal union)"
 cap label var LUN "Persons in legal union (married or in registered partnership)"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var A0000 "Total of live animals"
 cap label var A0010 "Livestock"
 cap label var A0011 "Grazing livestock"
@@ -629,6 +630,7 @@ cap label var VSK "Fresh vegetables (including melons) and strawberries (includi
 cap label var V0000AM_PLF "Fresh vegetables (including melons) and horticultural products"
 cap label var VSNPECRS "Vegetables, strawberries, permanent crops, flowers and ornamental plants under glass or high accessible cover"
 cap label var V0000_S0000 "Fresh vegetables (including melons) and strawberries"
+cap label var V0000_S0000_ORG "Fresh vegetables (including melons) and strawberries - organic"
 cap label var V0000_S0000T "Fresh vegetables (including melons) and strawberries - outdoor"
 cap label var V0000_S0000T_ORG "Fresh vegetables (including melons) and strawberries - outdoor - organic"
 cap label var V0000_S0000TO "Fresh vegetables (including melons) and strawberries grown in rotation with non-horticultural crops (open field)"

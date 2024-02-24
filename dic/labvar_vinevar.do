@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var VIM_TOT "Total main grape varieties"
 cap label var VIRM_TOT "Total main red grape varieties (R)"
 cap label var VIR001 "Agiorgitiko (R)"

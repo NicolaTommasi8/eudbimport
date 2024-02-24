@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var ATH "Aerothermal"
 cap label var ATH_ABVTH "Aerothermal - seasonal performance factor (SPF) above the threshold"

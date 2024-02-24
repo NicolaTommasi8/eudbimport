@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var HC "Health care"
 cap label var HC_HOSP "Hospitalisation"

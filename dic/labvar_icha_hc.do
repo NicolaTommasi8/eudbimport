@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var HC1_9_R1 "Health care expenditure"
 cap label var HC1_9 "Current health care expenditure (CHE)"
 cap label var HC1 "Services of curative care"

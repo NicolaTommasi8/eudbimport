@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var PC_LT10 "Less than 10 percent of all persons employed"
 cap label var PC10_49 "From 10 percent to 49 percent of all persons employed"

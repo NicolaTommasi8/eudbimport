@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var GEN "Generation of wastewater - all sources"
 cap label var GEN_PS "Generation of wastewater - point sources - total"
 cap label var GEN_AGR "Generation of wastewater - agriculture, forestry, fishing"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var FEI "Formal education and training institutions"
 cap label var NFEI "Non-formal education and training institutions"
 cap label var PUB_TNG "Public training institutions (financed or guided by the government)"

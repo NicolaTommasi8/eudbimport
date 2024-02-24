@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var DG1 "Explosive substances and articles"
 cap label var DG2 "Gases"

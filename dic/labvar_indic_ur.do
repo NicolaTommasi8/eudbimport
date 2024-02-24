@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var DE1001V "Population on the 1st of January, total"
 cap label var DE1002V "Population on the 1st of January, male"
 cap label var DE1003V "Population on the 1st of January, female"

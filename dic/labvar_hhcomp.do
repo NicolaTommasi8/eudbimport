@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var HHC_10 "Children (living with other adults)"
 cap label var HHC_20 "Single adult - total"

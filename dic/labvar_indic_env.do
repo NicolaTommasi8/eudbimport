@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var DE "Domestic extraction"
 cap label var IMP "Imports"
 cap label var IMP_EU "Imports from EU countries"

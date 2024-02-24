@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTCOST "Total costs"
 cap label var DIR "Direct costs"
 cap label var LCP "Labour costs of participants"

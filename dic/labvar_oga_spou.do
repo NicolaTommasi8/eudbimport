@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var OGA_HLD "Holder having other gainful activities"
 cap label var OGA_HLD_RH "Holder having other gainful activities (related to the agricultural holding)"

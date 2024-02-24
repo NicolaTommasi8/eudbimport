@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var MOD_SEV "Moderate or severe"
 cap label var MOD "Moderate"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var _1001 "Population: total"
 cap label var _1002 "Population: male"
 cap label var _1003 "Population: female"

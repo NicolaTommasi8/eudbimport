@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var NINFO "No information"
 cap label var WPR1 "Production, manufacturing, processing, storing"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var NSM "Non-smoker"
 cap label var NVSM "Never smoked"

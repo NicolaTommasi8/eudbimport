@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var BE "Belgium"
 cap label var BE001MC "Bruxelles / Brussel"
 cap label var BE001MC_10 "Bruxelles / Brussel (NUTS 2010)"

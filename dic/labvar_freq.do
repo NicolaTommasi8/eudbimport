@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var P "Pluri-annual"
 cap label var A "Annual"
 cap label var S "Half-yearly, semesterly"

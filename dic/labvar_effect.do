@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var STIM_INN "Stimulation of innovation"
 cap label var NMAJPB "No major problems created"

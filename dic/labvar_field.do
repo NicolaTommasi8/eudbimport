@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var EF0 "General Programmes"
 cap label var EF01 "Basic/broad, general programmes"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total area"
 cap label var LAND "Land area"
 cap label var U100 "Primary sector"

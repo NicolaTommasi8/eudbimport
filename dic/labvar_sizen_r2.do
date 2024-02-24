@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var _10_C10_S951_XK "All enterprises, without financial sector (10 or more employees and self-employed persons)"
 cap label var S_C10_S951_XK "Small enterprises (10-49 employees and self-employed persons), without financial sector"
 cap label var M_C10_S951_XK "Medium enterprises (50-249 employees and self-employed persons), without financial sector"

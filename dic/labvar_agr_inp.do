@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var INP "Input total"
 cap label var INP_S1 "Intermediate consumption"
 cap label var SED "Seeds and planting stock"

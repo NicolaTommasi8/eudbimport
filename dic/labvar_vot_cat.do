@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var FRST "First time voters"
 cap label var EU_CTZ "Voters with citizenship of another EU Member State"

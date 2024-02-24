@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var PAS_FR "Passengers and freight"
 cap label var PAS "Passengers embarked and disembarked"

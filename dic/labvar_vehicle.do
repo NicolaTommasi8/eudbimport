@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var TOT_X_TM "All vehicles (except trailers and motorcycles)"
 cap label var TRN_BUS "Trains, motor coaches, buses and trolley buses"

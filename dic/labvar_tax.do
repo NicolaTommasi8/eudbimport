@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var VAT "Value added tax (VAT)"
 cap label var X_TAX "Excluding taxes and levies"

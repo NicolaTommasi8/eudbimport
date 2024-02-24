@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var G_LT500 "Less than 500 g"
 cap label var G500_999 "From 500 to 999 g"

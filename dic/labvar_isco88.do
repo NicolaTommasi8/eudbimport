@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var ISCO1_5 "Non manual workers"
 cap label var ISCO1_3 "Managers, professionals, technicians and associate professionals"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var FRW "Fresh surface and groundwater"
 cap label var FSW "Fresh surface water"

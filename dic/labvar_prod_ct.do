@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var ANTQ "Antiques; postage or revenue stamps; collections and collector's pieces"
 cap label var ART "Works of art (paintings, engravings, sculptures, designs, etc.)"

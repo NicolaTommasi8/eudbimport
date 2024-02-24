@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var SAL_SCTR "Employees and subcontractors"
 cap label var SAL "Employees"

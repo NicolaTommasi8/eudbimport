@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var FRW "Freshwater"
 cap label var SBW "Sea and brackish water (total)"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var RW "Roundwood (wood in the rough)"
 cap label var RW_C "Industrial roundwood, fuel wood - coniferous"
 cap label var RW_NC "Industrial roundwood, fuel wood - non-coniferous"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var TRN_GD "Goods trains"
 cap label var TRN_PAS "Passenger trains"

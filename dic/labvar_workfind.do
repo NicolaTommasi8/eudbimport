@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var ADV "Advertisements"
 cap label var RFA "Relatives, friends or acquaintances"

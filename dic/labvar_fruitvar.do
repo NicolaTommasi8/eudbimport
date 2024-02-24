@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var AP_PE "Apple and pear trees"
 cap label var AP "Apple trees"

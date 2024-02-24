@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var DIR "Owner(s)/director(s) of the business"
 cap label var IND "Family, friends or other individuals"
 cap label var BUS_OTH "Another business"

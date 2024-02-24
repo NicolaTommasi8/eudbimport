@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var OGA_TAOLA "Tourism, accommodation and other leisure activities"
 cap label var OGA_HC "Handicraft"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var _2000W01 "2000W01"
 cap label var _2000W02 "2000W02"
 cap label var _2000W03 "2000W03"

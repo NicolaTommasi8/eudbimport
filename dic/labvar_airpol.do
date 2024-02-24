@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var GHG "Greenhouse gases (CO2, N2O in CO2 equivalent, CH4 in CO2 equivalent, HFC in CO2 equivalent, PFC in CO2 equivalent, SF6 in CO2 equivalent, NF3 in CO2 equivalent)"
 cap label var CO2_N2O_CH4_CO2E "Greenhouse gases (CO2, N2O in CO2 equivalent, CH4 in CO2 equivalent)"
 cap label var CO2 "Carbon dioxide"

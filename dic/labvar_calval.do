@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var GCV "Gross calorific value"
 cap label var GCV_AVG "Gross calorific value - average"
 cap label var GCV_PRD "Gross calorific value - production"

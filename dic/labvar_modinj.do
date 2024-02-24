@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var CMI00 "No information"
 cap label var CMI10 "Contact with electrical voltage, temperature, hazardous substances - not specified"

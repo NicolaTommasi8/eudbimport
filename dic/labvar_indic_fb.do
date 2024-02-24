@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var _101_A "Number of employees in the year of enterprise birth"
 cap label var _101_N "Number of units having survived from 2002 to 2005"
 cap label var _201_A "Start-up type - new enterprise"

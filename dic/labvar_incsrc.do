@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var WRK "Income from work"
 cap label var WORK "Income from work"

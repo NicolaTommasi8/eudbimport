@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var _1 "1 vessel"
 cap label var _2_3 "2 or 3 vessels"

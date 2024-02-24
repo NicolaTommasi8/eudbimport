@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTALNOREROUTE "Total receipts"
 cap label var CORPORATION "Corporations (non-financial and financial)"
 cap label var GG_CENT "General government central"

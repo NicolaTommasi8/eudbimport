@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOT_GJ "Consumption of GJ - all bands"
 cap label var GJ_LT20 "Consumption less than 20 GJ - band D1"
 cap label var GJ20_199 "Consumption from 20 GJ to 199 GJ - band D2"

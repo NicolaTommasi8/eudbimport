@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var D0000 "Milk, cheese and eggs"
 cap label var D0100 "Milk products"
 cap label var D0100AD "Farm milk products delivered to dairies"

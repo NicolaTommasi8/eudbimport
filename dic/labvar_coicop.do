@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var TOT_X_CP041_042 "Total except actual rents"
 cap label var CP00_X_042 "All items HICP excluding imputed rentals for housing"

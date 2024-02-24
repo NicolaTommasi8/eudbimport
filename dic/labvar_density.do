@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var LT140 "Less than 140 trees per hectare"
 cap label var _140_399 "From 140 to 399 trees per hectare"

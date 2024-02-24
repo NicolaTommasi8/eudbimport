@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var YES "Yes"
 cap label var NO "No"
 cap label var NRP "No answer"

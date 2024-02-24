@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var NFR1A1A "Public electricity and heat production"
 cap label var NFR1A1B "Petroleum refining"
 cap label var NFR1A1C "Manufacture of solid fuels and other energy industries"

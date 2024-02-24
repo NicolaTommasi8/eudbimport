@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var LIFE "Life insurance enterprises"
 cap label var NLIFE "Non-life insurance enterprises"

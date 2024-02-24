@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var FIN "Final"
 cap label var FLS "Flash"
 cap label var SA12 "Statistical annex 2012"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var CONT_ORD "Content and order of tasks"
 cap label var ORD_CONT "Order and content"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var NLTD "Unlimited duration"
 cap label var NLTD_FT "Unlimited duration and full-time"

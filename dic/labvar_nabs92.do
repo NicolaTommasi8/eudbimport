@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var NBS01 "Exploration and exploitation of the earth"
 cap label var NBS0100 "General Research on the exploration and exploitation of the earth"
 cap label var NBS0101 "Mineral, oil and natural gas prospecting"

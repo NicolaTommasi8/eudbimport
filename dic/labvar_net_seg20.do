@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var BGS10101_TEN "Dragoman - Sofia"
 cap label var BGS10102_TEN "Septemvri - Sofia"
 cap label var BGS10103_TEN "Septemvri - Plovdiv"

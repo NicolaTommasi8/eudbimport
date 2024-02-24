@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var CA "Current account"
 cap label var CKA "Current plus capital account (balance = Net lending (+) / net borrowing (-))"

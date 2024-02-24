@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var AC0 "Personal care"
 cap label var AC0A "Personal care except eating"

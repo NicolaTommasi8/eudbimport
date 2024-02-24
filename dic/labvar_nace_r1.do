@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total - all NACE activities"
 cap label var A_O_X_L "All NACE activities (except public administration; activities of households and extra-territorial organizations)"
 cap label var A_D_K "Agriculture; manufacturing; electricity, gas and water supply; construction; wholesale and retail trade; hotels and restaurants; transport; financial intermediation; real estate"

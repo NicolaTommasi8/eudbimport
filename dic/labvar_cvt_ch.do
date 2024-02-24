@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var NCH "No change of CVT"
 cap label var CH "Change of CVT"
 cap label var CH1 "Hours in CVT courses compared to the hours in 'other forms'"

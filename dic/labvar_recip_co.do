@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var PERF "Transnational public R&D performers"
 cap label var EURPRG "Europe-wide transnational public R&D programmes"

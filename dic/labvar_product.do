@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var _0000 "All products"
 cap label var _2000 "Solid fuels"
 cap label var _2111 "Hard coal"

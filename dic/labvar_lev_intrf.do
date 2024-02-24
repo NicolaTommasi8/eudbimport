@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var MOD "Moderate"
 cap label var LMOD "At least moderate"
 cap label var LTL "A little"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var PEN "Pending"
 cap label var REG "Registered"
 cap label var REG_END "Registered at the end of the year"

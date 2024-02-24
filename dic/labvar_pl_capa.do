@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var PL_1 "Number of plants"
 cap label var PL_2 "Design capacity BOD (1 000 kg O2/day)"
 cap label var PL_3 "Actual occupation BOD (1 000 kg O2/day)"

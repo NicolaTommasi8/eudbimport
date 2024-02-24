@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var CM_EUP "Credit mobility under EU programmes (i.e. ERASMUS or other EU programmes)"
 cap label var CM_INP "Credit mobility under other international/national programmes"
 cap label var CM_OTH "Credit mobility in other programmes"

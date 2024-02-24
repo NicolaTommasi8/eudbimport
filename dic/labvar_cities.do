@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var BE "Belgium"
 cap label var BE001C1 "Bruxelles / Brussel"
 cap label var BE001D01 "ANDERLECHT"

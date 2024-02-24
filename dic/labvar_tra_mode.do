@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var AIR "Air"
 cap label var LAND "Land - total"

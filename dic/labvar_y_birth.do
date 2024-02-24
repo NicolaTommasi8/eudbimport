@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var Y_LE1890 "1890 and before"
 cap label var Y1891 "Year 1891"

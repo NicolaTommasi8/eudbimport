@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var FS01 "Owner(s)/director(s) of the business"
 cap label var FS02 "Other employees of the business"

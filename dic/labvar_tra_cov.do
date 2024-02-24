@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total transport"
 cap label var NAT_INTL_IEU27_2020 "National transport and international transport intra-EU27 (from 2020)"
 cap label var NAT_INTL_IEU28 "National transport and international transport intra-EU28 (2013-2020)"

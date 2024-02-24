@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var HHW_10 "All adults working"
 cap label var HHW_11 "All adults working full time"

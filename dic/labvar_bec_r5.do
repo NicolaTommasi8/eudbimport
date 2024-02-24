@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var BEC_SERV "Services"
 cap label var BEC_SERV_IC "Services - intermediate consumption"
 cap label var BEC_SERV_FC "Services - final consumption"

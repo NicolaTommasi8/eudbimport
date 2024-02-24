@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "All sectors"
 cap label var BES "Business enterprise sector"
 cap label var BES_IND_DOM "Independent enterprises and enterprises within the domestic group"

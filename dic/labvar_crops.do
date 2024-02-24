@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var CRP "Crop products"
 cap label var AA_WA_FA9 "Agricultural area, wooded area and other areas on the farms"
 cap label var FA "Farm area"

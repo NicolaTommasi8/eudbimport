@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var A_R_U_Y "All causes of death (A00-Y89) excluding S00-T98"
 cap label var A_R_V_Y "All causes of death (A00-Y89) excluding S00-T98"

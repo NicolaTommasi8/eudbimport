@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var CAP "Capacity"
 cap label var HAT "Number of hatcheries"
 cap label var INC "Incubations : Total"

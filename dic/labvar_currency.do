@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total (all currencies)"
 cap label var EUR "Euro"
 cap label var MIO_EUR "Million euro"

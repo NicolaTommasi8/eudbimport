@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var PAPER "Paper and cardboard"
 cap label var PLAST_RUB "Plastics including rubber"

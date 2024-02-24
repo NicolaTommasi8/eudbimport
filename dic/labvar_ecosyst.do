@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var ECO01 "Settlements and other artificial areas"
 cap label var ECO0101 "Continuous settlement area"

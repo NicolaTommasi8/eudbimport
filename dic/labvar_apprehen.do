@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var BRD_EXT "In the external border area"
 cap label var BCP_SLA "At the border crossing point – at sea, land, air"

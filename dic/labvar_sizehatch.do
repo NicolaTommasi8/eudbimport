@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var _1001_10000 "From 1 001 to 10 000 eggs"
 cap label var _10001_20000 "From 10 001 to 20 000 eggs"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var SATISF "Measuring satisfaction level of participants"
 cap label var TEST "Carrying out tests to verify new skills"
 cap label var CERTIF "Formal validation or certification of skills acquired"

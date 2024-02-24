@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var ARA "Arable land"
 cap label var ARAXSC "Arable land excluding soil cover"
 cap label var SC_WNTCR "Normal winter crop"

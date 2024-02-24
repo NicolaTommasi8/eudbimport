@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var IT_GEN "General IT skills"
 cap label var IT_PROF "Professional IT skills"
 cap label var MGMT "Management skills"

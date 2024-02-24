@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var DPH "During paid hours"
 cap label var ODPH "Only during paid hours"
 cap label var MDPH "Mostly during paid hours"

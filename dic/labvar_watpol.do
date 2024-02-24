@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var SS "Suspended solids"
 cap label var N_T "Nitrogen (N-tot)"
 cap label var P_T "Phosphor (P-tot)"

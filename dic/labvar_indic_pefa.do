@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var NEI_EXT "Extraction of natural energy inputs"
 cap label var EPRD_DOM "Domestic production of energy products"
 cap label var EPRD_ICNS "Intermediate consumption of energy products"

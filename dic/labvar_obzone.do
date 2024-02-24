@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var NOZ_99 "Not in any objective zone (as defined up to 1999)"
 cap label var NOZ_00 "Not in any objective zone (as defined from 2000)"

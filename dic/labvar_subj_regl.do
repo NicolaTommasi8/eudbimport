@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var SPPC "Product safety, consumer protection"
 cap label var EMPSWAS "Employment, worker safety or social affairs"
 cap label var OWS "Operational and worker safety"

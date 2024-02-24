@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "All functions"
 cap label var SICK "Sickness/Health care"
 cap label var DISA "Disability"

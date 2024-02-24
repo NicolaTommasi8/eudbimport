@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var VOL "Volume"
 cap label var VOL_WW "Volume of wastewater"
 cap label var BOD "Biochemical oxygen demand (BOD)"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "All presentation forms"
 cap label var FRE "Fresh"
 cap label var FRE_WHL "Fresh, whole"

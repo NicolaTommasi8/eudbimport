@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var _0 "No contacts"
 cap label var _1 "1 contact"
 cap label var _2 "2 contacts"

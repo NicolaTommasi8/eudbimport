@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var EM0611 "Index of the number of serious accidents at work per 100 thousand persons in employment (1998=100)"
 cap label var EM0612 "Index of the number of serious accidents at work for women per 100 thousand females in employment (1998=100)"
 cap label var EM0613 "Index of the number of serious accidents at work for men per 100 thousand males in employment (1998=100)"

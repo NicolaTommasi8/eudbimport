@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var ANY_PLAN "Having a specific person or unit responsible for organising CVT or having a training plan or budget including CVT"
 cap label var SPEC "Having a specific person or unit responsible for organising CVT"

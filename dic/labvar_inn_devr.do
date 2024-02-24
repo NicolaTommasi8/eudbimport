@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var ENT "Enterprise itself"
 cap label var ENT_RND "Enterprise itself (R&D performers)"

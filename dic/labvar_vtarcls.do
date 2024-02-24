@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var VTCTOT "Total"
 cap label var VTC_L01 "> 0 to < 0.10 ha of area under vines"
 cap label var VTC01_02 "0.10 to < 0.20 ha of area under vines"

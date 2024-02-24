@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var VH_H "Very high or high"
 cap label var VHIGH "Very high"

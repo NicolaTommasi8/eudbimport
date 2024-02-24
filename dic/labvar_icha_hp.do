@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var HP1_9 "All providers of health care"
 cap label var HP1_3 "Hospitals and providers of ambulatory health care"
 cap label var HP1 "Hospitals"

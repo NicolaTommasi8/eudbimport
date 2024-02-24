@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var D0_3 "From 0 to 3 days"
 cap label var D_LT1 "Less than 1 day"

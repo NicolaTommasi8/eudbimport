@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var PRV "Person living in a private household"
 cap label var FAM "Person in a family nucleus"

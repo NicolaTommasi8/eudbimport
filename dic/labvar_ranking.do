@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var TOP5 "Top 5"
 cap label var TOP10 "Top 10"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var FINSAT "Satisfaction with financial situation"
 cap label var ACCSAT "Satisfaction with accommodation"
 cap label var JOBSAT "Job satisfaction"

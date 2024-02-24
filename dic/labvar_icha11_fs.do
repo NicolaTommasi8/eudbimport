@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOT_FS "All revenues of financing schemes"
 cap label var FS1 "Transfers from government domestic revenue"
 cap label var FS11 "Internal transfers and grants"

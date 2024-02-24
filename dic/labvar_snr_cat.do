@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var CAT_A "Single highest grade/post at which research is normally conducted"
 cap label var CAT_B "Researchers working in positions not as senior as top position (A) but more senior than newly qualified doctoral graduates (ISCED level 8)"

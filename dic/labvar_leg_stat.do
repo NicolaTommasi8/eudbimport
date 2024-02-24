@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var PER_SUSP "Suspected person"
 cap label var PER_PRSC "Prosecuted person"

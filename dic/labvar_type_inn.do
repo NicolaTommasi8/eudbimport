@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total enterprises"
 cap label var INNO "Innovative enterprises (including enterprises with abandoned/suspended or on-going innovation activities)"
 cap label var INNO_PP "Product and/or process innovative enterprises only (including enterprises with abandoned/suspended or on-going innovation activities)"

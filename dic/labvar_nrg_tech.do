@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var HYD "Hydrogen"
 cap label var HYD_PR "Pressurised hydrogen"

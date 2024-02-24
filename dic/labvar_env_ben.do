@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var RED_WUSE "Reduced material or water use"
 cap label var RED_CO2FP "Reduced energy use or CO2 footprint"
 cap label var RED_POL "Reduced soil, noise, water or air pollution"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var LA_1 "Total agricultural land"
 cap label var LA_1_1 "Arable land"
 cap label var LA_1_2 "Land under permanent crops"

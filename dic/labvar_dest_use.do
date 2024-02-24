@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var WLD "Released to the wild"
 cap label var ENVC "Transferred to a controlled environment (for on-growing)"

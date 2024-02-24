@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var DEV_0 "No information"
 cap label var DEV_1 "Deviation due to electrical problems, explosion, fire"

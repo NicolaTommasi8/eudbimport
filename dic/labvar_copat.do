@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var SGL "Single inventors/applicants"
 cap label var NAT "Co-patenting involving inventors/applicants from the reporting country"

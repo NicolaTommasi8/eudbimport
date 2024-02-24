@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOT_HC "Current health care expenditure (CHE)"
 cap label var HC1_2 "Curative care and rehabilitative care"
 cap label var HC1 "Curative care"

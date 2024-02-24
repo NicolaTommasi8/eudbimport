@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var CPA_A01 "Products of agriculture, hunting and related services"
 cap label var CPA_A02 "Products of forestry, logging and related services"
 cap label var CPA_A03 "Fish and other fishing products; aquaculture products; support services to fishing"

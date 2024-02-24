@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var ALLERGIC "Allergic effects"
 cap label var CANCER "Cancer"

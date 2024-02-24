@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var VITARTOT "Total holdings"
 cap label var VITARC1 "Holdings with > 0 <= 10 % of agricultural area in use under vines"
 cap label var VITARC2 "Holdings with 10 <= 25 % of agricultural area in use under vines"

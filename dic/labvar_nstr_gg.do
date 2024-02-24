@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var NSTR0 "Agricultural products and live animals"
 cap label var NSTR0_GG1 "Cereals"

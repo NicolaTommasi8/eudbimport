@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var B1003 "Total utilised agricultural area (UAA) (ha)"
 cap label var B1004 "Total irrigated agricultural land (ha)"
 cap label var B1001 "Number of agricultural holdings (Number)"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var _0 "Total fishing areas"
 cap label var _0_X_37 "Total fishing areas except Mediterranean and Black Sea"
 cap label var _9 "Inland waters - Total"

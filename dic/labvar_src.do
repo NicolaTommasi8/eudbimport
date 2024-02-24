@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var FR_1 "Precipitation"
 cap label var FR_2 "Actual evapotranspiration"
 cap label var FR_3 "Internal Flow"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var MV_WALK_CYCL_GET "Walking or cycling to get to and from place"
 cap label var MV_WALK_GET "Walking to get to and from place"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var CLSPER "Close person"
 cap label var HLTH_SOC "Health or social service"

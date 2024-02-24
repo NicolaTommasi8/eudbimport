@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var C1040 "Cereals for the production of grain (including rice and seed)"
 cap label var C1050 "Cereals (excluding rice)"
 cap label var C1100 "Wheat (including spelt)"

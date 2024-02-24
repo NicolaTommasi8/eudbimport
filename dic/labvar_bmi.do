@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var LT18P5 "Underweight"
 cap label var _18P5_25 "Normal"

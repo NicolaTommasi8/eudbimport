@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var PROV "Assistance provided"
 cap label var PROV_R "Assistance provided mainly to relatives"

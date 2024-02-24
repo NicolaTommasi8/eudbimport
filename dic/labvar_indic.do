@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var BP010 "Total"
 cap label var BP020 "Trade in goods"
 cap label var BP030 "Trade in services"

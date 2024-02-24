@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var USUAL "Resumption of usual work activities"
 cap label var CHANGE_W "Change of work or workplace because of the accidental injury"
 cap label var PT "Part time work or on reduced hours because of the accidental injury"

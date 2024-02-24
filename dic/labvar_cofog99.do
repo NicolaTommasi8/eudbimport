@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var GF01 "General public services"
 cap label var GF0101 "Executive and legislative organs, financial and fiscal affairs, external affairs"

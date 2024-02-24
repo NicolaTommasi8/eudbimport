@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var PUBOFFICE "Contact public employment office"
 cap label var PRIVOFFICE "Contact private employment office"

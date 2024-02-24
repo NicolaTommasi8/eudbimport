@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var RCMPY_NEG95 "Companies representing at least 95% of the net electricity generation"
 cap label var PCMPY_NEG5 "Companies producing at least 5% of the net electricity generation"
 cap label var LCMPY_EG "Largest company - electricity generation"

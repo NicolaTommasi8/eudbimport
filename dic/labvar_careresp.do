@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var CH_RELIC "For own or partner's children and incapacitated relatives"
 cap label var CH_IN_RELIC "For own or partner's children in the household and incapacitated relatives"

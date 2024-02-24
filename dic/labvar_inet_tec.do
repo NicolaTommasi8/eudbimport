@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var BB "Broadband"
 cap label var BB_FX "Fixed broadband"
 cap label var NGA "Next generation access"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var MF000 "Total whole milk (availabilities = utilization)"
 cap label var MF001 "Cows' milk - Total"
 cap label var MF002 "Ewes' milk"

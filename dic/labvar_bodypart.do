@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var BP1 "Head, not further specified     "
 cap label var BP11 "Head (caput), brain and cranial nerves and vessels"

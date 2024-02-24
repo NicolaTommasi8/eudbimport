@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var P1_NCH_AW50 "Single person without children earning 50% of the average earning"
 cap label var P1_NCH_AW67 "Single person without children earning 67% of the average earning"

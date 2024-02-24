@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var MAT_0000 "No material agent or no information"
 cap label var MAT_0100 "Buildings, structures, surfaces - at ground level (indoor or outdoor, fixed or mobile, temporary or not) - not specified"

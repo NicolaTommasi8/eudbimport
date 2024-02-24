@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var GINI_HND "Gini coefficient (scale from 0 to 100)"
 cap label var S80_S20 "Inequality of income distribution (income quintile share ratio)"

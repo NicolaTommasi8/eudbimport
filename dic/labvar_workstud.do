@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var CUR_OUT "Outside curriculum"
 cap label var WBL "Work-based learning"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var SELF "Self-employment"
 cap label var FTSAL "Full-time employee"

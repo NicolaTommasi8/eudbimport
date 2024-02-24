@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var Y_LE2009 "2009 and before"
 cap label var Y2010_2013 "From 2010 to 2013"
 cap label var Y_LE2011 "2011 and before"

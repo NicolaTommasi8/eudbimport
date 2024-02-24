@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var MOGA_FAM "Family members having other gainful activities as main activity"
 cap label var MOGA_FAM_RH "Family members having other gainful activities (related to the agricultural holding) as main activity"
 cap label var MOGA_FAM_NRH "Family members having other gainful activities (not related to the agricultural holding) as main activity"

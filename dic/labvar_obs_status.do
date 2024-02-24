@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var b "break in time series"
 cap label var bc "break in time series, confidential"
 cap label var bcd "break in time series, confidential, definition differs (see metadata)"

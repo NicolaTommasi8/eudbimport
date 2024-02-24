@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var BEAAB "Aalst"
 cap label var BEAAL "Aalter"
 cap label var BEABK "Albertkanaal ports"

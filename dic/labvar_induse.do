@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var A01 "Crop and animal production, hunting and related service activities"
 cap label var A02 "Forestry and logging"
 cap label var A03 "Fishing and aquaculture"

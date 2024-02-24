@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var _1 "1 problem"
 cap label var _2 "2 problems"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var _001 "Total number of holdings"
 cap label var _002 "Total Agricultural area (AA)"
 cap label var _003 "Total standard gross margin (ESU)"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "All ISCED 2011 levels"
 cap label var ED0_8 "Early childhood to tertiary education"
 cap label var ED0_4 "Less than primary, primary, secondary and post-secondary non-tertiary education (levels 0-4)"

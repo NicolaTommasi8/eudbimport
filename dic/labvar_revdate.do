@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var _2000_01_01 "2000-01-01"
 cap label var _2000_01_02 "2000-01-02"
 cap label var _2000_01_03 "2000-01-03"

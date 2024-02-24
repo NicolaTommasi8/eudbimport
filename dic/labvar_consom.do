@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var _4141050 "Households - D1 (Annual consumption: 8.37 GJ)"
 cap label var _4141100 "Households - D2 (Annual consumption: 16.74 GJ)"
 cap label var _4141150 "Households - D3 (Annual consumption: 83.70 GJ)"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var _0 "No active persons"
 cap label var _1 "1 active person"

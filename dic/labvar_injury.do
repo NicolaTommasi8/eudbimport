@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var INJ010 "Wounds and superficial injuries"
 cap label var INJ011 "Superficial injuries"

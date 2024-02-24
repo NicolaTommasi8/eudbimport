@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var WEN_00 "No information"
 cap label var WEN_01 "Industrial site"

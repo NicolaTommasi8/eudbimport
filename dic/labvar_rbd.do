@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var BE "Belgium"
 cap label var BE_CBE "RBD Belgian coastal zone (BE)"
 cap label var BE_SCH_BR "RBD Scheldt (BE-Brussels)"

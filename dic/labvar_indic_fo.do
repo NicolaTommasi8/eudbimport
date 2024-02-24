@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var AREA_X_WT "Area without water bodies"
 cap label var FOWL "Forest and other wooded land"
 cap label var FOR "Forest"

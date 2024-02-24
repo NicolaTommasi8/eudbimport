@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var POP "Population"
 cap label var ACT_INAC "Persons in- and outside the labour force (former name: active and inactive persons)"

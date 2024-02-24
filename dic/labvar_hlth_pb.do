@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var LHC_DIF_BACT "Both a longstanding health condition and a basic activity difficulty"
 cap label var LHC_ILL "Longstanding health condition, illness or disease"

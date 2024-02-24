@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total connected to wastewater treatment"
 cap label var WWT_GE2 "Urban, independent and other wastewater treatment - at least secondary treatment"
 cap label var URB_CS "Urban wastewater collecting system"

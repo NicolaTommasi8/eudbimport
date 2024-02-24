@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var SELFFAM "Learning from a family member, friend or colleague"
 cap label var SELFPRT "Learning by using printed material"

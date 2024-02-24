@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var NGDP "Net balance at current prices (in % of GDP)"
 cap label var NMLD "Net balance (in 1 000 million ECU/EUR)"
 cap label var COVR "Cover rates (in %)"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var PAR "Parental leave"
 cap label var MATN_PATN "Maternity or paternity leave"

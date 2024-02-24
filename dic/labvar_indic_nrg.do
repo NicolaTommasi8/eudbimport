@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var _12_1176011 "Electrical capacity, main activity producers - Combustible Fuels"
 cap label var _12_1176012 "Electrical capacity, autoproducers -Combustible Fuels"
 cap label var _12_1176031 "Electrical capacity, main activity producers - Nuclear"

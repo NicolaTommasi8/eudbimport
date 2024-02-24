@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var CLC1 "Artificial surfaces"
 cap label var CLC11 "Urban fabric"
 cap label var CLC111 "Continuous urban fabric"

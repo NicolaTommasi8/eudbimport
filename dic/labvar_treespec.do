@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total - all species"
 cap label var CONIF "Coniferous"
 cap label var C_FIR "Coniferous: Fir/Spruce (Abies alba, Picea abies)"

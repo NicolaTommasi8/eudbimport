@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var MF1 "Biomass"
 cap label var MF11 "Crops (excluding fodder crops)"

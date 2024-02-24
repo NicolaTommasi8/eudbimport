@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "TOTAL"
 cap label var _0 "No heads"
 cap label var _1 "1 head"

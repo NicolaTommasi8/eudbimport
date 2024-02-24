@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var CC_LE125 "125 cm³ or less"
 cap label var CC_GT125 "Over 125 cm³"

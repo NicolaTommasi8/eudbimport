@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var SELF_COWN "Self-employed persons and co-owner"
 cap label var SELF "Self-employed persons"

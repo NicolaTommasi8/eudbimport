@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var _1 "The intellectual property right belongs to 1 class"
 cap label var _2 "The intellectual property right belongs to 2 classes"
 cap label var _3 "The intellectual property right belongs to 3 classes"

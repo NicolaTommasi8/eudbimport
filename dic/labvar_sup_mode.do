@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var MOS1 "Cross border supply (mode 1)"
 cap label var MOS2 "Consumption abroad (mode 2)"

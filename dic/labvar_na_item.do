@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var B1GQ "Gross domestic product at market prices"
 cap label var B1G "Value added, gross"
 cap label var P1 "Output"

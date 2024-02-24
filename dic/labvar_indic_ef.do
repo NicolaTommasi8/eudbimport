@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var HOLD_HOLD "hold: Total number of holdings"
 cap label var HOLDSL_HOLD "hold: Sole holder holdings"
 cap label var HOLDLEG_GRP_HOLD "hold: Legal persons or group holdings"

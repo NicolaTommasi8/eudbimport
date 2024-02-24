@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var PPM_PU "Pesticides placed on the market for professional users"
 cap label var PPM_PU_AGR "Pesticides placed on the market for professional users intended for use in agriculture"

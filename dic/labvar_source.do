@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var ACP "Agricultural Commodity Price"
 cap label var PPI "Producer Price"
 cap label var PPI1 "Producer Price 1"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total - total transport"
 cap label var LOADED "Loaded - total transport"
 cap label var LNAT "Loaded - national transport"

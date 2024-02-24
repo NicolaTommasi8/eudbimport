@@ -1,3 +1,5 @@
+cap label var CODE "Label - English"
+cap label var TOTAL "Total"
 cap label var IRT_DTD "Day-to-day rate"
 cap label var IRT_M1 "1-month rate"
 cap label var IRT_M3 "3-month rate"

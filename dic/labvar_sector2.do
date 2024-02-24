@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var S1_S2 "Total economy and rest of the world"
 cap label var S1 "Total economy"
 cap label var S1D "Non-educational private sector"

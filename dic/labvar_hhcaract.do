@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var NR_HH_POP "Number of households in the population"
 cap label var PC_POP "Percentage of households in the population"
 cap label var PC_HH_POP "Percentage of households in the population"

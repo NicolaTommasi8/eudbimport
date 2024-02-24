@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "All enterprises (enterprise group + not enterprise group)"
 cap label var EG "Enterprise group"
 cap label var PEG "Part of an enterprise group"

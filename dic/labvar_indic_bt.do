@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var PRD "Production (volume)"
 cap label var VOL_SLS "Volume of sales"
 cap label var NETTUR "Net turnover"

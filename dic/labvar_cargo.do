@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var LBK "Liquid bulk goods"
 cap label var LBK_LGAS "Liquid bulk - liquified gas"

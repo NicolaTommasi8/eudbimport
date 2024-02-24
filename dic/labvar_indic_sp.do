@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var GSP_MIO_NAC "Gross social protection in millions of national currency"
 cap label var NSP_MIO_NAC "Net social protection in millions of national currency"
 cap label var GSP_MIO_EUR "Gross social protection in millions of Euros"

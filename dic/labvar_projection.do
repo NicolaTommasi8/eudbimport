@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var BSL "Baseline projections"
 cap label var LFRT "Sensitivity test: lower fertility"
 cap label var LMRT "Sensitivity test: lower mortality"

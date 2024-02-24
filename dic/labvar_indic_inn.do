@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var SAL14 "Employees in 2014"
 cap label var TUR14 "Turnover in 2014"
 cap label var TUR14_OUT "Turnover from sales outside the home country in 2014"

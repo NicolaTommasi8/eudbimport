@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var MRTG "Mortgage arrears as percentage of all owners"
 cap label var MRTG_LOAN "Mortgage arrears as percentage of all owners with a mortgage"

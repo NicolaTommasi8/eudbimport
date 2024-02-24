@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TA1 "Assistance with kind of work"
 cap label var TA2 "Assistance with amount of work"
 cap label var TA3 "Assistance with mobility to get to and from work"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var AM010000 "Cereals (including seeds)"
 cap label var AM011000 "Wheat and spelt"
 cap label var AM011100 "Common wheat and spelt"

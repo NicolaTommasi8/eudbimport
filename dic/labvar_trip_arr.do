@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var PACK "Package travel"
 cap label var NPACK "Non-package travel"

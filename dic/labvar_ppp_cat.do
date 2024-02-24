@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var GDP "Gross domestic product"
 cap label var A01 "Actual individual consumption"
 cap label var A0101 "Food and non-alcoholic beverages"

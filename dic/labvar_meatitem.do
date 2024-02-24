@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var SL "Slaughterings"
 cap label var GP "Gross indigenous production"
 cap label var IL "Total imports of live animals"

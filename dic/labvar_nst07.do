@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total transported goods"
 cap label var GT01 "Products of agriculture, hunting, and forestry; fish and other fishing products"
 cap label var GT011 "Cereals"

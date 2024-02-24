@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var SERV_EE "Services provided electronically"
 cap label var SERV_DOM "Services provided by people sent from domestic country"

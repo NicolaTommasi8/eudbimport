@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var ATS10001_TEN "Wien Westbf - Wien Hütteldorf"
 cap label var ATS10002_TEN "Wien Hütteldorf - Tullnerbach -Pr."
 cap label var ATS10003_TEN "Tullnerbach-Pr. - St. Pölten Hbf"

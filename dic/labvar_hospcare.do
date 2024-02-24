@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var DIS "Total discharges"
 cap label var ALOS "In-patient average length of stay"
 cap label var BEDDAY "In-patient hospital bed-days"

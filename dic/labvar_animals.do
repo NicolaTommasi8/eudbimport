@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var A0000 "Total of live animals"
 cap label var A0010 "Livestock"
 cap label var A0011 "Grazing livestock"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var D01_ECU_PER_HA "Common wheat and spelt"
 cap label var D02_ECU_PER_HA "Durum wheat"
 cap label var D03_ECU_PER_HA "Rye"

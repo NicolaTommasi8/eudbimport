@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var SUN "Surrounding nets"
 cap label var SEI "Seines"

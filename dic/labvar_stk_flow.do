@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var CRE_DEB_AVG "Average of credits and debits"
 cap label var CRE_DEB_SUM "Sum of credits and debits"

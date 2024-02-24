@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var M01_03 "From January to March"
 cap label var M01_05 "From January to May"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var DAY "Every day"
 cap label var _1D "Once a day"

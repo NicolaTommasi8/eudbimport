@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var NEWS "Newspapers, magazines and journals"
 cap label var ADVPT "Advertising material distributed by post"

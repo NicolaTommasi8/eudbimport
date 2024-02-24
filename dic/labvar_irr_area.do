@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var UAAIB "Irrigable utilised agricultural area"
 cap label var UAA_IB "Irrigable utilised agricultural area"
 cap label var UAAIT "Irrigated utilised agricultural area"

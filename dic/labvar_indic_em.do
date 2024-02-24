@@ -1,4 +1,8 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
+cap label var SAL "Employees"
+cap label var OJA "Online job advertisements"
+cap label var LSH "Labour shortages"
 cap label var ACT "Persons in the labour force (former name: active persons)"
 cap label var EMP_LFS "Total employment (resident population concept - LFS)"
 cap label var EMP_CLT "Cultural employment"

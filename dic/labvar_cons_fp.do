@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var SWS "Single weighted score"
 cap label var AC "Acidification"
 cap label var CCHG "Climate change"

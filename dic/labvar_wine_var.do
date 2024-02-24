@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var AT1000 "Blauburger"
 cap label var AT1001 "Blauer Burgunder (Blauer Spätburgunder, Blauburgunder, Pinot Noir)"
 cap label var AT1002 "Blauer Potugieser"

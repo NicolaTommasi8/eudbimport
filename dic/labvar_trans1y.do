@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var TO_FT "Transition to full-time work"
 cap label var TO_PT "Transition to part-time work"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var TOT_R "Total of rented accommodation"
 cap label var R_HOT "Rented accommodation: hotels or similar establishments"

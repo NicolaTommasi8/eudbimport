@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var BE_EBAW "ANTWERPEN/DEURNE airport"
 cap label var BE_EBBR "BRUSSELS airport"
 cap label var BE_EBCI "CHARLEROI/BRUSSELS SOUTH airport"

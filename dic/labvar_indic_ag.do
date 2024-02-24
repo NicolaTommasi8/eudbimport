@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var PROD_BP "Production value at basic price"
 cap label var SUBS "Subsidies on products"
 cap label var TAX "Taxes on products"

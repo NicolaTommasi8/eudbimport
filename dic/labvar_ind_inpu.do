@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var _6000 "Input total (I+II)"
 cap label var _7000 "Total, goods and services currently consumed in agriculture"
 cap label var _7100 "Seeds"

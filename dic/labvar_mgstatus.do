@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var IMG "Native and foreign born immigrants (first and second generation of immigrants)"
 cap label var FBO_NBO_ABR "Foreign-born or native-born with one or both parents born abroad (first and second generations)"

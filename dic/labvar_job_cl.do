@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var CREA "Job creation"
 cap label var CREA_HS "Job creation - high skilled"

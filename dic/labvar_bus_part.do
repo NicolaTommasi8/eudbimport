@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var IN "Within enterprise group"
 cap label var IN_DOM "Within enterprise group domestically"

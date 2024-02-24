@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "All types of production"
 cap label var VQPRD "Exclusively quality wines psr"
 cap label var OTHWINE "Exclusively other wines"

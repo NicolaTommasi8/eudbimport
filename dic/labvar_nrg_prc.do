@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var NRG_SUP "Energy and supply"
 cap label var NETC "Network costs"
 cap label var NETC_TRANS "Network transmission costs"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var _0 "No books"
 cap label var GE1 "1 book or more"
 cap label var LT5 "Less than 5 books"

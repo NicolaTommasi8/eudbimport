@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "All ISCED 1997 levels"
 cap label var ED0_4 "Pre-primary, primary, secondary and post-secondary non-tertiary education (levels 0-4)"
 cap label var ED0_3CS "Pre-primary, primary, lower and upper secondary education shorter than 3 years (levels 0-3CS)"

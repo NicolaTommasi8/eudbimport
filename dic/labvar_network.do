@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var DHEAT "District heating"
 cap label var DHEAT_STM "District heating - steam"

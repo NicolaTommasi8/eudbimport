@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var AC25000 "Alternating current - 50 Hz / 25 000 V"
 cap label var AC15000 "Alternating current - 16 2/3 Hz / 15 000 V"

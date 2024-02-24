@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var ALL_SOME_CH "Used for all or for some children"
 cap label var ALL_CH "Used for all children"

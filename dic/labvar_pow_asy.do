@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var CRELS "Captive relationship"
 cap label var SPOW_ASY "Strong power asymmetry"

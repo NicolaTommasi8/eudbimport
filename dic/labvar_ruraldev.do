@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var RDEV15 "Advisory services, farm management and farm relief services (article 15)"
 cap label var RDEV16 "Quality schemes for agricultural products, and foodstuffs (article 16)"

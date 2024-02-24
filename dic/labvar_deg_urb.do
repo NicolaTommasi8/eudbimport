@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var DEG1_DEG2 "Urban areas"
 cap label var DEG1 "Cities"

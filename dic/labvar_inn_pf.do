@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var INN "Innovation active enterprises"
 cap label var INN_ITR "Entreprises that have introduced an innovation (all types)"

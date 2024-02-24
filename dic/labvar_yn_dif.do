@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var YES_DIF_BACT "Difficulty in basic activities"
 cap label var YES_DIF_PCARE "Difficulty in personal care"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var SRC "Sourcing"
 cap label var SRC_IN "Sourcing within the enterprise group"

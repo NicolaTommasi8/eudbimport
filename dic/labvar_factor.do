@@ -1,3 +1,5 @@
+cap label var CODE "Label - English"
+cap label var TOTAL "Total"
 cap label var HARS_BULLY "Harassment or bullying"
 cap label var TPR_OLWRK "Time pressure or overload of work"
 cap label var VLN_THRT "Violence or threat of violence"

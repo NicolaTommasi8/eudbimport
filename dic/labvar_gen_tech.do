@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var STM_BTURB "Steam - backpressure turbine"
 cap label var STM_CTURB "Steam - condensing turbine (eff ≥ 80%)"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var _1120 "Soft wheat - prices per 100 kg"
 cap label var _1130 "Durum wheat - prices per 100 kg"
 cap label var _1150 "Rye - prices per 100 kg"

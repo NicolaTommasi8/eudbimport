@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var ACPI "Agricultural commodity price index"
 cap label var HICP "Harmonised index of consumer prices"
 cap label var HICP_CT "Harmonised index of consumer prices at constant tax rates"

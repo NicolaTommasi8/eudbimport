@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var D "Total labour costs (total)"
 cap label var D01 "Total labour costs (excluding apprentices)"
 cap label var D02 "Total labour costs for apprentices"

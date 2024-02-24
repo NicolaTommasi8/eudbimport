@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total of household income groups"
 cap label var LT60PC "Household income less than 60% compared to median actual current income"
 cap label var _60_100PC "Household income between 60% and 100% compared to median actual current income"

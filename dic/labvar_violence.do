@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var PSY "Psychological"
 cap label var THRT "Threats"
 cap label var PHY "Physical"

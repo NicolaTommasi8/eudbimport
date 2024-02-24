@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var RES "Residential buildings"
 cap label var RES1 "One-dwelling residential buildings"

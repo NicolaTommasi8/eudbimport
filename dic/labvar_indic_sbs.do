@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var ENT_NR "Enterprises - number"
 cap label var ENT_BRTH_NR "Enterprise births - number"
 cap label var ENT_BRTH_EMPSIZE_NR "Size of newly born enterprises - persons employed in newly born enterprises divided by enterprise births - average number"

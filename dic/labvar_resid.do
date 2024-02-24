@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var RES "Place of residence in the reporting country"
 cap label var NRES "Place of residence outside the reporting country"

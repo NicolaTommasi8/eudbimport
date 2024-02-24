@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var D01_0D "Pupils and students (ISCED levels 1-6) (1 000)"
 cap label var D01_2 "Pupils at ISCED level 0 - as % of all pupils and students"
 cap label var D01_2D "Pupils at ISCED level 0 (1 000)"

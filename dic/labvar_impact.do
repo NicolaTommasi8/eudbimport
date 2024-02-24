@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var REDLC "Reduction of labour costs"
 cap label var REDOC "Reduction of other costs than labour costs"
 cap label var LOG "Logistics"

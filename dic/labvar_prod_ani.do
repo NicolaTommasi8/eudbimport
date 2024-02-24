@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var _11110000 "Young cattle - prices per 100 kg live weight"
 cap label var _11111000 "Young cattle (store) - prices per head"
 cap label var _11112000 "Heifers - prices per 100 kg live weight"

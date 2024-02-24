@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var AGRAREA_HA "Utilised agricultural area (ha)"
 cap label var LFD_AWU "AWU:Labour force - directly employed by the holding"
 cap label var HOLD_HOLD "hold:No. of holdings"

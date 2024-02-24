@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "All types of co-operation"
 cap label var PRV "Private business enterprises"
 cap label var PRV_IN "Enterprises within the enterprise group"

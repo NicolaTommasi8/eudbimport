@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var WRD "Word"
 cap label var FIG "Figurative"
 cap label var _3D "3D"

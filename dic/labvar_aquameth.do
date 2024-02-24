@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "All methods"
 cap label var PON "Ponds"
 cap label var TNK "Tanks and raceways"

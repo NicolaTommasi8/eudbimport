@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var SSS "Short Sea Shipping"
 cap label var DSS "Deep Sea Shipping"

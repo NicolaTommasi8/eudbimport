@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var B_MD40 "Below 40% of median equivalised income"
 cap label var A_MD40 "Above 40% of median equivalised income"
 cap label var B_MD50 "Below 50% of median equivalised income"

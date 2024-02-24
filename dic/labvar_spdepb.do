@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var SCPOLDSURV "Old age plus survivors pensions"
 cap label var SCPTOTOLDAGE "Total old age pensions"

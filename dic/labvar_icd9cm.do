@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "All procedures covered by ICD-9-CM"
 cap label var CM01_05 "Operations on the nervous system"
 cap label var CM0131_0139 "Evacuation of subdural haematoma and intracranial haemorrhage"

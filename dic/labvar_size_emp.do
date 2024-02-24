@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var _0 "No persons employed"
 cap label var _0_1 "From 0 to 1 person employed"

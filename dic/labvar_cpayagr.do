@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var COL "Collective pay agreement"
 cap label var NAT "National level or interconfederal agreement"

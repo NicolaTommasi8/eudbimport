@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var PC0 "Zero percent of a full-time"
 cap label var PC1_24 "From 1 to 24 percent of a full-time"

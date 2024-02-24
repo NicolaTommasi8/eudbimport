@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total - all products"
 cap label var SITC0_4 "Primary goods"
 cap label var SITC0_4A "Primary goods excluding SITC division 33"

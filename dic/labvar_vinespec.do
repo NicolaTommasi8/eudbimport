@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Holdings with areas under vines - total"
 cap label var HLD_EWI "Holdings with areas under vines exclusively intended for wine production"
 cap label var HLD_EWI_P "Holdings with areas under vines exclusively intended for production of PDO and/or PGI wines"

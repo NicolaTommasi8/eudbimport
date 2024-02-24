@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var B0000 "Total of meat and edible meat offal"
 cap label var B0010 "Meat of livestock"
 cap label var B1000 "Bovine meat"

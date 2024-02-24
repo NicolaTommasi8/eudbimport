@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var KITC "Separate kitchen in the housing unit"
 cap label var WTR "Piped water in the housing unit"

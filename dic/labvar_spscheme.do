@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "All schemes"
 cap label var PUBLIC "Public schemes"
 cap label var PRIVATE "Private schemes"

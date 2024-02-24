@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var MER "Merchant ship"
 cap label var MER_NF "Merchant ship under national flag"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var IPC "International patent classification (IPC) - total"
 cap label var A "Section A - Human necessities"
 cap label var A01 "Agriculture; forestry; animal husbandry; hunting; trapping; fishing"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var F00 "TOTAL FISHERY PRODUCTS"
 cap label var F01 "TOTAL AQUATIC ANIMALS"
 cap label var F02 "TOTAL FRESHWATER AND DIADROMOUS FISH"

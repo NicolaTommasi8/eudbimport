@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total environmental protection and resource management activities"
 cap label var TOT_CEPA "Total environmental protection activities"
 cap label var CEPA1_3 "Protection of ambient air and climate; wastewater management; waste management"

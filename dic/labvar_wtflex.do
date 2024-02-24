@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var GEN "Generally possible"
 cap label var RAR "Rarely possible"

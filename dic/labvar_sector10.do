@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var S1 "Total economy"
 cap label var S11 "Non-financial corporations"
 cap label var S121 "Central Bank"

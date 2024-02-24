@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var VITOT "Area under all vine varieties"
 cap label var WGV "Area under wine-grape vine varieties"
 cap label var VQPRD "Area for the production of quality wines psr"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var TYNG_SPK "Too young to speak"
 cap label var MOT "Mother tongue"

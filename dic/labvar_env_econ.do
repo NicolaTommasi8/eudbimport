@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var EPS_EPE "Environmental protection expenditure"
 cap label var EPS_P1 "Output"
 cap label var EPS_P11 "Market output"

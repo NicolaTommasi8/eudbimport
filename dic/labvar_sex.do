@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var T "Total"
 cap label var M "Males"
 cap label var F "Females"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var NABS01 "Exploration and exploitation of the earth"
 cap label var NABS02 "Environment"
 cap label var NABS03 "Exploration and exploitation of space"

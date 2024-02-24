@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOT_NACE_HH "All NACE branches plus households"
 cap label var DEU_RES "Domestic energy use - residence principle"
 cap label var TOT_NRA "Production and consumption activities abroad by residents"

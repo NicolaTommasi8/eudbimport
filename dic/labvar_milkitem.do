@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var FCA "Fat content (% of product weight) (annual)"
 cap label var PCA "Protein content (% of product weight) (annual)"
 cap label var PRO "Products obtained (1 000 t)"

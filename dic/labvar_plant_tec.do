@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var CAP_HEAT "Installed thermal capacity"
 cap label var CAP_HEAT_ABVTH "Installed thermal capacity above the minimum seasonal performance factor threshold"
 cap label var ACT_FACT "Activity factor"

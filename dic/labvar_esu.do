@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var ESU0 "Zero ESU"
 cap label var ESU_LT1 "Less than 1 ESU"

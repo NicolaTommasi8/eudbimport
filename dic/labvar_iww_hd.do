@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var I_III "Categories I to III (length: up to 80 m, beam: 9 m)"
 cap label var IV "Category IV (length: 80 to 85 m, beam: 9.50 m)"

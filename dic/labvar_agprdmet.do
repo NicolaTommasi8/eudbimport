@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total fully converted and under conversion to organic farming"
 cap label var FCONV_UCONV "Fully converted and under conversion to organic farming"
 cap label var FCONV "Fully converted to organic farming"

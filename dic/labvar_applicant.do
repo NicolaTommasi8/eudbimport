@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var FRST "First time applicant"
 cap label var POS_FRST_DEC "Positive first instance decision"

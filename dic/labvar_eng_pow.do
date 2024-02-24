@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var KW_LT25 "Less than 25 kW"
 cap label var KW25_74 "From 25 to 74 kW"

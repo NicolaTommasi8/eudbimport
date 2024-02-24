@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var AREA_KM2 "Country area (km2)"
 cap label var PRO "Protected area"
 cap label var PRO_BIO "Protected area - biodiversity"

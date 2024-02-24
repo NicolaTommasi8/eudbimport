@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOT_AR "Area under wine-grape vines - Total (ha)"
 cap label var TOT_AR_INPRD "Area under wine-grape vines - In production (ha)"
 cap label var TOT_AR_NOPRD "Area under wine-grape vines - Not yet in production (ha)"

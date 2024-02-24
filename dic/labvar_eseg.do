@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var ESEG0 "Persons in the labour force whose occupation or status in employment is not known"
 cap label var ESEG01 "Employed persons whose occupation or status in employment is not known"

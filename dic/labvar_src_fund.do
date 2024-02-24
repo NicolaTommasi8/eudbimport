@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var PUB_FUND "Public funding"
 cap label var PUB_FUND_RNDINN "Public funding (used for R&D or other innovation activities)"
 cap label var GOV_CTL "National central government"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Corresponding (total) number of students enrolled"
 cap label var _0 "No languages"
 cap label var _1 "1 language"

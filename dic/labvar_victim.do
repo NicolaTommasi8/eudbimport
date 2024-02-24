@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var KIL "Killed"
 cap label var INJ "Injured"

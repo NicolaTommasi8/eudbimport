@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var SOURINT "Internet"
 cap label var SOURFAM "Member of the family, neighbour, work colleague"
 cap label var SOUREMPL "Employer"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var SKI "Snow-skis and other snow-ski equipment, ski-boots, cross-country ski footwear and snowboard boots"
 cap label var SKATE "Ice skates and roller skates, including skating boots with skates attached"

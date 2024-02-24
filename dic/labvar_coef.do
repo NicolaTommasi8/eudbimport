@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var C0 "Coefficient 0"
 cap label var C1 "Coefficient 1"
 cap label var C2 "Coefficient 2"

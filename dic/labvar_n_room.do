@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var LT0P5 "Less than 0,5 room"
 cap label var _0P5_1 "From 0,5 to 1 room"

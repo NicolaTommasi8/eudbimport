@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var BRSRCH "Basic research"
 cap label var ARSRCH "Applied research"

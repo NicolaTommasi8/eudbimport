@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var C21 "Trade within own enterprise group"
 cap label var C22 "Joint ventures with enterprise abroad"

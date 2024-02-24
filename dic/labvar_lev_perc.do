@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var STR "Strong"
 cap label var VG_FG "Very good or fairly good"
 cap label var VGOOD "Very good"

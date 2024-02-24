@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var BIRTH "Born with it or birth injury"
 cap label var WRK_DIS "Work-related diseases"

@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var _1 "1 vehicle"
 cap label var _2_5 "From 2 to 5 vehicles"

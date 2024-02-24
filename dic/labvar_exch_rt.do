@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var NEER_EA18 "Nominal effective exchange rate - 18 trading partners (euro area 2014)"
 cap label var NEER_EA19 "Nominal effective exchange rate - 19 trading partners (euro area from 2015)"
 cap label var NEER_EA20 "Nominal effective exchange rate - 20 trading partners (euro area from 2023)"

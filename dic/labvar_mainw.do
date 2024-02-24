@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var EXPJOB "Learning through gaining experiences in the job"
 cap label var TRAINING "Providing training"
 cap label var INITIAL "Initial training to young people with a training contract"

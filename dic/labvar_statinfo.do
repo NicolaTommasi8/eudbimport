@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var UNI "Universe"
 cap label var SPL "Sample"
@@ -36,6 +37,7 @@ cap label var SME_LW95 "Smoothed estimate - lower boundary of the 95% confidence
 cap label var UP95 "Upper boundary of the 95% confidence interval"
 cap label var LW95 "Lower boundary of the 95% confidence interval"
 cap label var STA "Status"
+cap label var CR4 "Concentration ratio (four largest entities)"
 cap label var WT "Weight"
 cap label var COWEU "Country weights for European Union (EU6-1958, EU9-1973, EU10-1981, EU12-1986, EU15-1995, EU25-2004, EU27-2007, EU28-2013, EU27-2020)"
 cap label var COWEU27_2020 "Country weights for EU27 (from 2020)"

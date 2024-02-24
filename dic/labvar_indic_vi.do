@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var HOLD "Vineyard holdings"
 cap label var AAU "Agricultural area in use of vineyard holdings (ha)"
 cap label var VITAR "Area under vines (ha)"

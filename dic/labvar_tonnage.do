@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var GT_LT25 "Less than 25 gross tonnage"
 cap label var GT25_49 "From 25 to 49 gross tonnage"

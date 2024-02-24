@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var SAL "Employees"
 cap label var HW_SAL_Y "Hours actually worked by the employees per year"
 cap label var HP_SAL_Y "Hours paid for employees per year"

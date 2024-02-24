@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var FAM "Family member, friend or colleague"
 cap label var PRM "Printed material"

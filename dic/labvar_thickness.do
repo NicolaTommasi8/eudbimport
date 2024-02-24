@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var MCM_LT15 "Less than 15 microns"
 cap label var MCM15_49 "From 15 to 49 microns"

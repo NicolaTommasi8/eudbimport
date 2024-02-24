@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var WST_0 "Not specified"
 cap label var WST_1 "Usual workstation or within the usual local unit of work"

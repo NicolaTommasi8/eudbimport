@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var _20210000 "Electricity - prices per 100 kwh"
 cap label var _20221000 "Heating gas oil - prices per 100 litres"
 cap label var _20222000 "Residual fuel oil (prices/100 kg) - prices per 100 kg"

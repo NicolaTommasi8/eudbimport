@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var CROC "Aggregates - crushed rock, other sands (not silica), pebbles, gravel, bitumen additives"
 cap label var RUB_NTL "Rubber - natural"

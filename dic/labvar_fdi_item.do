@@ -1,3 +1,4 @@
+cap label var CODE "Label - English"
 cap label var DO__D__F "Direct investment abroad (DIA)"
 cap label var DO__D__F5A "DIA Equity other than reinvested earnings"
 cap label var DO__D1D2__F5A "DIA Equity other than reinvested earnings (excluding equity between fellow enterprises)"
