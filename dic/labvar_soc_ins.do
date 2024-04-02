@@ -1,0 +1,6 @@
+cap label var CODE "Label - English"
+cap label var COV_PA_OTHSRC "Covered by platform, app or another source"
+cap label var COV_PA "Covered by platform or app"
+cap label var COV_OTHSRC "Covered by another source (not by any platform or app or other job)"
+cap label var COV_OTHJOB "Covered by another job (not by any platform or app)"
+cap label var NCOV "Not covered"

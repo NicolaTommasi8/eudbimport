@@ -1,5 +1,6 @@
 cap label var CODE "Label - English"
 cap label var HRI1 "Pesticides - harmonised risk indicator 1 (all active substances)"
+cap label var FTFI1 "Pesticides - farm to fork strategy indicator 1 (all chemical active substances)"
 cap label var GRP1 "Group 1 - low-risk active substances"
 cap label var GRP1_CAT_A "Group 1, category A - low-risk micro-organisms"
 cap label var GRP1_CAT_B "Group 1, category B - low-risk chemical active substances"
