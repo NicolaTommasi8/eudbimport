@@ -1,7 +1,0 @@
-cap label var CODE "Label - English"
-cap label var TECHY "Introduction of technologically new/improved products/services and/or methods of producing the products/services"
-cap label var TECHN "No introduction of technologically new/improved products/services and methods of producing the products/services"
-cap label var MERGY "Involved in mergers, take-overs or re-structuring"
-cap label var MERGN "Not involved in mergers, take-overs or re-structuring"
-cap label var ORGY "Involved in major organisational change"
-cap label var ORGN "Not involved in major organisational change"
