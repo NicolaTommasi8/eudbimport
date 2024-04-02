@@ -1,6 +1,0 @@
-cap label var CODE "Label - English"
-cap label var NRES "Students who are non-residents of reporting country"
-cap label var NCTZ "Students who are non-citizens of reporting country"
-cap label var NPRI "Students who have not received prior education (at the previous ISCED level) in the reporting country"
-cap label var WORLD "Students from the whole world"
-cap label var EHEA "Students from European Higher Education Area (Bologna process)"
