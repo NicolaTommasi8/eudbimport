@@ -1,0 +1,7 @@
+cap label var CODE "Label - English"
+cap label var TOTAL "Total"
+cap label var TOT "Total"
+cap label var SCHED "Scheduled"
+cap label var NSCHED "Non-scheduled"
+cap label var N_SCHED "Non scheduled"
+cap label var UNK "Unknown"
