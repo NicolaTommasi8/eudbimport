@@ -1,7 +1,6 @@
 cap label var CODE "Label - English"
 cap label var TOTAL "Total"
 cap label var FRST "First time applicant"
-cap label var POS_FRST_DEC "Positive first instance decision"
 cap label var RPT "Repeated applicant"
 cap label var SSEQ "Subsequent applicant"
 cap label var ADL "Adult"
