@@ -1,4 +1,4 @@
-*! version 2.1  Nicola Tommasi  <dat>
+*! version 2.1  Nicola Tommasi  03apr2024
 *               ability to retrive database info --> new option info
 
 *! version 2.0  Nicola Tommasi  28dec2023
@@ -131,25 +131,26 @@ if "`info'"== "info" {
     local metahtml = metainfocode10 in 1
     local metasdmx = metainfocode11 in 1
     local downtsv = metainfocode12 in 1
-    local downsdmx = metainfocode13 in 1
+    capture local downsdmx = metainfocode13 in 1
+    if "`downsdmx'"=="" local downsdmx "n.a."
   }
-  di "Database: `anything'"
-  di "EN desc: `endesc'"
-  di "FR desc: `frdesc'"
-  di "DE desc: `dedesc'"
-  di "Last Update: `lastup'"
-  di "Last Modified: `lastmod'"
-  di "Data Start: `start'"
-  di "Data end: `end'"
-  di "Values: `values'"
-  di "Metadata in html: `metahtml'"
-  di "Metadata in sdmx: `metasdmx'"
-  di "Download in tsv format: `downtsv'"
-  di "Download in sdmx format: `downsdmx'"
+  di "{bf:Database}: `anything'"
+  di "{bf:EN desc}: `endesc'"
+  di "{bf:FR desc}: `frdesc'"
+  di "{bf:DE desc}: `dedesc'"
+  di "{bf:Last Update}: `lastup'"
+  di "{bf:Last Modified}: `lastmod'"
+  di "{bf:Data Start}: `start'"
+  di "{bf:Data end}: `end'"
+  di "{bf:Values}: `values'"
+  di as txt `"{bf:Metadata in html}: {ul:{bf:{browse `"`metahtml'"':`metahtml'}}} "'
+  di as txt `"{bf:Metadata in sdmx}: {ul:{bf:{browse `"`metasdmx'"':`metasdmx'}}} "'
+  di as txt `"{bf:Download in tsv format}: {ul:{bf:{browse `"`downtsv'"':`downtsv'}}} "'
+  if "`downsdmx'"=="n.a." di as txt `"{bf:Download in sdmx format}: {ul:{bf:{browse `"`downsdmx'"':`downsdmx'}}} "'
+  di _newline(2)
   **return
   qui erase `catalogue'
-  qui clear
-  exit
+  **qui clear
 }
 
 
@@ -173,7 +174,7 @@ if "`download'"!="" {
   if "`debug'"!="" {
     timer off 10
     qui timer list 10
-    local t_down `r(t10)'
+    local t_down : display %11.3f `r(t10)'
     **di _newline
   }
 }
@@ -185,7 +186,7 @@ qui import delimited "`rawdata'`anything'`D'.tsv", varnames(1) delimiter(tab) cl
 if "`debug'"!="" {
   timer off 11
   qui timer list 11
-  local t_imp `r(t11)'
+  local t_imp : display %11.3f `r(t11)'
   **di _newline
 }
 di _newline(1) "Database: `anything'`macval(dollar)'"
@@ -330,7 +331,7 @@ qui greshape long `index'@, by(`splitvars') keys(`tmpdt') string
 if "`debug'"!="" {
   timer off 12
   qui timer list 12
-  local r_long `r(t12)'
+  local r_long : display %11.3f `r(t12)'
   **di _newline
 }
 
@@ -387,7 +388,7 @@ qui greshape wide `index'@, by(`widevars' `tmpdt') keys(`reshapevar')
 if "`debug'"!="" {
   timer off 13
   qui timer list 13
-  local r_wide `r(t13)'
+  local r_wide : display %11.3f `r(t13)'
 **  di _newline
 }
 qui rename `index'* *
@@ -451,7 +452,7 @@ if "`destring'"=="" {
   if "`debug'"!="" {
       timer off 14
       qui timer list 14
-      local t_dest `r(t14)'
+      local t_dest : display %11.3f `r(t14)'
       **di _newline
   }
 }
@@ -539,7 +540,8 @@ if "`debug'"!="" {
   else if "`hours'"=="" & `minutes'<. di in ye "Elapsed time was `minutes' minutes, `seconds' seconds."
   else di in ye "Elapsed time was `hours' hours, `minutes' minutes, `seconds' seconds."
   **            dbname;time_download;time_import;resh_long;resh_wide;destring;time_total
-  di in ye "`anything'`macval(dollar)';`splitvars';`reshapevar';`t_down';`t_imp';`r_long';`r_wide';`t_dest';`r(t1)'"
+  local t_tot : display %11.3f `r(t1)'
+  di in ye "`anything'`macval(dollar)';`splitvars';`reshapevar';`t_down';`t_imp';`r_long';`r_wide';`t_dest';`t_tot'"
 }
 
 
