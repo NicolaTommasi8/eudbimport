@@ -575,6 +575,9 @@ capture label var prd_use "Products and final uses"
 
 capture label var lvlcros "Type of level crossing"
 
+capture label var revdate "Revision date"
+
+
 
 **comext label vars
 capture label var decl "Declarant"
