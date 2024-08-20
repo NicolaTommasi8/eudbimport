@@ -1,4 +1,4 @@
-*! version 2.1  Nicola Tommasi  <dat>
+*! version 2.1  Nicola Tommasi  03apr2024
 *               ability to retrive database info --> new option info
 
 *! version 2.0  Nicola Tommasi  28dec2023
@@ -64,10 +64,6 @@ if _rc==111 {
   ssc inst missings
 }
 
-if "`debug'"!="" {
-  timer clear
-  timer on 1
-}
 
 local check0 : word count `anything'
 if `check0'!=1 {
@@ -75,13 +71,12 @@ if `check0'!=1 {
   exit
 }
 
-
+**set trace on
 if "`info'"== "info" {
   quietly {
     tempfile catalogue
     copy "https://ec.europa.eu/eurostat/api/dissemination/catalogue/toc/xml" `catalogue', replace
     import delimit `catalogue', delim("|||") bindquote(nobind) clear
-
     gen db=1 if strmatch(v1,`"*<nt:leaf type="table">"')
     replace db=2 if strmatch(v1,`"*<nt:leaf type="dataset">"')
     replace db=0 if strmatch(v1,`"*</nt:leaf>"')
@@ -91,7 +86,7 @@ if "`info'"== "info" {
     gen metainfo=1 if strmatch(v1,"*<nt:code>*") & db_id!=.
     gen metainfocode=regexs(1) if regexm(v1,`"<nt:code>([a-zA-Z0-9_-]+)"') & db_id!=.
     summ db_id if upper(metainfocode)=="`anything'"
-    keep if db_id==r(mean)
+    keep if db_id==r(min) /* a volte il db è presente + volte */
     replace metainfo=2 if strmatch(v1,`"*<nt:title language="en">*"') & db_id!=.
     replace metainfocode=regexs(1) if regexm(v1,`"<nt:title language="en">(.*)</nt:title"') & db_id!=.
     replace metainfo=3 if strmatch(v1,`"*<nt:title language="fr">*"') & db_id!=.
@@ -119,39 +114,54 @@ if "`info'"== "info" {
     drop if metainfo==.
     drop v1 db
     reshape wide metainfocode, i(db_id) j(metainfo)
-    local endesc = metainfocode2 in 1
-    local frdesc = metainfocode3 in 1
-    local dedesc = metainfocode4 in 1
-    local lastup = metainfocode5 in 1
-    local lastmod = metainfocode6 in 1
-    local start = metainfocode7 in 1
-    local end = metainfocode8 in 1
-    local values = metainfocode9 in 1 /*?*/
-    local values : display %15.0fc `values'
-    local metahtml = metainfocode10 in 1
-    local metasdmx = metainfocode11 in 1
-    local downtsv = metainfocode12 in 1
-    local downsdmx = metainfocode13 in 1
+    capture local endesc = metainfocode2 in 1
+    capture local frdesc = metainfocode3 in 1
+    capture local dedesc = metainfocode4 in 1
+    capture local lastup = metainfocode5 in 1
+    capture local lastmod = metainfocode6 in 1
+    capture local start = metainfocode7 in 1
+    capture local end = metainfocode8 in 1
+    capture local values = metainfocode9 in 1 /*?*/
+    capture local values : display %15.0fc `values'
+    capture local metahtml = metainfocode10 in 1
+    capture local metasdmx = metainfocode11 in 1
+    capture local downtsv = metainfocode12 in 1
+    capture local downsdmx = metainfocode13 in 1
   }
-  di "Database: `anything'"
-  di "EN desc: `endesc'"
-  di "FR desc: `frdesc'"
-  di "DE desc: `dedesc'"
-  di "Last Update: `lastup'"
-  di "Last Modified: `lastmod'"
-  di "Data Start: `start'"
-  di "Data end: `end'"
-  di "Values: `values'"
-  di "Metadata in html: `metahtml'"
-  di "Metadata in sdmx: `metasdmx'"
-  di "Download in tsv format: `downtsv'"
-  di "Download in sdmx format: `downsdmx'"
+  di "{bf:Database}: `anything'"
+  di "{bf:EN desc}: `endesc'"
+  di "{bf:FR desc}: `frdesc'"
+  di "{bf:DE desc}: `dedesc'"
+  di "{bf:Last Update}: `lastup'"
+  di "{bf:Last Modified}: `lastmod'"
+  di "{bf:Data Start}: `start'"
+  di "{bf:Data end}: `end'"
+
+  di "{bf:Values}: `values'"
+  if "`metahtml'"=="" di as txt `"{bf:Metadata in html}: n.a. "'
+  else di as txt `"{bf:Metadata in html}: {ul:{bf:{browse `"`metahtml'"':`metahtml'}}} "'
+
+  if "`metasdmx'"=="" di as txt `"{bf:Metadata in sdmx}: n.a. "'
+  else di as txt `"{bf:Metadata in sdmx}: {ul:{bf:{browse `"`metasdmx'"':`metasdmx'}}} "'
+
+  if "`downtsv'"=="" di as txt `"{bf:Download in tsv format}: n.a. "'
+  else di as txt `"{bf:Download in tsv format}: {ul:{bf:{browse `"`downtsv'"':`downtsv'}}} "'
+
+  if "`downsdmx'"=="" di as txt `"{bf:Download in sdmx format}: n.a. "'
+  else di as txt `"{bf:Download in sdmx format}: {ul:{bf:{browse `"`downsdmx'"':`downsdmx'}}} "'
+
+  di _newline(2)
   **return
   qui erase `catalogue'
-  qui clear
-  exit
+  **qui clear
 }
 
+
+
+if "`debug'"!="" {
+  timer clear
+  timer on 1
+}
 
 **! DOWNLOAD !**
 if "`download'"!="" {
@@ -173,7 +183,7 @@ if "`download'"!="" {
   if "`debug'"!="" {
     timer off 10
     qui timer list 10
-    local t_down `r(t10)'
+    local t_down : display %11.3f `r(t10)'
     **di _newline
   }
 }
@@ -185,7 +195,7 @@ qui import delimited "`rawdata'`anything'`D'.tsv", varnames(1) delimiter(tab) cl
 if "`debug'"!="" {
   timer off 11
   qui timer list 11
-  local t_imp `r(t11)'
+  local t_imp : display %11.3f `r(t11)'
   **di _newline
 }
 di _newline(1) "Database: `anything'`macval(dollar)'"
@@ -330,10 +340,9 @@ qui greshape long `index'@, by(`splitvars') keys(`tmpdt') string
 if "`debug'"!="" {
   timer off 12
   qui timer list 12
-  local r_long `r(t12)'
+  local r_long : display %11.3f `r(t12)'
   **di _newline
 }
-
 
 **! RESHAPE WIDE !**
 qui {
@@ -379,6 +388,27 @@ if "`reshapevar'"=="indic_sbs" {
   qui replace `reshapevar'="GRW_EMPtmp1" if `reshapevar'=="GRW_EMP_SALGE1_SRVL_CHB_PC"
   qui replace `reshapevar'="GRW_EMPtmp2" if `reshapevar'=="GRW_EMP_SALGE1_SRVL_Y3_PC"
 }
+if "`reshapevar'"=="offer" {
+  qui replace `reshapevar'="FI_MBPStmp1" if `reshapevar'=="FI_MBPS12_30_PS1C30GB1"
+  qui replace `reshapevar'="FI_MBPStmp2" if `reshapevar'=="FI_MBPS30_100_PS1C30GB1"
+  qui replace `reshapevar'="FI_MBPStmp3" if `reshapevar'=="FI_MBPS30_100_PS2C100GB2"
+  qui replace `reshapevar'="FI_MBPStmp4" if `reshapevar'=="FI_MBPS30_100_PS1C30GB5"
+  qui replace `reshapevar'="FI_MBPStmp5" if `reshapevar'=="FI_MBPS100_200_PS1C30GB5"
+  qui replace `reshapevar'="FI_MBPStmp6" if `reshapevar'=="FI_MBPS100_200_PS1C100GB2"
+  qui replace `reshapevar'="FI_MBPStmp7" if `reshapevar'=="FI_MBPS100_200_PS1C300GB5"
+  qui replace `reshapevar'="FI_MBPStmp8" if `reshapevar'=="FI_MBPS100_200_PS2C100GB10"
+  qui replace `reshapevar'="FI_MBPStmp9" if `reshapevar'=="FI_MBPS200_999_PS1C100GB10"
+  qui replace `reshapevar'="FI_MBPStmp10" if `reshapevar'=="FI_MBPS200_999_PS1C300GB20"
+  qui replace `reshapevar'="FI_MBPStmp11" if `reshapevar'=="FI_MBPS30_100_PS1C100GB2TV"
+  qui replace `reshapevar'="FI_MBPStmp12" if `reshapevar'=="FI_MBPS100_200_PS1C300GB5TV"
+  qui replace `reshapevar'="FI_MBPStmp13" if `reshapevar'=="FI_MBPS100_200_PS2C300GB5TV"
+  qui replace `reshapevar'="FI_MBPStmp14" if `reshapevar'=="FI_MBPS100_200_PS1C100GB10TV"
+  qui replace `reshapevar'="FI_MBPStmp15" if `reshapevar'=="FI_MBPS_GT200_PS1C300GB5TV"
+  qui replace `reshapevar'="FI_MBPStmp16" if `reshapevar'=="FI_MBPS200_999_PS1C300GB20TV"
+  qui replace `reshapevar'="FI_MBPStmp17" if `reshapevar'=="FI_MBPS200_999_PS2C300GB20TV"
+  qui replace `reshapevar'="FI_GBPStmp1" if `reshapevar'=="FI_GBPS_GE1_PS1C300GB20TV"
+}
+
 
 di "I'm reshaping wide..."
 qui drop if `reshapevar'==""
@@ -387,7 +417,7 @@ qui greshape wide `index'@, by(`widevars' `tmpdt') keys(`reshapevar')
 if "`debug'"!="" {
   timer off 13
   qui timer list 13
-  local r_wide `r(t13)'
+  local r_wide : display %11.3f `r(t13)'
 **  di _newline
 }
 qui rename `index'* *
@@ -405,6 +435,26 @@ if "`reshapevar'"=="indic_sbs" {
   capture rename ENT_SALGE_SRVtmp3 ENT_SALGE1_SRVL_EMPSIZE_Y3_NR
   capture rename GRW_EMPtmp1 GRW_EMP_SALGE1_SRVL_CHB_PC
   capture rename GRW_EMPtmp2 GRW_EMP_SALGE1_SRVL_Y3_PC
+}
+if "`reshapevar'"=="offer" {
+  qui capture rename FI_MBPStmp1  FI_MBPS12_30_PS1C30GB1
+  qui capture rename FI_MBPStmp2  FI_MBPS30_100_PS1C30GB1
+  qui capture rename FI_MBPStmp3  FI_MBPS30_100_PS2C100GB2
+  qui capture rename FI_MBPStmp4  FI_MBPS30_100_PS1C30GB5
+  qui capture rename FI_MBPStmp5  FI_MBPS100_200_PS1C30GB5
+  qui capture rename FI_MBPStmp6  FI_MBPS100_200_PS1C100GB2
+  qui capture rename FI_MBPStmp7  FI_MBPS100_200_PS1C300GB5
+  qui capture rename FI_MBPStmp8  FI_MBPS100_200_PS2C100GB10
+  qui capture rename FI_MBPStmp9  FI_MBPS200_999_PS1C100GB10
+  qui capture rename FI_MBPStmp10 FI_MBPS200_999_PS1C300GB20
+  qui capture rename FI_MBPStmp11 FI_MBPS30_100_PS1C100GB2TV
+  qui capture rename FI_MBPStmp12 FI_MBPS100_200_PS1C300GB5TV
+  qui capture rename FI_MBPStmp13 FI_MBPS100_200_PS2C300GB5TV
+  qui capture rename FI_MBPStmp14 FI_MBPS100_200_PS1C100GB10TV
+  qui capture rename FI_MBPStmp15 FI_MBPS_GT200_PS1C300GB5TV
+  qui capture rename FI_MBPStmp16 FI_MBPS200_999_PS1C300GB20TV
+  qui capture rename FI_MBPStmp17 FI_MBPS200_999_PS2C300GB20TV
+  qui capture rename FI_GBPStmp1  FI_GBPS_GE1_PS1C300GB20TV
 }
 
 **! DESTRING !**
@@ -451,7 +501,7 @@ if "`destring'"=="" {
   if "`debug'"!="" {
       timer off 14
       qui timer list 14
-      local t_dest `r(t14)'
+      local t_dest : display %11.3f `r(t14)'
       **di _newline
   }
 }
@@ -523,7 +573,7 @@ if "`debug'"!="" {
   qui ds
   foreach V in `r(varlist)' {
     local varlab : variable label `V'
-    if "`varlab'"=="" di "Variable `V' without label in `anything'`macval(dollar)'"
+    if "`varlab'"=="" di as error "Variable `V' without label in `anything'`macval(dollar)'"
   }
   timer off 1
   **di _newline(2)
@@ -539,7 +589,8 @@ if "`debug'"!="" {
   else if "`hours'"=="" & `minutes'<. di in ye "Elapsed time was `minutes' minutes, `seconds' seconds."
   else di in ye "Elapsed time was `hours' hours, `minutes' minutes, `seconds' seconds."
   **            dbname;time_download;time_import;resh_long;resh_wide;destring;time_total
-  di in ye "`anything'`macval(dollar)';`splitvars';`reshapevar';`t_down';`t_imp';`r_long';`r_wide';`t_dest';`r(t1)'"
+  local t_tot : display %11.3f `r(t1)'
+  di in ye "`anything'`macval(dollar)';`splitvars';`reshapevar';`t_down';`t_imp';`r_long';`r_wide';`t_dest';`t_tot'"
 }
 
 

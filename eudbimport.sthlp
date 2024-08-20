@@ -1,11 +1,11 @@
 {smcl}
-{* *! version 2.0  Dec2023}{...}
+{* *! version 2.1  Apr2024}{...}
 {cmd:help eudbimport}
 {hline}
 
 
 {title:Version}
-2.0  December 2023
+2.1  April 2024
 
 
 
@@ -19,7 +19,7 @@
 
 {p 8 14 2}
 {opt eudbimport} {it:DBNAME} {cmd:,} {opt reshapevar(varname)} [ {opt rawdata(string)} {opt outdata(string)} {opt download} {opt select(string)} {opt timeselect(string)}
-{opt nosave} {opt strrec} {opt dollar(string)} ]
+{opt nosave} {opt strrec} {opt dollar(string)} {opt info} ]
 
 
 {pstd}
@@ -45,9 +45,11 @@ e alla frequenza con cui è presente nei diversi dataset (work in progress){p_en
 {p2coldent : {opt dollar(string)}} opzione per importare i databases definiti come Type=EXTRACTION. Sono databases con il simbolo del dollaro ($) nel nome come ad esempio
   BD_9N_R2$DV_346. In questi casi si indica la parte prima del simbolo $ come nome del database (BD_9N_R2) e la parte con il dollaro nell'opzione dollar() preceduta
   dal carattere \, in questa maniera {opt dollar(\$DV_346)}.{p_end}
+{p2coldent : {opt info}} visualizza informazioni relative al database indicato per il download. Queste comprendono, oltre al nome, la descrizione in inglese, francese e tedesco,
+  la data dell'ultimo aggiornamento e dell'ultima modifica, il periodo coperto, il numero di valori presenti, il link per accedere ai metadati in formato html o sdmx, il link
+  per il download del database in formato tsv o sdmx.{p_end}
 {synoptline}
 {p2colreset}{...}
-
 
 
 {title:Examples}

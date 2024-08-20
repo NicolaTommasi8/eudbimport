@@ -34,7 +34,7 @@ capture label var assist "Assistance"
 capture label var asyl_app "Applicant type"
 capture label var bark "Under bark / over bark"
 capture label var barrier "Barriers"
-capture label var bclas_bec "Basic classes of goods in the System of National Accounts (SNA) in terms of Broad Economic Categories (BEC)"
+capture label var bclas_bec "Classes of goods in the System of National Accounts (SNA) in terms of Broad Economic Categories (BEC)"
 capture label var bec_r5 "Broad economic categories (BEC Rev.5)"
 capture label var bmi "Body Mass Index"
 capture label var bodypart "Part of body injured"
@@ -118,6 +118,7 @@ capture label var deviatn "Deviation"
 capture label var diagnose "Diagnosis"
 capture label var direct "Direction of flow"
 capture label var distance "Distance"
+capture label var domain "Domain"
 capture label var duration "Duration"
 capture label var ebops2010 "Extended Balance of Payments Services Classification 2010 (EBOPS 2010)"
 capture label var ecase "Earnings case"
@@ -144,6 +145,7 @@ capture label var expend "Expenditure and investment"
 capture label var expernce "Experience"
 capture label var facility "Health facility"
 capture label var factor "Factors"
+capture label var fam_farm "Share of family farming labour force"
 capture label var farmsize "Farm size"
 capture label var farmtype "Farm type"
 capture label var fdi_item "FDI item"
@@ -180,6 +182,7 @@ capture label var hlth_pb "Health problems"
 capture label var hlthcare "Health care"
 capture label var hold_man "Legal form and holder-manager relationship"
 capture label var hotelsize "Size of tourism establishments by number of rooms"
+capture label var hous_ani "Animal housing"
 capture label var housing "Housing"
 capture label var hp_cause "Cause of health problem or disability"
 capture label var hp_tech "Heat pumps technologies"
@@ -258,8 +261,9 @@ capture label var isced97 "International Standard Classification of Education (I
 capture label var iscedf13 "ISCED Fields of education and training (ISCED-F 2013)"
 capture label var isco08 "International Standard Classification of Occupations 2008 (ISCO-08)"
 capture label var isco88 "International Standard Classification of Occupations (ISCO-88 (COM))"
+capture label var issuer "Type of issuer"
 capture label var itm_newa "List of products - EAA"
-capture label var iww_hd "Categories of navigable inland waterways"
+capture label var iww_hd "Categories of navigable inland waterways by horizontal dimensions of vessels and pushed convoys"
 capture label var job_autn "Job autonomy"
 capture label var job_cl "Job creation, losses and mobility"
 capture label var l_serv "Length of service"
@@ -290,9 +294,11 @@ capture label var lev_match "Level of job matching"
 capture label var lev_perc "Level of perception"
 capture label var lev_satis "Level of satisfaction"
 capture label var levels "Level"
+capture label var life_sat "Life satisfaction"
 capture label var loadstat "Loading status"
 capture label var locpart "Location of partner"
 capture label var lsu "Livestock units (LSU) size classes"
+capture label var lvlcros "Type of level crossing"
 capture label var mainw "Main ways to obtain/develop new skills"
 capture label var marsta "Marital status
 capture label var marsta2 "Marital status (of bride)"
@@ -342,7 +348,7 @@ capture label var nace_r1 "NACE Rev. 1.1"
 capture label var nace_r2 "NACE Rev. 2"
 capture label var nace_r2d 	"Classification of economic activities (NACE Rev. 2 for industry of destination)"
 capture label var natvessr "Nationality of registration of vessel"
-capture label var ncl "International Classification of Goods and Services (Nice Classification, 10th edition)"
+capture label var ncl "International Classification of Goods and Services for the Purposes of the Registration of Marks (Nice Classification, 10th edition)"
 capture label var net_seg "Rail network segment (2005)"
 capture label var net_seg10 "Rail network segment (2010)"
 capture label var net_seg15 "Rail network Segment (2015)"
@@ -357,6 +363,7 @@ capture label var obzone "Objective zones (CAP)"
 capture label var occur "Occurence"
 capture label var oga_hld "Other gainful activity of the holder"
 capture label var oga_spou "Other gainful activity of the spouse"
+capture label var oga_type "Types of other gainful activity (OGA) related to the agricultural holding"
 capture label var operator "Operator/Trader"
 capture label var ord_brth "Birth order"
 capture label var org_inst "National and international organizations and institutions"
@@ -385,6 +392,7 @@ capture label var post "Item of the balance of payments"
 capture label var pow_asy "Power asymmetry"
 capture label var power "Type of current"
 capture label var ppp_cat "Analytical categories for purchasing power parities (PPPs) calculation"
+capture label var prc_set "Price setting"
 capture label var prd_ava "Products, adjustments and value added"
 capture label var prd_use "Products and final uses"
 capture label var pres "Presentation form"
@@ -428,6 +436,8 @@ capture label var reporting "Geopolitical entity"
 capture label var request "Requests"
 capture label var resid "Place of residence"
 capture label var return "Type of return"
+capture label var revdate "Revision date"
+capture label var risk "Risk type"
 capture label var rnd_act "R&D activities"
 capture label var rskpovth "Risk of poverty threshold"
 capture label var ruraldev "Rural development"
@@ -485,6 +495,7 @@ capture label var substance "Substances"
 capture label var sup_mode "Mode of supply"
 capture label var supply "Means of goods and services supply"
 capture label var swmethod "Method used for seeking work"
+capture label var task "Type of task or service"
 capture label var tax "Taxes"
 capture label var tech "Technological or structural changes"
 capture label var tenure "Tenure status"
@@ -542,6 +553,7 @@ capture label var workplace "Place of work"
 capture label var workproc "Working process"
 capture label var workstud "Work experience during studies"
 capture label var worktime "Working time"
+capture label var wrk_asg "Work assignment"
 capture label var wrkenv "Working environment"
 capture label var wrkmeth "Work methods"
 capture label var wrkstat "Workstation"
@@ -565,10 +577,13 @@ capture label var yieldcls "Yield class"
 capture label var yld_curv "Yield curve"
 capture label var yn_arope "At risk of poverty or social exclusion"
 capture label var yn_care "Use of profesional care"
+capture label var yn_consq "Consequences yes/no"
 capture label var yn_ovbur "Overburden"
 capture label var yn_rskpov "At risk of poverty"
 capture label var yn_web "Internet booking"
 capture label var ynlfs "Modalities of the variable for the ad-hoc module"
+
+
 
 **comext label vars
 capture label var decl "Declarant"
@@ -592,7 +607,7 @@ if "`strrec'" != "" {
                               3	"Netherlands"  ///
                               4	"Germany"  ///
                               5	"Italy"  ///
-                              6	"Utd. Kingdom"  ///
+                              6	"United Kingdom"  ///
                               7	"Ireland"  ///
                               8	"Denmark"  ///
                               9	"Greece"  ///
@@ -745,6 +760,18 @@ if "`strrec'" != "" {
     assert `pre'==r(N)
     label var lev_fins "Level of financial situation"
   }
+
+
+capture confirm variable lvlcros
+if !_rc {
+    qui count if lvlcros==""
+    local pre=r(N)
+    qui strrec lvlcros ("ACT"=1 "Active") ("PASV"=2 "Passive") ("TOTAL"=9 "Total"), replace
+    qui count if lvlcros==.
+    assert `pre'==r(N)
+    label var lvlcros "Type of level crossing"
+  }
+
 
 
 
