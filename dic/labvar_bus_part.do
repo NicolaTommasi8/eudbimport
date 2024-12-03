@@ -9,6 +9,7 @@ cap label var IN_NEW "Newly created foreign enterprise of same group (green fiel
 cap label var OUT "Outside enterprise group"
 cap label var OUT_DOM "Outside enterprise group domestically"
 cap label var OUT_INTL "Outside enterprise group abroad"
+cap label var IN_OUT_DOM "Within and outside enterprise group domestically"
 cap label var IN_OUT_INTL "Within and outside enterprise group abroad"
 cap label var OTH "Other"
 cap label var UNK "Unknown"

@@ -583,7 +583,12 @@ capture label var yn_rskpov "At risk of poverty"
 capture label var yn_web "Internet booking"
 capture label var ynlfs "Modalities of the variable for the ad-hoc module"
 
+capture label var nrg_src "Energy source"
+capture label var pry "Type of productivity"
 
+capture label var yn_sgn "Significant"
+capture label var c_imp "Country of import"
+capture label var c_exp "Country of export"
 
 **comext label vars
 capture label var decl "Declarant"
@@ -762,8 +767,8 @@ if "`strrec'" != "" {
   }
 
 
-capture confirm variable lvlcros
-if !_rc {
+  capture confirm variable lvlcros
+  if !_rc {
     qui count if lvlcros==""
     local pre=r(N)
     qui strrec lvlcros ("ACT"=1 "Active") ("PASV"=2 "Passive") ("TOTAL"=9 "Total"), replace
@@ -779,6 +784,8 @@ if !_rc {
   if !_rc {
     qui replace QNTUNIT="" if strmatch(QNTUNIT,"*:*") | strmatch(QNTUNIT,"*-*")
     qui count if QNTUNIT==""
+    tempvar TEMP
+    clonevar `TEMP'=QNTUNIT
     local pre=r(N)
     qui strrec QNTUNIT ("GT" = 1000 "Gross tonnage")  ///
                        ("CGT" = 1050 "Compensated Gross Tonne")  ///
@@ -816,7 +823,7 @@ if !_rc {
                        ("kW" = 1800 "Kilowatt")  ///
                        ("1 000 kWh" = 1900 "1 000 kilowatt hours 1900") ///
                        ("l" = 2000 "Litre")  ///
-                       ("l alc 100%" = 2100 "Litre pure (100%) alcohol")  ///
+                       ("l alc 100%" "l alc. 100%" = 2100 "Litre pure (100%) alcohol")  ///
                        ("m" = 2200 "Metre")  ///
                        ("m2" = 2300 "Square metre")  ///
                        ("m3" = 2400 "Cubic metre")  ///
@@ -825,9 +832,22 @@ if !_rc {
                        ("TJ" = 2900 "Terajoule (gross calorific value)") ///
                        ("NA" = 9999 "NA"), replace
     qui count if QNTUNIT==.
+    if r(N)!=`pre' fre `TEMP  ' if QNTUNIT==.
     assert `pre'==r(N)
     label var QNTUNIT "Prodcom unit code"
   }
+
+  capture confirm variable yn_sgn
+  if !_rc {
+    qui count if yn_sgn==""
+    local pre=r(N)
+    qui strrec yn_sgn ("YES_SGN"=1 "Significant") ("NO_SGN"=2 "Not Significant") ("NONE"=3 "None"), replace
+    qui count if yn_sgn==.
+    assert `pre'==r(N)
+    label var yn_sgn "Significant"
+  }
+
+
 
 
 }

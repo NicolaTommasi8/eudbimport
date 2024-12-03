@@ -11,7 +11,5 @@ cap label var CARGO_LBS_GT100000 "Cargo aircraft with a maximum take-off weight 
 cap label var SPE_AMB_BSN "Special purpose, ambulance and business aircraft"
 cap label var SPE_AMB "Special purpose and ambulance aircraft"
 cap label var BSN_CRP_EXE "Business, corporate and executive aircraft"
-cap label var COMBI "Combi aircraft"
 cap label var QUICK "Quick change aircraft"
 cap label var OTH "Other"
-cap label var UNK "Unknown"

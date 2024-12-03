@@ -69,6 +69,8 @@ cap label var AEMIS_TER_NRES_ATR "Air emissions by non-resident units released f
 cap label var ADJ_SD "Other adjustments and statistical differences"
 cap label var AEMIS_TER "Air emissions as reported to international conventions (UNFCCC and CLRTAP inventories, territory principle)"
 cap label var AEMIS_TER_LULUCF "Air emissions as reported to international convention including LULUCF (UNFCCC, territory principle)"
+cap label var AEMIS_CONS_FP "Air emissions from consumption perspective (footprint)"
+cap label var AEMIS_PRD "Air emissions from production perspective"
 cap label var LULUCF "Land use, land use change, and forestry (LULUCF)"
 cap label var FORL "Forest land"
 cap label var CRL_GRL "Cropland and grassland"

@@ -1,5 +1,6 @@
 cap label var CODE "Label - English"
 cap label var TOTAL "Total"
+cap label var OGA "Holdings having other gainful activity"
 cap label var OGA_TAOLA "Tourism, accommodation and other leisure activities"
 cap label var OGA_HC "Handicraft"
 cap label var OGA_PCS_FPRD "Processing of farm products"
@@ -11,3 +12,4 @@ cap label var OGA_NACW "Non-agricultural contractual work (using production mean
 cap label var OGA_FOR "Forestry"
 cap label var OGA_HSES "Provision of health, social or educational services"
 cap label var OGA_OTH "Other gainful activities related to the agricultural holding n.e.c."
+cap label var NOGA "Holdings having no other gainful activity"

@@ -1,0 +1,6 @@
+cap label var CODE "Label - English"
+cap label var TOTAL "Total"
+cap label var PC_LT50 "Less than 50 percent"
+cap label var PC50_99 "From 50 to 99 percent"
+cap label var PC_GE50 "50 percent or over"
+cap label var PC100 "100 percent"

@@ -1,0 +1,8 @@
+cap label var CODE "Label - English"
+cap label var TOTAL "Total"
+cap label var PROV_S_ONL "Statutory provision only"
+cap label var PROV_S_OCC_PER "Combination of statutory and occupational and/or personal provisions"
+cap label var PROV_OCC_PER "Combination of occupational and/or personal provisions without statutory provision"
+cap label var NPROV "No provision"
+cap label var NAP "Not applicable"
+cap label var NRP "No response"

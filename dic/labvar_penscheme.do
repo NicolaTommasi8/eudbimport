@@ -10,5 +10,5 @@ cap label var S13PBX "Defined benefit schemes for general government employees c
 cap label var S13PS "Social security pension schemes (not in core accounts)"
 cap label var S14R "Counterparts: resident households"
 cap label var S14NR "Counterparts: non-resident households"
-cap label var S1PF "Private/Funded entitlements"
+cap label var S1PF "Private/funded entitlements"
 cap label var S13PU "Unfunded entitlements"

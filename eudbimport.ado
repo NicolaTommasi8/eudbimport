@@ -71,7 +71,6 @@ if `check0'!=1 {
   exit
 }
 
-**set trace on
 if "`info'"== "info" {
   quietly {
     tempfile catalogue
@@ -156,8 +155,6 @@ if "`info'"== "info" {
   **qui clear
 }
 
-
-
 if "`debug'"!="" {
   timer clear
   timer on 1
@@ -199,8 +196,6 @@ if "`debug'"!="" {
   **di _newline
 }
 di _newline(1) "Database: `anything'`macval(dollar)'"
-
-
 
 **! KEEP TIME VAR (FREQ) !**
 qui ds
@@ -385,8 +380,11 @@ if "`reshapevar'"=="indic_sbs" {
   qui replace `reshapevar'="ENT_SALGE_SRVtmp1" if `reshapevar'=="ENT_SALGE1_SRVLR_BRTH_CHB_PC"
   qui replace `reshapevar'="ENT_SALGE_SRVtmp2" if `reshapevar'=="ENT_SALGE1_SRVL_EMPSIZE_NR"
   qui replace `reshapevar'="ENT_SALGE_SRVtmp3" if `reshapevar'=="ENT_SALGE1_SRVL_EMPSIZE_Y3_NR"
+  qui replace `reshapevar'="ENT_SALGE_SRVtmp4" if `reshapevar'=="ENT_SALGE1_SRVLR_BRTH_Y3_PC"
   qui replace `reshapevar'="GRW_EMPtmp1" if `reshapevar'=="GRW_EMP_SALGE1_SRVL_CHB_PC"
   qui replace `reshapevar'="GRW_EMPtmp2" if `reshapevar'=="GRW_EMP_SALGE1_SRVL_Y3_PC"
+
+
 }
 if "`reshapevar'"=="offer" {
   qui replace `reshapevar'="FI_MBPStmp1" if `reshapevar'=="FI_MBPS12_30_PS1C30GB1"
@@ -433,6 +431,7 @@ if "`reshapevar'"=="indic_sbs" {
   capture rename ENT_SALGE_SRVtmp1 ENT_SALGE1_SRVLR_BRTH_CHB_PC
   capture rename ENT_SALGE_SRVtmp2 ENT_SALGE1_SRVL_EMPSIZE_NR
   capture rename ENT_SALGE_SRVtmp3 ENT_SALGE1_SRVL_EMPSIZE_Y3_NR
+  capture rename ENT_SALGE_SRVtmp4 ENT_SALGE1_SRVLR_BRTH_Y3_PC
   capture rename GRW_EMPtmp1 GRW_EMP_SALGE1_SRVL_CHB_PC
   capture rename GRW_EMPtmp2 GRW_EMP_SALGE1_SRVL_Y3_PC
 }

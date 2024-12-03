@@ -1,5 +1,6 @@
 cap label var CODE "Label - English"
 cap label var TOTAL "Total"
+cap label var MED "Median"
 cap label var NONE "No income"
 cap label var Q1 "First quartile"
 cap label var Q2 "Second quartile"

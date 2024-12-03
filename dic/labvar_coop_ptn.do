@@ -1,6 +1,7 @@
 cap label var CODE "Label - English"
 cap label var TOTAL "All types of co-operation"
-cap label var PRV "Private business enterprises"
+cap label var NPRV "Non-private entities (outside the business enterprise sector)"
+cap label var PRV "Private business enterprises (inside business enterprise sector)"
 cap label var PRV_IN "Enterprises within the enterprise group"
 cap label var PRV_OUT "Private business enterprise outside the enterprise group"
 cap label var PRV_OUT_CN_PRV_RI "Consultants, commercial labs, private research institute"

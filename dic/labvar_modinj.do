@@ -9,4 +9,4 @@ cap label var CMI50 "Contact with sharp, pointed, rough, coarse Material Agent -
 cap label var CMI60 "Trapped, crushed, etc. - not specified"
 cap label var CMI70 "Physical or mental stress - not specified"
 cap label var CMI80 "Bite, kick, etc. (animal or human) - not specified"
-cap label var CMI90 "Other Contacts - modes of Injury not listed in this classification"
+cap label var CMI90 "Other contacts - modes of injury not listed in this classification"

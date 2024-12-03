@@ -1,5 +1,5 @@
 cap label var CODE "Label - English"
-cap label var HAZ_NHAZ "Hazardous and non-hazardous - Total"
+cap label var HAZ_NHAZ "Hazardous and non-hazardous - total"
 cap label var HAZ "Hazardous"
 cap label var HLTH "Hazardous to health"
 cap label var HLTH_CMR "Carcinogenic, mutagenic and reprotoxic (CMR) health hazard"

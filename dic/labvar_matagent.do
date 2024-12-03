@@ -13,7 +13,7 @@ cap label var MAT_0900 "Machines and equipment - portable or mobile - not specif
 cap label var MAT_1000 "Machines and equipment - fixed - not specified"
 cap label var MAT_1100 "Conveying, transport and storage systems - not specified"
 cap label var MAT_1200 "Land vehicles - not specified"
-cap label var MAT_1300 "Other transport vehicles- not specified"
+cap label var MAT_1300 "Other transport vehicles - not specified"
 cap label var MAT_1400 "Materials, objects, products, machine components, debris, dust - not specified"
 cap label var MAT_1500 "Chemical, explosive, radioactive, biological substances - not specified"
 cap label var MAT_1600 "Safety devices and equipment - not specified"
