@@ -1,5 +1,7 @@
 cap label var CODE "Label - English"
 cap label var TOTAL "Total"
+cap label var ST "Storage facilities for manure"
+cap label var NST "No storage facilities for manure"
 cap label var ST_SO "Manure solid storage"
 cap label var ST_SO_NC "Manure solid storage without cover"
 cap label var ST_SO_HEAP "Manure solid storage in heaps"

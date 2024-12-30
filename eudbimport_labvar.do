@@ -589,6 +589,8 @@ capture label var pry "Type of productivity"
 capture label var yn_sgn "Significant"
 capture label var c_imp "Country of import"
 capture label var c_exp "Country of export"
+capture label var wsituat "Work situation"
+
 
 **comext label vars
 capture label var decl "Declarant"

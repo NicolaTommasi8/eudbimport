@@ -1,0 +1,8 @@
+cap label var CODE "Label - English"
+cap label var LS_PRIM "Primary livestock"
+cap label var LS_P "Processed livestock"
+cap label var FISH "Fish"
+cap label var CR_PRIM "Primary crops"
+cap label var PL "Plant"
+cap label var TMB_PRIM "Primary timber"
+cap label var TMB_P "Processed timber"
