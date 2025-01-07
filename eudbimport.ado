@@ -1,3 +1,7 @@
+*! version 2.2  Nicola Tommasi  07jan2025
+*               download databases in compress format (.gz) --> new option compressed
+*               Python required
+
 *! version 2.1  Nicola Tommasi  03apr2024
 *               ability to retrive database info --> new option info
 
@@ -29,13 +33,12 @@
 *! version 1.0b  Nicola Tommasi  01sep2022
 
 program eudbimport
-version 17
+version 17.0
 
 syntax anything,  ///
        [reshapevar(name max=1) rawdata(string) outdata(string)    ///
         download select(string asis) timeselect(string asis) ///
-        nosave erase strrec dollar(string) info ///
-        compress(string) decompress(string) /*undocumented*/ ///
+        nosave erase strrec dollar(string) info compressed ///
         nodestring /*undocumented*/ ///
         debug /*undocumented*/ ]
 
@@ -84,7 +87,7 @@ if "`info'"== "info" {
     drop if db==0
     gen metainfo=1 if strmatch(v1,"*<nt:code>*") & db_id!=.
     gen metainfocode=regexs(1) if regexm(v1,`"<nt:code>([a-zA-Z0-9_-]+)"') & db_id!=.
-    summ db_id if upper(metainfocode)=="`anything'"
+    summ db_id if upper(metainfocode)==upper("`anything'")
     keep if db_id==r(min) /* a volte il db è presente + volte */
     replace metainfo=2 if strmatch(v1,`"*<nt:title language="en">*"') & db_id!=.
     replace metainfocode=regexs(1) if regexm(v1,`"<nt:title language="en">(.*)</nt:title"') & db_id!=.
@@ -164,17 +167,39 @@ if "`debug'"!="" {
 if "`download'"!="" {
   if "`debug'"!="" timer on 10
   di "I'm downloading the file..."
-  if strmatch("`anything'","DS-*") qui capture copy "https://ec.europa.eu/eurostat/api/comext/dissemination/sdmx/2.1/data/`anything'/?format=TSV" "`rawdata'`anything'.tsv", replace
-  else qui capture copy "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/`anything'`macval(dollar)'/?format=TSV" "`rawdata'`anything'`D'.tsv", replace
 
-  if _rc==631 {
-    sleep 60000
-    if strmatch("`anything'","DS-*") qui capture copy "https://ec.europa.eu/eurostat/api/comext/dissemination/sdmx/2.1/data/`anything'/?format=TSV" "`rawdata'`anything'.tsv", replace
-    else qui copy "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/`anything'`macval(dollar)'/?format=TSV" "`rawdata'`anything'`D'.tsv", replace
+
+  if "`compressed'"=="" {
+    if strmatch("`anything'","DS-*") qui capture copy "https://ec.europa.eu/eurostat/api/comext/dissemination/sdmx/2.1/data/`anything'/?format=TSV&compressed=false" "`rawdata'`anything'.tsv", replace
+    else qui capture copy "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/`anything'`macval(dollar)'/?format=TSV&compressed=false" "`rawdata'`anything'`D'.tsv", replace
+
+    if _rc==631 {
+      sleep 60000
+      if strmatch("`anything'","DS-*") qui capture copy "https://ec.europa.eu/eurostat/api/comext/dissemination/sdmx/2.1/data/`anything'/?format=TSV&compressed=false" "`rawdata'`anything'.tsv", replace
+      else qui copy "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/`anything'`macval(dollar)'/?format=TSV&compressed=false" "`rawdata'`anything'`D'.tsv", replace
+    }
+    if _rc==601 {
+      di "`anything'`macval(dollar)' not found in https://ec.europa.eu/eurostat site"
+      exit
+    }
   }
-  if _rc==601 {
-    di "`anything'`macval(dollar)' not found in https://ec.europa.eu/eurostat site"
-    exit
+
+
+  else {
+    if strmatch("`anything'","DS-*") qui capture copy "https://ec.europa.eu/eurostat/api/comext/dissemination/sdmx/2.1/data/`anything'/?format=TSV&compressed=true" "`rawdata'`anything'.gz", replace
+    else qui capture copy "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/`anything'`macval(dollar)'/?format=TSV&compressed=true" "`rawdata'`anything'`D'.gz", replace
+
+    if _rc==631 {
+      sleep 60000
+      if strmatch("`anything'","DS-*") qui capture copy "https://ec.europa.eu/eurostat/api/comext/dissemination/sdmx/2.1/data/`anything'/?format=TSV&compressed=true" "`rawdata'`anything'.gz", replace
+      else qui copy "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/`anything'`macval(dollar)'/?format=TSV&compressed=true" "`rawdata'`anything'`D'.gz", replace
+    }
+    if _rc==601 {
+      di "`anything'`macval(dollar)' not found in https://ec.europa.eu/eurostat site"
+      exit
+    }
+    python: gzextract(r"`rawdata'`anything'`D'.gz",r"`rawdata'`anything'`D'.tsv")
+    capture erase "`rawdata'`anything'`D'.gz"
   }
 
   if "`debug'"!="" {
@@ -594,4 +619,34 @@ if "`debug'"!="" {
 
 
 end
+
+
+/*******
+python:
+import gzip
+import shutil
+with gzip.open('`rawdata'`anything'`D'.gz', 'rb') as f_in:
+  with open('`rawdata'`anything'`D'.tsv', 'wb') as f_out:
+    shutil.copyfileobj(f_in, f_out)
+`end'
+***************/
+
+version 17.0
+python:
+
+import gzip
+import shutil
+
+def gzextract(filename: str, temp_file: str) -> None:
+	with gzip.open(filename,'rb') as f_in:
+		with open(temp_file,'wb') as f_out:
+			shutil.copyfileobj(f_in,f_out)
+
+end
+
+
+
+
+
+
 exit
