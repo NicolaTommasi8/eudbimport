@@ -24,3 +24,8 @@ cap label var IMPL_CH_ORG "Undertake implementation of changed organisational st
 cap label var IMPL_NEW_CRP "Undertake implementation of new corporate strategies"
 cap label var PUR_MES_SAME "Purchase of machinery, equipment or software based on the same or improved technology"
 cap label var PUR_MES_NEW "Purchase of machinery, equipment or software based on new technology"
+cap label var CH_PRD_SRV "Fundamental changes to the value that products/services create to the customer"
+cap label var CH_REV "Fundamental changes in the way how revenues are obtained"
+cap label var CH_PRD_DLV "Fundamental changes in production and delivery of products"
+cap label var CH_CUS "Fundamental changes in the relationship with customers"
+cap label var CH_SUPPL_COOP_PTN "Fundamental changes in the relationship with suppliers or cooperation partners"

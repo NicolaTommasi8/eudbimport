@@ -165,7 +165,7 @@ cap label var BEC811210 "Government, military and other - goods - intermediate c
 cap label var BEC811220 "Government, military and other - goods - intermediate consumption - processed - specified"
 cap label var BEC812 "Government, military and other - goods - gross fixed capital formation"
 cap label var BEC812010 "Government, military and other - goods - gross fixed capital formation - generic"
-cap label var BEC812020 "Regierung, Militär und sonstiges - Waren - Bruttoanlageinvestitionen - generisch"
+cap label var BEC812020 "Government, military and other - goods - gross fixed capital formation - specified"
 cap label var BEC813 "Government, military and other - goods - final consumption"
 cap label var BEC8131 "Government, military and other - goods - final consumption - primary"
 cap label var BEC813101 "Government, military and other - goods - final consumption - primary - non-durable"

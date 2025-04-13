@@ -57,6 +57,7 @@ cap label var EFTA_FOR "European Free Trade Association except reporting country
 cap label var EFTA_OTH "Other European Free Trade Association countries"
 cap label var UK "United Kingdom"
 cap label var UK_OCT "British overseas countries and territories"
+cap label var CC9_23_FOR "Candidate countries from 2023 (9 countries) except reporting country"
 cap label var CC8_22_FOR "Candidate countries from 2022 (8 countries) except reporting country"
 cap label var CC5_15_FOR "Candidate countries from 2015 (5 countries) except reporting country"
 cap label var CC5_13_FOR_X_IS "Candidate countries in 2013 (5 countries) except reporting country and Iceland"

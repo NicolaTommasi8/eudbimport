@@ -1,5 +1,8 @@
 cap label var CODE "Label - English"
 cap label var TOTAL "Total"
+cap label var B_40 "Below 40%"
+cap label var B_50 "Below 50%"
 cap label var A_60 "Above 60%"
 cap label var B_60 "Below 60%"
+cap label var B_70 "Below 70%"
 cap label var UNK "Unknown"

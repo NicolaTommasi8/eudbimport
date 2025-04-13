@@ -1,5 +1,6 @@
 cap label var CODE "Label - English"
 cap label var TOTAL "Total (all sectors including memo items and indirect CO2)"
+cap label var TOT_EU_CPT "Total (all emissions in the scope of EU climate policies and targets)"
 cap label var TOTXMEMO "Total (excluding memo items)"
 cap label var TOTXMEMONIA "Total (excluding memo items, including international aviation)"
 cap label var TOTX4_MEMO "Total (excluding LULUCF and memo items)"

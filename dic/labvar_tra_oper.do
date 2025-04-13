@@ -1,5 +1,8 @@
 cap label var CODE "Label - English"
 cap label var TOTAL "Total - total transport"
+cap label var COM "Commercial"
+cap label var NCOM "Non-commercial"
+cap label var SPE "Specialised"
 cap label var LOADED "Loaded - total transport"
 cap label var LNAT "Loaded - national transport"
 cap label var LINTL "Loaded - international transport - total"
