@@ -1,0 +1,7 @@
+cap label var CODE "Label - English"
+cap label var TOTAL "Total"
+cap label var _0 "No crops"
+cap label var _1 "1 crop"
+cap label var _2 "2 crops"
+cap label var _3 "3 crops"
+cap label var GT3 "More than 3 crops"

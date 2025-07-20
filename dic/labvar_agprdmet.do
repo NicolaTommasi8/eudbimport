@@ -3,3 +3,4 @@ cap label var TOTAL "Total fully converted and under conversion to organic farmi
 cap label var FCONV "Fully converted to organic farming"
 cap label var UCONV "Under conversion to organic farming"
 cap label var TOT_GH "Total in green house converted and under conversion to organic farming"
+cap label var ENVCERT_OTH "Participation in other environmental certification schemes"

@@ -190,3 +190,5 @@ cap label var ENT_M_HGRWR_PC "Share of high growth micro enterprises measured in
 cap label var SAL_M_HGRWR_PC "Share of employees from high growth micro enterprises measured in employment in the total population of active enterprises - percentage"
 cap label var ENT_M_HGRWR_YNG_PC "Share of young high growth micro enterprises measured in employment in the total population of active enterprises - percentage"
 cap label var SAL_M_HGRWR_YNG_PC "Share of employees in young high growth micro enterprises measured in employment in the total population of active enterprises - percentage"
+cap label var QTY_NET_MA_T "Quantity of traded goods - tonnes"
+cap label var STAT_VAL_MEUR "Statistical value of trade - million euro"

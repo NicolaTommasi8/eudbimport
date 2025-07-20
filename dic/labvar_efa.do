@@ -1,0 +1,7 @@
+cap label var CODE "Label - English"
+cap label var TOTAL "Total"
+cap label var AGRFOR "Agro-forestry"
+cap label var LE_FM_BS "Linear elements - field margins or buffer strips"
+cap label var LE_HG_TL "Linear elements - hedges and tree lines"
+cap label var LE_SW "Linear elements - stone walls"
+cap label var TER "Terraces"

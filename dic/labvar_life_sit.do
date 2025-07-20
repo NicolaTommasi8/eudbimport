@@ -1,0 +1,6 @@
+cap label var CODE "Label - English"
+cap label var TOTAL "Total"
+cap label var PUB_SERV "Being in contact with administrative offices or public services"
+cap label var LK_HOU "Looking for housing"
+cap label var EDUC "Being in contact with anyone from an educational institution"
+cap label var PUB_SP "Being in public spaces"

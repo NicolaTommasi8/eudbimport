@@ -77,6 +77,7 @@ cap label var B_S_X_S94 "Industry, construction and market services (except acti
 cap label var B_S_X_O "Industry, construction and services (except public administration, defense, compulsory social security)"
 cap label var B_S_X_O_S94 "Industry, construction and market services (except public administration and defence; compulsory social security; activities of membership organisations)"
 cap label var B_S_X_K642 "Industry, construction and services except activities of holding companies"
+cap label var B_S_X_C_G_O_S94 "Industry, construction and market services (except manufacturing; wholesale and retail trade and repair of motor vehicles and motorcycles; public administration and defence; compulsory social security; activities of membership organisations)"
 cap label var B_N_R_S "Business economy; arts, entertainment and recreation; other service activities"
 cap label var B_N "Business economy"
 cap label var B_N_S95 "Total business economy; repair of computers, personal and household goods"

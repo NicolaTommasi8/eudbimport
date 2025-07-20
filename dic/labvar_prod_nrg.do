@@ -1,7 +1,4 @@
 cap label var CODE "Label - English"
-cap label var TOTAL "Total"
-cap label var COIL "Crude oil"
-cap label var ROIL "Refined oil products"
 cap label var N00 "Natural energy inputs"
 cap label var N01 "Fossil non-renewable natural energy inputs"
 cap label var N02 "Nuclear non-renewable natural energy inputs"

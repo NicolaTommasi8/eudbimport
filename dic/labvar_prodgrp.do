@@ -1,4 +1,5 @@
 cap label var CODE "Label - English"
+cap label var TOTAL "Total"
 cap label var LS_PRIM "Primary livestock"
 cap label var LS_P "Processed livestock"
 cap label var FISH "Fish"
