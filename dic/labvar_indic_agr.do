@@ -1,4 +1,6 @@
 cap label var CODE "Label - English"
+cap label var ENT "Enterprise"
+cap label var PRD "Production"
 cap label var FARM_NR "Farm - number"
 cap label var UAA_HA "Utilised agricultural area - hectare"
 cap label var FA_HA "Farm area - hectare"

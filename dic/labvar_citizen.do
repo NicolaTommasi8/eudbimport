@@ -119,7 +119,7 @@ cap label var NEU27_2007_FOR "Non-EU27 countries (2007-2013) nor reporting count
 cap label var NEU27_2007_FOR_STLS "Non-EU27 countries (2007-2013) nor reporting country and stateless"
 cap label var NEU15_FOR "Non-EU15 countries (1995-2004) nor reporting country"
 cap label var EUR_NEU "European non-EU countries (aggregate changing according to the context)"
-cap label var EUR_NEU15 "European non-EU15 countries (1995-2004)"
+cap label var EUR_NEU15 "European non-EU15 countries (1995--2004)"
 cap label var EUR_OTH "Other European countries (aggregate changing according to the context)"
 cap label var AFR "Africa"
 cap label var AFR_C "Central Africa"

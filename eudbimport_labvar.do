@@ -601,6 +601,7 @@ capture label var prodgrp "Product group"
 capture label var hs22 "Harmonised System nomenclature (HS2022)"
 capture label var hospcare "Hospital care"
 
+capture label var life_sit "Life situation"
 
 **comext label vars
 capture label var decl "Declarant"

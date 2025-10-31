@@ -1,3 +1,7 @@
+*! version 2.2  Nicola Tommasi  07jan2025
+*               download databases in compress format (.gz) --> new option compressed
+*               Python required
+
 *! version 2.1  Nicola Tommasi  03apr2024
 *               ability to retrive database info --> new option info
 
@@ -29,13 +33,12 @@
 *! version 1.0b  Nicola Tommasi  01sep2022
 
 program eudbimport
-version 17
+version 17.0
 
 syntax anything,  ///
        [reshapevar(name max=1) rawdata(string) outdata(string)    ///
         download select(string asis) timeselect(string asis) ///
-        nosave erase strrec dollar(string) info ///
-        compress(string) decompress(string) /*undocumented*/ ///
+        nosave erase strrec dollar(string) info compressed ///
         nodestring /*undocumented*/ ///
         debug /*undocumented*/ ]
 
@@ -84,7 +87,7 @@ if "`info'"== "info" {
     drop if db==0
     gen metainfo=1 if strmatch(v1,"*<nt:code>*") & db_id!=.
     gen metainfocode=regexs(1) if regexm(v1,`"<nt:code>([a-zA-Z0-9_-]+)"') & db_id!=.
-    summ db_id if upper(metainfocode)=="`anything'"
+    summ db_id if upper(metainfocode)==upper("`anything'")
     keep if db_id==r(min) /* a volte il db è presente + volte */
     replace metainfo=2 if strmatch(v1,`"*<nt:title language="en">*"') & db_id!=.
     replace metainfocode=regexs(1) if regexm(v1,`"<nt:title language="en">(.*)</nt:title"') & db_id!=.
@@ -164,23 +167,45 @@ if "`debug'"!="" {
 if "`download'"!="" {
   if "`debug'"!="" timer on 10
   di "I'm downloading the file..."
-  if strmatch("`anything'","DS-*") qui capture copy "https://ec.europa.eu/eurostat/api/comext/dissemination/sdmx/2.1/data/`anything'/?format=TSV" "`rawdata'`anything'.tsv", replace
-  else qui capture copy "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/`anything'`macval(dollar)'/?format=TSV" "`rawdata'`anything'`D'.tsv", replace
 
-  if _rc==631 {
-    sleep 60000
-    if strmatch("`anything'","DS-*") qui capture copy "https://ec.europa.eu/eurostat/api/comext/dissemination/sdmx/2.1/data/`anything'/?format=TSV" "`rawdata'`anything'.tsv", replace
-    else qui copy "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/`anything'`macval(dollar)'/?format=TSV" "`rawdata'`anything'`D'.tsv", replace
+
+  if "`compressed'"=="" {
+    if strmatch("`anything'","DS-*") qui capture copy "https://ec.europa.eu/eurostat/api/comext/dissemination/sdmx/2.1/data/`anything'/?format=TSV&compressed=false" "`rawdata'`anything'.tsv", replace
+    else qui capture copy "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/`anything'`macval(dollar)'/?format=TSV&compressed=false" "`rawdata'`anything'`D'.tsv", replace
+
+    if _rc==631 {
+      sleep 60000
+      if strmatch("`anything'","DS-*") qui capture copy "https://ec.europa.eu/eurostat/api/comext/dissemination/sdmx/2.1/data/`anything'/?format=TSV&compressed=false" "`rawdata'`anything'.tsv", replace
+      else qui copy "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/`anything'`macval(dollar)'/?format=TSV&compressed=false" "`rawdata'`anything'`D'.tsv", replace
+    }
+    if _rc==601 {
+      di "`anything'`macval(dollar)' not found in https://ec.europa.eu/eurostat site"
+      exit
+    }
   }
-  if _rc==601 {
-    di "`anything'`macval(dollar)' not found in https://ec.europa.eu/eurostat site"
-    exit
+
+
+  else {
+    if strmatch("`anything'","DS-*") qui capture copy "https://ec.europa.eu/eurostat/api/comext/dissemination/sdmx/2.1/data/`anything'/?format=TSV&compressed=true" "`rawdata'`anything'.gz", replace
+    else qui capture copy "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/`anything'`macval(dollar)'/?format=TSV&compressed=true" "`rawdata'`anything'`D'.gz", replace
+
+    if _rc==631 {
+      sleep 60000
+      if strmatch("`anything'","DS-*") qui capture copy "https://ec.europa.eu/eurostat/api/comext/dissemination/sdmx/2.1/data/`anything'/?format=TSV&compressed=true" "`rawdata'`anything'.gz", replace
+      else qui copy "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/`anything'`macval(dollar)'/?format=TSV&compressed=true" "`rawdata'`anything'`D'.gz", replace
+    }
+    if _rc==601 {
+      di "`anything'`macval(dollar)' not found in https://ec.europa.eu/eurostat site"
+      exit
+    }
+    python: gzextract(r"`rawdata'`anything'`D'.gz",r"`rawdata'`anything'`D'.tsv")
+    capture erase "`rawdata'`anything'`D'.gz"
   }
 
   if "`debug'"!="" {
     timer off 10
     qui timer list 10
-    local t_down : display %11.3f `r(t10)'
+    local t_down : display %8.3f `r(t10)'
     **di _newline
   }
 }
@@ -192,7 +217,7 @@ qui import delimited "`rawdata'`anything'`D'.tsv", varnames(1) delimiter(tab) cl
 if "`debug'"!="" {
   timer off 11
   qui timer list 11
-  local t_imp : display %11.3f `r(t11)'
+  local t_imp : display %8.3f `r(t11)'
   **di _newline
 }
 di _newline(1) "Database: `anything'`macval(dollar)'"
@@ -335,7 +360,7 @@ qui greshape long `index'@, by(`splitvars') keys(`tmpdt') string
 if "`debug'"!="" {
   timer off 12
   qui timer list 12
-  local r_long : display %11.3f `r(t12)'
+  local r_long : display %8.3f `r(t12)'
   **di _newline
 }
 
@@ -383,8 +408,6 @@ if "`reshapevar'"=="indic_sbs" {
   qui replace `reshapevar'="ENT_SALGE_SRVtmp4" if `reshapevar'=="ENT_SALGE1_SRVLR_BRTH_Y3_PC"
   qui replace `reshapevar'="GRW_EMPtmp1" if `reshapevar'=="GRW_EMP_SALGE1_SRVL_CHB_PC"
   qui replace `reshapevar'="GRW_EMPtmp2" if `reshapevar'=="GRW_EMP_SALGE1_SRVL_Y3_PC"
-
-
 }
 if "`reshapevar'"=="offer" {
   qui replace `reshapevar'="FI_MBPStmp1" if `reshapevar'=="FI_MBPS12_30_PS1C30GB1"
@@ -406,7 +429,9 @@ if "`reshapevar'"=="offer" {
   qui replace `reshapevar'="FI_MBPStmp17" if `reshapevar'=="FI_MBPS200_999_PS2C300GB20TV"
   qui replace `reshapevar'="FI_GBPStmp1" if `reshapevar'=="FI_GBPS_GE1_PS1C300GB20TV"
 }
-
+if "`reshapevar'"=="acl18" {
+  qui replace `reshapevar'="AC711_712tmp1" if `reshapevar'=="AC711_712_719_731_732_739"
+}
 
 di "I'm reshaping wide..."
 qui drop if `reshapevar'==""
@@ -415,7 +440,7 @@ qui greshape wide `index'@, by(`widevars' `tmpdt') keys(`reshapevar')
 if "`debug'"!="" {
   timer off 13
   qui timer list 13
-  local r_wide : display %11.3f `r(t13)'
+  local r_wide : display %8.3f `r(t13)'
 **  di _newline
 }
 qui rename `index'* *
@@ -455,6 +480,11 @@ if "`reshapevar'"=="offer" {
   qui capture rename FI_MBPStmp17 FI_MBPS200_999_PS2C300GB20TV
   qui capture rename FI_GBPStmp1  FI_GBPS_GE1_PS1C300GB20TV
 }
+if "`reshapevar'"=="acl18" {
+  qui capture rename AC711_712tmp1  AC711_712_719_731_732_739
+}
+
+
 
 **! DESTRING !**
 if "`destring'"=="" {
@@ -464,6 +494,7 @@ if "`destring'"=="" {
                          .c "confidential" ///
                          .d "definition differs" ///
                          .e "estimated" ///
+                         .m "missing value; data cannot exist" ///
                          .n "not significant" ///
                          .p "provisional" ///
                          .u "low reliability" ///
@@ -472,11 +503,12 @@ if "`destring'"=="" {
   di "I'm destringing variables..."
   if "`debug'"!="" timer on 14
   foreach VtD of local VtoDESTR {
-    qui replace `VtD' = ".a" if inlist(`VtD',": ",":","")
+    qui replace `VtD' = ".a" if inlist(`VtD',": ",":","",": @C")
     qui replace `VtD' = ".b" if strmatch(lower(`VtD'),": b*")
     qui replace `VtD' = ".c" if strmatch(lower(`VtD'),": c*")
     qui replace `VtD' = ".d" if strmatch(lower(`VtD'),": d*")
     qui replace `VtD' = ".e" if strmatch(lower(`VtD'),": e*")
+    qui replace `VtD' = ".m" if strmatch(lower(`VtD'),": m*")
     qui replace `VtD' = ".n" if strmatch(lower(`VtD'),": n*")
     qui replace `VtD' = ".p" if strmatch(lower(`VtD'),": p*")
     qui replace `VtD' = ".u" if strmatch(lower(`VtD'),": s*")
@@ -500,7 +532,7 @@ if "`destring'"=="" {
   if "`debug'"!="" {
       timer off 14
       qui timer list 14
-      local t_dest : display %11.3f `r(t14)'
+      local t_dest : display %8.3f `r(t14)'
       **di _newline
   }
 }
@@ -588,10 +620,40 @@ if "`debug'"!="" {
   else if "`hours'"=="" & `minutes'<. di in ye "Elapsed time was `minutes' minutes, `seconds' seconds."
   else di in ye "Elapsed time was `hours' hours, `minutes' minutes, `seconds' seconds."
   **            dbname;time_download;time_import;resh_long;resh_wide;destring;time_total
-  local t_tot : display %11.3f `r(t1)'
+  local t_tot : display %8.3f `r(t1)'
   di in ye "`anything'`macval(dollar)';`splitvars';`reshapevar';`t_down';`t_imp';`r_long';`r_wide';`t_dest';`t_tot'"
 }
 
 
 end
+
+
+/*******
+python:
+import gzip
+import shutil
+with gzip.open('`rawdata'`anything'`D'.gz', 'rb') as f_in:
+  with open('`rawdata'`anything'`D'.tsv', 'wb') as f_out:
+    shutil.copyfileobj(f_in, f_out)
+`end'
+***************/
+
+version 17.0
+python:
+
+import gzip
+import shutil
+
+def gzextract(filename: str, temp_file: str) -> None:
+	with gzip.open(filename,'rb') as f_in:
+		with open(temp_file,'wb') as f_out:
+			shutil.copyfileobj(f_in,f_out)
+
+end
+
+
+
+
+
+
 exit

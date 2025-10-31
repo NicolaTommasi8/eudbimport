@@ -1,5 +1,7 @@
 cap label var CODE "Label - English"
 cap label var TOTAL "Total"
+cap label var HS "High skilled jobs"
+cap label var NHS "Not high skilled jobs"
 cap label var CREA "Job creation"
 cap label var CREA_HS "Job creation - high skilled"
 cap label var CREA_NHS "Job creation - not high skilled"

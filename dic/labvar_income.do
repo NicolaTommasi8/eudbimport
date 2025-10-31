@@ -4,7 +4,6 @@ cap label var LT60PC "Household income less than 60% compared to median actual c
 cap label var _60_100PC "Household income between 60% and 100% compared to median actual current income"
 cap label var _100_140PC "Household income between 100% and 140% compared to median actual current income"
 cap label var GE140PC "Household income between 140% and greater compared to median actual current income"
-cap label var NS "Not significant"
 cap label var PC0 "Zero percent"
 cap label var PC0_1 "From 0 (0 excluded) to 1 percent"
 cap label var PC0_9 "From 0 (0 excluded) to 9 percent"

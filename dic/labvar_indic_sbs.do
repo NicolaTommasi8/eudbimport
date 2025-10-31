@@ -128,7 +128,7 @@ cap label var SLS_TINV_MEUR "Sales proceeds of tangible investments - million eu
 cap label var GOS_AV_PC "Share of gross operating surplus in value added - percentage"
 cap label var GOS_MEUR "Gross operating surplus - million euro"
 cap label var GOS_EMP_TEUR "Gross operating surplus per person employed - thousand euro"
-cap label var GOR_PC "Gross operative rate - percentage"
+cap label var GOR_PC "Gross operating rate - percentage"
 cap label var LC_EMP_TEUR "Unit labour costs per person employed - thousand euro"
 cap label var LC_EMP_LOC_TEUR "Unit labour costs per person employed in local unit - thousand euro"
 cap label var LC_AV_PC "Unit labour costs per value added - percentage"
