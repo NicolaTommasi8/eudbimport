@@ -1,5 +1,5 @@
 {smcl}
-{* *! version 2.1  Apr2024}{...}
+{* *! version 2.2  Jan2025}{...}
 {cmd:help eudbimport}
 {hline}
 
@@ -19,7 +19,7 @@
 
 {p 8 14 2}
 {opt eudbimport} {it:DBNAME} {cmd:,} {opt reshapevar(varname)} [ {opt rawdata(string)} {opt outdata(string)} {opt download} {opt select(string)} {opt timeselect(string)}
-{opt nosave} {opt strrec} {opt dollar(string)} {opt info} ]
+{opt nosave} {opt strrec} {opt dollar(string)} {opt info} {opt compressed}]
 
 
 {pstd}
@@ -48,6 +48,9 @@ e alla frequenza con cui è presente nei diversi dataset (work in progress){p_en
 {p2coldent : {opt info}} visualizza informazioni relative al database indicato per il download. Queste comprendono, oltre al nome, la descrizione in inglese, francese e tedesco,
   la data dell'ultimo aggiornamento e dell'ultima modifica, il periodo coperto, il numero di valori presenti, il link per accedere ai metadati in formato html o sdmx, il link
   per il download del database in formato tsv o sdmx.{p_end}
+{p2coldent : {opt compressed}} scarica il database in fomrato compresso .gz anzichè nel formato formato .tsv. Richiede Python con i pacchetti gzip e shutil e quindi anche
+ la versione di Stata 17 o successiva.{p_end}
+
 {synoptline}
 {p2colreset}{...}
 

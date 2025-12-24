@@ -1,0 +1,5 @@
+cap label var CODE "Label - English"
+cap label var TOTAL "Total"
+cap label var YES_EUB "Entitlement to unemployment benefits"
+cap label var NO_EUB "No entitlement to unemployment benefits"
+cap label var UNK "Unknown"

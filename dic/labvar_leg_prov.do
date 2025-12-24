@@ -40,4 +40,3 @@ cap label var RESPD_32B_C "Member State to become responsible by default - trans
 cap label var RESPD_32A "Member State to become responsible by default - existing criteria not applicable (article 3.2 first par.)"
 cap label var RESPD_292 "Member State to become responsible by default - transfer not carried out within time limits (article 29.2)"
 cap label var UNK "Unknown"
-cap label var EDAC "Requests based on EURODAC (European Dactyloscopy)"

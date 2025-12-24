@@ -1,6 +1,7 @@
 cap label var CODE "Label - English"
 cap label var TOTAL "Total (all currencies)"
 cap label var EUR "Euro"
+cap label var EUR_FOR "Euro, if Euro is not the national currency"
 cap label var MIO_EUR "Million euro"
 cap label var BGN "Bulgarian lev"
 cap label var CZK "Czech koruna"

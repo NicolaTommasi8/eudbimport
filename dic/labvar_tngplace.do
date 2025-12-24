@@ -1,0 +1,7 @@
+cap label var CODE "Label - English"
+cap label var TOTAL "Total"
+cap label var DOM "Domestically-trained (stock)"
+cap label var FOR "Foreign-trained (stock)"
+cap label var NAT_FOR "Native-born but foreign-trained (stock)"
+cap label var FOR_IF "Foreign-trained (annual inflow)"
+cap label var UNK "Unknown place of training"
