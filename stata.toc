@@ -1,16 +1,17 @@
-v 2.1.1
+v 2.3
 
 p eudbimport: Package to import EUROSTAT dababases
-
-d Version 2.1.1 (Apr 13, 2025)
-d Version 2.1 (Apr 03, 2024)
-d Version 2.0 (Jan 05, 2024)
-d Version 1.8 (Feb 13, 2023)
-d Version 1.7 (Jan 03, 2023)
-d Version 1.6 (Nov 21, 2022)
-d Version 1.5 (Nov 02, 2022)
-d Version 1.1b (Sep 26, 2022)
-d Version 1.0b (Sep 01, 2022)
+d version 2.3  30dec2025
+d version 2.2  07jan2025
+d version 2.1  03apr2024
+d version 2.0  28dec2023
+d version 1.9  01mar2023
+d version 1.8  13feb2023
+d version 1.7  03jan2023
+d version 1.6  21nov2022
+d version 1.5  02nov2022
+d version 1.1b 26sep2022
+d version 1.0b 01sep2022
 d
 d Nicola Tommasi, C.I.D.E. University of Verona
 
@@ -18,3 +19,4 @@ d
 d For a brief description of eudbimport, type ^net describe eudbimport^
 d To install eudbimport program files, type type ^net install eudbimport^
 d
+
