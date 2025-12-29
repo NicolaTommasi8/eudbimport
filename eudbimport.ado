@@ -1,39 +1,39 @@
 *! version 2.3  Nicola Tommasi  30dec2025
 *               minor changes
 *               tested on all databases available in EUROSTAT
-*! version 2.2  Nicola Tommasi  07jan2025
+*! version 2.2  07jan2025
 *               download databases in compress format (.gz) --> new option compressed
 *               Python required
 
-*! version 2.1  Nicola Tommasi  03apr2024
+*! version 2.1  03apr2024
 *               ability to retrive database info --> new option info
 
-*! version 2.0  Nicola Tommasi  28dec2023
+*! version 2.0  28dec2023
 *               ability to import database with $ in DBNAME (Type=EXTRACTION) --> new option dollar()
 *               new missing's coding (__labmiss)
 
-*! version 1.9  Nicola Tommasi  01mar2023
+*! version 1.9  01mar2023
 *               new option strrec: destring some variables (decl, freq, s_adj, sex ...)
 
-*! version 1.8  Nicola Tommasi  13feb2023
+*! version 1.8  13feb2023
 *               ability to import prodcom data (DS-*) - experimental
 *               some minor fix
 
-*! version 1.7  Nicola Tommasi  03jan2023
+*! version 1.7  03jan2023
 *               prevent host not found error
 *               prevent file not found error
 *               tested all present db as of December 2023
 
-*! version 1.6  Nicola Tommasi  21nov2022
+*! version 1.6  21nov2022
 *               error in variable labelling
 
-*! version 1.5  Nicola Tommasi  02nov2022
+*! version 1.5  02nov2022
 *               add erase option
 *               eudbimport_labvar.do not found error
 *               error in elpased time calculation
 *               minor changes
-*! version 1.1b  Nicola Tommasi  26sep2022
-*! version 1.0b  Nicola Tommasi  01sep2022
+*! version 1.1b  26sep2022
+*! version 1.0b  01sep2022
 
 program eudbimport
 version 17.0
