@@ -1,3 +1,6 @@
+*! version 2.3  Nicola Tommasi  30dec2025
+*               minor changes
+*               tested on all databases available in EUROSTAT
 *! version 2.2  Nicola Tommasi  07jan2025
 *               download databases in compress format (.gz) --> new option compressed
 *               Python required
@@ -65,6 +68,12 @@ capture which missings
 if _rc==111 {
   di in yellow "missings not installed... installing..."
   ssc inst missings
+}
+
+capture which carryforward
+if _rc==111 {
+  di in yellow "missings not installed... installing..."
+  ssc inst carryforward
 }
 
 
@@ -494,6 +503,7 @@ if "`destring'"=="" {
                          .c "confidential" ///
                          .d "definition differs" ///
                          .e "estimated" ///
+                         .i "imputed"  ///
                          .m "missing value; data cannot exist" ///
                          .n "not significant" ///
                          .p "provisional" ///
@@ -504,17 +514,20 @@ if "`destring'"=="" {
   if "`debug'"!="" timer on 14
   foreach VtD of local VtoDESTR {
     qui replace `VtD' = ".a" if inlist(`VtD',": ",":","",": @C")
+
     qui replace `VtD' = ".b" if strmatch(lower(`VtD'),": b*")
     qui replace `VtD' = ".c" if strmatch(lower(`VtD'),": c*")
     qui replace `VtD' = ".d" if strmatch(lower(`VtD'),": d*")
-    qui replace `VtD' = ".e" if strmatch(lower(`VtD'),": e*")
+    qui replace `VtD' = ".e" if strmatch(lower(`VtD'),": e*") | strmatch(lower(`VtD'),"* e")
+    qui replace `VtD' = ".i" if strmatch(lower(`VtD'),": *i") | strmatch(lower(`VtD')," *i")
     qui replace `VtD' = ".m" if strmatch(lower(`VtD'),": m*")
-    qui replace `VtD' = ".n" if strmatch(lower(`VtD'),": n*")
+    qui replace `VtD' = ".n" if strmatch(lower(`VtD'),": n*") | strmatch(lower(`VtD'),": @n*")
     qui replace `VtD' = ".p" if strmatch(lower(`VtD'),": p*")
     qui replace `VtD' = ".u" if strmatch(lower(`VtD'),": s*")
     qui replace `VtD' = ".u" if strmatch(lower(`VtD'),": u*") | strmatch(lower(`VtD'),":u*")
     qui replace `VtD' = ".z" if strmatch(lower(`VtD'),": z*")
     qui replace `VtD'=regexreplace(`VtD'," [a-z]+$","")
+    qui replace `VtD'=subinstr(`VtD'," @C","",.)
     qui count if strmatch(`VtD',"*high*")==1 | strmatch(`VtD',"*low*")==1
     if r(N)>0 {
       di "Some values in `VtD' variable aren't convertible in numeric, NO DESTRING"
