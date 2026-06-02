@@ -1,0 +1,6 @@
+cap label var CODE "Label - English"
+cap label var _13_20 "From 13 to 20 passengers"
+cap label var _21_50 "From 21 to 50 passengers"
+cap label var _51_200 "From 51 to 200 passengers"
+cap label var GE200 "200 passengers or more"
+cap label var UNK "Unknown"

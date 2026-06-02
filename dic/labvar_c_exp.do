@@ -1,6 +1,7 @@
 cap label var CODE "Label - English"
 cap label var EU27_2020 "European Union - 27 countries (from 2020)"
-cap label var EA20 "Euro area – 20 countries (from 2023)"
+cap label var EA21 "Euro area – 21 countries (from 2026)"
+cap label var EA20 "Euro area – 20 countries (2023-2025)"
 cap label var BE "Belgium"
 cap label var BG "Bulgaria"
 cap label var CZ "Czechia"

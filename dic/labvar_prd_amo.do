@@ -139,6 +139,7 @@ cap label var CPA_U "Services provided by extraterritorial organisations and bod
 cap label var TOTADJ "Total adjusted"
 cap label var OP_RES "Direct purchases abroad by residents"
 cap label var OP_NRES "Purchases on the domestic territory by non-residents"
+cap label var P7_ADJ "Cif/fob adjustments on imports"
 cap label var ADJ_P7 "Cif/fob adjustments on imports"
 cap label var P11 "Market output"
 cap label var P12 "Output for own final use"

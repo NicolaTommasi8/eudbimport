@@ -1,0 +1,5 @@
+cap label var CODE "Label - English"
+cap label var AS_NORG_KG "Active substances used on non-organic area - kilogram"
+cap label var AR_NORGT_HA "Non-organic area treated with active substances - hectare"
+cap label var AS_ORG_KG "Active substances used on organic area (area under conversion and certified area) - kilogram"
+cap label var AR_ORGT_HA "Organic area (area under conversion and certified area) treated with active substances - hectare"

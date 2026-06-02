@@ -1,0 +1,6 @@
+cap label var CODE "Label - English"
+cap label var TOTAL "Total"
+cap label var NAT "National"
+cap label var FOR "Foreign country"
+cap label var EU_OTH "Other EU countries"
+cap label var ROW "Rest of the world"

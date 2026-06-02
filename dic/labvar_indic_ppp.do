@@ -24,3 +24,4 @@ cap label var VI_PPS_EU27_2020_HAB "Volume indices of real expenditure per capit
 cap label var VI_PPS_EU28_HAB "Volume indices of real expenditure per capita (in PPS_EU28=100)"
 cap label var VI_PPS_EU27_2007_HAB "Volume indices of real expenditure per capita (in PPS_EU27_2007=100)"
 cap label var VI_PPS_EU15_HAB "Volume indices of real expenditure per capita (in PPS_EU15=100)"
+cap label var CV_VI_HAB "Coefficient of variation of volume indices of expenditure per capita (percentage)"

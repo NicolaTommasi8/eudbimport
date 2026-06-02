@@ -1,0 +1,8 @@
+cap label var CODE "Label - English"
+cap label var HH "Household"
+cap label var DI "Disposable income"
+cap label var EXPN_CONS "Consumption expenditure"
+cap label var WLTH_NET "Net wealth"
+cap label var POV_INC_CONS "Income poverty and consumption poverty"
+cap label var POV_INC_LFA "Income poverty and liquid financial assets poverty"
+cap label var POV_CONS_LFA "Consumption poverty and liquid financial assets poverty"

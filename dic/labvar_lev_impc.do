@@ -1,5 +1,7 @@
 cap label var CODE "Label - English"
 cap label var TOTAL "Total"
+cap label var HIGH "High"
+cap label var HIGH_LOW "High or low"
 cap label var MOD "Moderate"
 cap label var LOW "Low"
 cap label var SEV_MOD_LOW "Severe, moderate or low"

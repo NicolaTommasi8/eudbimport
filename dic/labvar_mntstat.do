@@ -1,0 +1,7 @@
+cap label var CODE "Label - English"
+cap label var TOTAL "Total"
+cap label var MNT_IRS "Maintenance to the irrigation system or distribution network"
+cap label var MNT_IRS_REG_A "Maintenance to the irrigation system or distribution network - regular annual"
+cap label var MNT_IRS_MJR "Maintenance to the irrigation system or distribution network - major repairs or rehabilitations"
+cap label var NMNT_IRS "No maintenance to the irrigation system or distribution network"
+cap label var NAP "Not applicable"

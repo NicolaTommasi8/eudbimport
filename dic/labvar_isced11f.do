@@ -19,8 +19,6 @@ cap label var ED25_35_45 "Lower secondary, upper secondary and post-secondary no
 cap label var ED25 "Lower secondary education - vocational"
 cap label var ED3_8 "Upper secondary, post-secondary non-tertiary and tertiary education (levels 3-8)"
 cap label var ED3_4 "Upper secondary and post-secondary non-tertiary education (levels 3 and 4)"
-cap label var ED3_4GEN "Upper secondary and post-secondary non-tertiary education (levels 3 and 4) - general"
-cap label var ED3_4VOC "Upper secondary and post-secondary non-tertiary education (levels 3 and 4) - vocational"
 cap label var ED3_4UNK "Upper secondary and post-secondary non-tertiary education (levels 3 and 4) - orientation unknown"
 cap label var ED3 "Upper secondary education"
 cap label var ED3SW "Upper secondary education - school and work-based vocational programmes"

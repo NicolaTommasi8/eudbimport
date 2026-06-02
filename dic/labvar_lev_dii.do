@@ -1,0 +1,7 @@
+cap label var CODE "Label - English"
+cap label var TOTAL "Total"
+cap label var VHIGH "Very high"
+cap label var HIGH "High"
+cap label var LBASIC "At least basic"
+cap label var LOW "Low"
+cap label var VLOW "Very low"
